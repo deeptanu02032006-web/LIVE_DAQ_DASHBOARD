@@ -211,6 +211,53 @@
     }
     .shm-table tr:hover { background: rgba(255, 255, 255, 0.02); }
 
+    /* Sidebar Navigation Links (Image 2 Target Specification) */
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.68rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #94A3B8;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      transition: all 0.15s ease;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+
+    .nav-item:hover {
+      color: #F8FAFC;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-item.active {
+      font-weight: 700;
+      color: #00B4D8;
+      background: rgba(0, 180, 216, 0.14);
+      border: 1px solid #00B4D8;
+      box-shadow: 0 0 12px rgba(0, 180, 216, 0.15);
+    }
+
+    .nav-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: #94A3B8;
+      stroke-width: 2;
+      flex-shrink: 0;
+      transition: stroke 0.15s ease;
+    }
+
+    .nav-item.active svg {
+      stroke: #00B4D8;
+    }
+
     /* Animations */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -312,59 +359,68 @@
   <!-- MAIN LAYOUT (Sidebar + Main Content) -->
   <div class="shm-layout">
     
-    <!-- SIDEBAR (Sidebar.tsx 1:1 Replica) -->
-    <aside class="shm-card" style="width: 250px; min-width: 250px; border-radius: 0; border-top: none; border-bottom: none; border-left: none; background: var(--sidebar-bg); display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem 0.85rem;">
+    <!-- SIDEBAR (Image 2 Target Specification) -->
+    <aside style="width: 260px; min-width: 260px; background-color: var(--sidebar-bg, #0B1220); border-right: 1px solid var(--card-border, #1E2D4A); display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem 0.85rem; user-select: none;">
       <div>
-        <div style="padding: 0 0.5rem 1.25rem 0.5rem; border-bottom: 1px solid var(--card-border); margin-bottom: 1.25rem;">
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <div style="background: var(--accent-cyan-glow); padding: 0.45rem; border-radius: 8px; border: 1px solid var(--accent-cyan-glow);">
-              <span style="color: var(--accent-cyan); font-weight: 800; font-size: 1.2rem;">📊</span>
+        <!-- Brand / Logo Header Area (Image 2 Target) -->
+        <div style="padding: 0.25rem 0.5rem 1.25rem 0.5rem; border-bottom: 1px solid var(--card-border, #1E2D4A); margin-bottom: 1.25rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 42px; height: 42px; border-radius: 10px; background-color: #0C1E38; border: 1px solid rgba(0, 180, 216, 0.4); box-shadow: 0 0 12px rgba(0, 180, 216, 0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
             <div>
-              <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-main); letter-spacing: -0.02em;">
-                Bridge<span style="color: var(--accent-cyan);">AI</span> SHM
+              <div style="font-weight: 800; font-size: 1.1rem; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.2;">
+                Bridge<span style="color: #00B4D8;">AI</span> SHM
               </div>
-              <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">
+              <div style="font-size: 0.68rem; color: #94A3B8; font-weight: 700; letter-spacing: 0.08em; margin-top: 2px;">
                 TELEMETRY V2.4
               </div>
             </div>
           </div>
         </div>
 
-        <nav style="display: flex; flex-direction: column; gap: 0.35rem;">
+        <!-- Navigation Menu Links (Image 2 Target) -->
+        <nav style="display: flex; flex-direction: column; gap: 0.4rem;">
+          
           <button class="nav-item active" onclick="switchPage('live')" id="nav-live">
-            <span>📈</span> Live Overview
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span>Live Overview</span>
           </button>
 
           <button class="nav-item" onclick="switchPage('analytics')" id="nav-analytics">
-            <span>📉</span> Historical Analytics
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            <span>Historical Analytics</span>
           </button>
 
           <button class="nav-item" onclick="switchPage('sensors')" id="nav-sensors">
-            <span>💾</span> Sensors Directory
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            <span>Sensors Directory</span>
           </button>
 
           <button class="nav-item" onclick="switchPage('alerts')" id="nav-alerts">
-            <span>⚠️</span> Alerts & Events
-            <span class="badge badge-red font-mono" style="margin-left: auto; display: none;" id="sidebarAlertsBadge">0</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+            <span>Alerts & Events</span>
+            <span style="margin-left: auto; background: rgba(239, 68, 68, 0.2); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 9999px; font-size: 0.72rem; font-weight: 800; padding: 0.15rem 0.55rem; display: none; font-family: 'JetBrains Mono', monospace;" id="sidebarAlertsBadge">0</span>
           </button>
 
           <button class="nav-item" onclick="switchPage('admin')" id="nav-admin">
-            <span>⚙️</span> System Admin
-            <span class="badge badge-cyan" style="margin-left: auto; font-size: 0.65rem;">ADMIN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>System Admin</span>
+            <span style="margin-left: auto; background: rgba(0, 180, 216, 0.15); color: #00B4D8; border: 1px solid rgba(0, 180, 216, 0.4); border-radius: 9999px; font-size: 0.65rem; font-weight: 800; padding: 0.1rem 0.45rem; letter-spacing: 0.04em;">ADMIN</span>
           </button>
 
-          <button class="nav-item" onclick="switchPage('signin')" id="nav-signin" style="margin-top: 0.75rem; border-top: 1px solid var(--card-border); padding-top: 0.85rem;">
-            <span>🔒</span> Sign In / Persona
+          <button class="nav-item" onclick="switchPage('signin')" id="nav-signin" style="margin-top: 0.75rem; border-top: 1px solid var(--card-border, #1E2D4A); padding-top: 0.85rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Sign In / Persona</span>
           </button>
         </nav>
       </div>
 
-      <div style="background: var(--inner-box-bg); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--card-border); font-size: 0.75rem; color: var(--text-muted);">
-        <div style="display: flex; align-items: center; gap: 0.35rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.2rem;" id="sbRoleTitle">
+      <div style="background: var(--inner-box-bg, #0F172A); padding: 0.75rem 0.85rem; border-radius: 8px; border: 1px solid var(--card-border, #1E2D4A); font-size: 0.75rem; color: #94A3B8;">
+        <div style="display: flex; align-items: center; gap: 0.35rem; color: #00B4D8; font-weight: 700; margin-bottom: 0.2rem;" id="sbRoleTitle">
           🛡️ SYSTEM ADMIN
         </div>
-        <div style="color: var(--text-main); font-size: 0.75rem; font-weight: 500;" id="sbRoleSub">
+        <div style="color: #F8FAFC; font-size: 0.75rem; font-weight: 500;" id="sbRoleSub">
           Bridge Monitoring & Sensor Management
         </div>
       </div>
@@ -612,7 +668,7 @@
               </p>
             </div>
 
-            <div style="display: flex; alignItems: center; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
               <div style="display: flex; gap: 0.5rem;">
                 <span class="badge badge-cyan" id="dirTotalBadge">TOTAL: 4</span>
                 <span class="badge badge-green" id="dirOnlineBadge">ONLINE: 0</span>
@@ -2058,7 +2114,7 @@
             </div>
             <div style="font-size: 0.75rem; color: var(--text-muted);" class="font-mono">Triggered: ${new Date(a.timestamp).toLocaleString()}</div>
           </div>
-          <p style="font-size: 0.875rem; margin-bottom: 0.85rem; lineHeight: 1.5;">${a.description}</p>
+          <p style="font-size: 0.875rem; margin-bottom: 0.85rem; line-height: 1.5;">${a.description}</p>
           <div style="background: var(--inner-box-bg); border: 1px solid var(--card-border); border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 0.825rem;">
             <strong style="color: var(--accent-cyan); display: block; margin-bottom: 0.15rem;">RECOMMENDED ENGINEERING ACTION:</strong>
             <span>${a.recommendedAction}</span>
