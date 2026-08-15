@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridge AI — Structural Health Monitoring (Google Sites Embed)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* SCADA Dark Industrial Theme */
+      --bg-primary: #0B1220;
+      --bg-secondary: #131C2E;
+      --card-bg: #1E293B;
+      --card-bg-translucent: rgba(30, 41, 59, 0.9);
+      --card-border: #334155;
+      --card-border-glow: rgba(0, 180, 216, 0.4);
+
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --input-bg: #0F172A;
+      --header-bg: #0F172A;
+      --sidebar-bg: #0B1220;
+      --inner-box-bg: #0F172A;
+
+      --accent-cyan: #00B4D8;
+      --accent-cyan-hover: #38BDF8;
+      --accent-cyan-glow: rgba(0, 180, 216, 0.25);
+      --emerald-green: #10B981;
+      --amber-warning: #F59E0B;
+      --coral-critical: #EF4444;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #F1F5F9;
+      --bg-secondary: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --card-bg-translucent: rgba(255, 255, 255, 0.95);
+      --card-border: #CBD5E1;
+      --card-border-glow: rgba(0, 180, 216, 0.3);
+
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --input-bg: #F8FAFC;
+      --header-bg: #FFFFFF;
+      --sidebar-bg: #FFFFFF;
+      --inner-box-bg: #F1F5F9;
+
+      --accent-cyan: #0284C7;
+      --accent-cyan-hover: #0369A1;
+      --accent-cyan-glow: rgba(2, 132, 199, 0.15);
+      --emerald-green: #059669;
+      --amber-warning: #D97706;
+      --coral-critical: #DC2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Layout Shell */
+    #app-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .main-body {
+      display: flex;
+      flex: 1;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 240px;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.25rem 0.85rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 1.25rem;
+    }
+
+    .brand-logo-icon {
+      background: var(--accent-cyan-glow);
+      color: var(--accent-cyan);
+      padding: 0.4rem;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-title span {
+      color: var(--accent-cyan);
+    }
+
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      list-style: none;
+    }
+
+    .nav-item button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+    }
+
+    .nav-item button.active {
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-glow);
+      border-color: var(--accent-cyan);
+    }
+
+    .nav-item button:hover:not(.active) {
+      background: var(--inner-box-bg);
+      color: var(--text-main);
+    }
+
+    /* Top Header */
+    .header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header-title-box h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .header-status-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+      font-size: 0.75rem;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Main Content Area */
+    .content-area {
+      flex: 1;
+      padding: 1.5rem;
+      background: var(--bg-primary);
+      overflow-y: auto;
+    }
+
+    /* Cards & Components */
+    .shm-card {
+      background: var(--card-bg-translucent);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .shm-card:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 6px 20px var(--accent-cyan-glow);
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--emerald-green); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-red { background: rgba(239, 68, 68, 0.15); color: var(--coral-critical); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-yellow { background: rgba(245, 158, 11, 0.15); color: var(--amber-warning); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-cyan { background: var(--accent-cyan-glow); color: var(--accent-cyan); border: 1px solid rgba(0, 180, 216, 0.4); }
+
+    /* Metric Selector Toggle Pills */
+    .btn-metric {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      transition: all 0.15s ease;
+    }
+    .btn-metric:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .btn-metric.active {
+      background: var(--accent-cyan);
+      color: #FFFFFF;
+      box-shadow: 0 0 10px var(--accent-cyan-glow);
+    }
+
+    /* Buttons */
+    .btn-cyan {
+      background: var(--accent-cyan);
+      color: #FFFFFF;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+    .btn-cyan:hover { background: var(--accent-cyan-hover); }
+
+    .btn-secondary {
+      background: var(--inner-box-bg);
+      color: var(--text-main);
+      font-weight: 500;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+    .btn-secondary:hover { background: var(--card-border); }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--coral-critical);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    /* Form Inputs */
+    .shm-input, .shm-select {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      color: var(--text-main);
+      padding: 0.55rem 0.75rem;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .shm-input:focus, .shm-select:focus { border-color: var(--accent-cyan); }
+
+    /* Tables */
+    .shm-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .shm-table th {
+      background: var(--inner-box-bg);
+      color: var(--text-muted);
+      font-size: 0.725rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .shm-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 0.85rem;
+    }
+
+    .font-mono { font-family: var(--font-mono); }
+
+    /* Modal Backdrop */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11, 18, 32, 0.8);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- Top Header -->
+    <header class="header">
+      <div class="header-title-box">
+        <h1 id="hdrBridgeName">St. Lawrence Cable-Stayed Viaduct <span class="font-mono" style="color: var(--text-muted); font-size: 0.85rem;" id="hdrBridgeCode">(SLV-SPAN-04B)</span></h1>
+        <div class="header-status-line">
+          <span id="hdrDaqStatusBadge" class="badge badge-red">● DAQ OFFLINE</span>
+          <span class="font-mono" style="color: var(--text-muted);" id="hdrLastPacketText">Waiting for Google Sheets telemetry</span>
+          <span style="color: var(--card-border);">|</span>
+          <span class="badge badge-cyan font-mono" id="hdrNodesBadge">📡 NODES (Online: 0)</span>
+          <span style="color: var(--card-border);">|</span>
+          <span class="font-mono" style="color: var(--accent-cyan);" id="hdrLocalTime">--:--:--</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="btn-secondary" onclick="toggleTheme()">☀️ Theme</button>
+        <button id="endpointConfigBtn" class="btn-cyan" onclick="promptEndpointConfig()">⚙️ Apps Script Endpoint</button>
+        <div id="hdrUserPersona" class="badge badge-cyan font-mono">👤 ADMIN OPERATOR</div>
+      </div>
+    </header>
+
+    <div class="main-body">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div>
+          <div class="brand-logo">
+            <div class="brand-logo-icon">⚡</div>
+            <div>
+              <div class="brand-title">Bridge<span>AI</span> SHM</div>
+              <div style="font-size: 0.65rem; color: var(--text-muted); font-weight: 600;">TELEMETRY V2.4</div>
+            </div>
+          </div>
+
+          <ul class="nav-list">
+            <li class="nav-item"><button id="nav-live" class="active" onclick="switchPage('live')">📊 Live Overview</button></li>
+            <li class="nav-item"><button id="nav-analytics" onclick="switchPage('analytics')">📈 Historical Analytics</button></li>
+            <li class="nav-item"><button id="nav-sensors" onclick="switchPage('sensors')">🗃️ Sensors Directory</button></li>
+            <li class="nav-item"><button id="nav-alerts" onclick="switchPage('alerts')">🚨 Alerts & Events</button></li>
+            <li class="nav-item"><button id="nav-admin" onclick="switchPage('admin')">⚙️ System Admin</button></li>
+            <li class="nav-item"><button id="nav-signin" onclick="switchPage('signin')">🔐 Sign In / Persona</button></li>
+          </ul>
+        </div>
+
+        <div style="background: var(--inner-box-bg); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--card-border); font-size: 0.725rem;">
+          <div style="color: var(--accent-cyan); font-weight: 700;">🛡️ SYSTEM PRODUCTION</div>
+          <div style="color: var(--text-muted); margin-top: 0.2rem;">Google Sheets + Apps Script Live Pipeline</div>
+        </div>
+      </aside>
+
+      <!-- Main Content Container -->
+      <main class="content-area">
+
+        <!-- PAGE 1: LIVE OVERVIEW -->
+        <section id="page-live" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          
+          <!-- Offline Warning Banner -->
+          <div id="daqOfflineBanner" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); padding: 0.75rem 1.25rem; border-radius: 8px; color: var(--coral-critical); font-size: 0.85rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+            <span>⚠️ ARDUINO / PYTHON DAQ OFFLINE — WAITING FOR LIVE TELEMETRY IN GOOGLE SHEETS</span>
+            <button class="btn-secondary" onclick="fetchTelemetryData(true)">🔄 Sync Apps Script</button>
+          </div>
+
+          <!-- Section 25 Acceptance Test Toolbar -->
+          <div class="shm-card" style="padding: 0.75rem 1.25rem; background: var(--card-bg);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-main);">ACCEPTANCE TEST MATRIX (SECTION 25):</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap;">
+                <button class="btn-secondary" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;" onclick="runTestScenario('A')">Test A: All Connected</button>
+                <button class="btn-secondary" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;" onclick="runTestScenario('B')">Test B: No Sensors</button>
+                <button class="btn-secondary" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;" onclick="runTestScenario('C')">Test C: Some Sensors</button>
+                <button class="btn-secondary" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;" onclick="runTestScenario('D')">Test D: Remove 1 Sensor</button>
+                <button class="btn-danger" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;" onclick="runTestScenario('E')">Test E: USB Unplug</button>
+                <button class="btn-secondary" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;" onclick="runTestScenario('F')">Test F: DAQ Reconnect</button>
+                <button class="btn-cyan" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;" onclick="runTestScenario('G')">Test G: Sensor Reconnect</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overview Stats Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            
+            <div class="shm-card" style="padding: 1.25rem;">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem;">DYNAMIC SENSOR INVENTORY</div>
+              <div style="font-size: 2rem; font-weight: 800;" id="liveTotalSensors">4</div>
+              <div style="margin-top: 0.5rem; display: flex; gap: 0.4rem;" id="liveInventoryBadges">
+                <span class="badge badge-green" id="badgeOnlineCount">Online: 0</span>
+                <span class="badge badge-yellow" id="badgeDiscCount">Disc: 0</span>
+                <span class="badge badge-red" id="badgeOffCount">Offline: 4</span>
+              </div>
+            </div>
+
+            <div class="shm-card" style="padding: 1.25rem;">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem;">HARDWARE STREAM STATUS</div>
+              <div style="font-size: 1.35rem; font-weight: 800;" id="liveStreamDaqText">● DAQ OFFLINE</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;" class="font-mono" id="liveStreamMeta">115200 Baud | Google Apps Script Engine</div>
+            </div>
+
+          </div>
+
+          <!-- Grouped Telemetry Bus Metrics -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+            
+            <!-- Force Card -->
+            <div class="shm-card" style="padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+                <div><strong>Load / Force</strong> <span style="font-size: 0.75rem; color: var(--accent-cyan);" class="font-mono">kN</span></div>
+                <span class="badge badge-red" id="forceGroupBadge">0 Online</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; text-align: center; margin-bottom: 0.75rem;">
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">AVG</div>
+                  <div class="font-mono" style="font-weight: 700;" id="forceAvgVal">—</div>
+                </div>
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">MAX</div>
+                  <div class="font-mono" style="font-weight: 700;" id="forceMaxVal">—</div>
+                </div>
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">MIN</div>
+                  <div class="font-mono" style="font-weight: 700;" id="forceMinVal">—</div>
+                </div>
+              </div>
+              <div id="forceSensorsList" style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.78rem;"></div>
+            </div>
+
+            <!-- Displacement Card -->
+            <div class="shm-card" style="padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+                <div><strong>Displacement</strong> <span style="font-size: 0.75rem; color: var(--accent-cyan);" class="font-mono">mm</span></div>
+                <span class="badge badge-red" id="dispGroupBadge">0 Online</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; text-align: center; margin-bottom: 0.75rem;">
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">AVG</div>
+                  <div class="font-mono" style="font-weight: 700;" id="dispAvgVal">—</div>
+                </div>
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">MAX</div>
+                  <div class="font-mono" style="font-weight: 700;" id="dispMaxVal">—</div>
+                </div>
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">MIN</div>
+                  <div class="font-mono" style="font-weight: 700;" id="dispMinVal">—</div>
+                </div>
+              </div>
+              <div id="dispSensorsList" style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.78rem;"></div>
+            </div>
+
+            <!-- Strain Card -->
+            <div class="shm-card" style="padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+                <div><strong>Strain</strong> <span style="font-size: 0.75rem; color: var(--accent-cyan);" class="font-mono">µε</span></div>
+                <span class="badge badge-red" id="strainGroupBadge">0 Online</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; text-align: center; margin-bottom: 0.75rem;">
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">AVG</div>
+                  <div class="font-mono" style="font-weight: 700;" id="strainAvgVal">—</div>
+                </div>
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">MAX</div>
+                  <div class="font-mono" style="font-weight: 700;" id="strainMaxVal">—</div>
+                </div>
+                <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 4px;">
+                  <div style="font-size: 0.65rem; color: var(--text-muted);">MIN</div>
+                  <div class="font-mono" style="font-weight: 700;" id="strainMinVal">—</div>
+                </div>
+              </div>
+              <div id="strainSensorsList" style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.78rem;"></div>
+            </div>
+
+          </div>
+
+          <!-- Real-Time Live Trend Chart -->
+          <div class="shm-card" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--accent-cyan); font-size: 1.1rem; font-weight: 800;">📊</span>
+                <h3 style="font-size: 1rem; font-weight: 700;">Live Telemetry Stream Chart</h3>
+              </div>
+
+              <!-- Interactive Metric Selection Toggle Pill Container (Image 3 Spec) -->
+              <div style="display: flex; gap: 0.35rem; background: var(--inner-box-bg); padding: 0.3rem; border-radius: 8px; border: 1px solid var(--card-border);" id="metricToggleContainer">
+                <button class="btn-metric active" onclick="setLiveChartMetric('force')" id="btnMetricForce">FORCE</button>
+                <button class="btn-metric" onclick="setLiveChartMetric('stress')" id="btnMetricStress">STRESS</button>
+                <button class="btn-metric" onclick="setLiveChartMetric('strain')" id="btnMetricStrain">STRAIN</button>
+                <button class="btn-metric" onclick="setLiveChartMetric('displacement')" id="btnMetricDisp">DISPLACEMENT</button>
+                <button class="btn-metric" onclick="setLiveChartMetric('humidity')" id="btnMetricHumidity">HUMIDITY</button>
+                <button class="btn-metric" onclick="setLiveChartMetric('temperature')" id="btnMetricTemp">TEMP</button>
+              </div>
+            </div>
+
+            <div style="width: 100%; height: 320px; position: relative;">
+              <canvas id="liveCanvasChart"></canvas>
+
+              <!-- Empty State Overlay for Disconnected / Waiting for Packets (Image 3 Spec) -->
+              <div id="liveChartEmptyState" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(15, 23, 42, 0.95); border: 1px dashed var(--card-border); border-radius: 8px; text-align: center; padding: 2rem;">
+                <div style="font-size: 2.2rem; margin-bottom: 0.75rem; color: var(--accent-cyan); font-weight: 800; letter-spacing: 0.1em; text-shadow: 0 0 12px rgba(0, 180, 216, 0.5);">((o))</div>
+                <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">Arduino Disconnected — Waiting for Live Telemetry Packets</div>
+                <div style="font-size: 0.825rem; color: var(--text-muted); max-width: 480px;">Connect USB Serial Arduino or run the Python DAQ Bridge to stream live sensor readings.</div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- PAGE 2: HISTORICAL ANALYTICS (Image 1 & Localhost 5173 1:1 Match) -->
+        <section id="page-analytics" style="display: none; flex-direction: column; gap: 1.25rem;">
+          
+          <div class="shm-card" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <h1 style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">Historical Telemetry & Dual-Axis Overlay</h1>
+                <p style="font-size: 0.825rem; color: var(--text-muted);">Multi-parametric time-series overlay chart engine with left and right Y-axis dual metric plotting.</p>
+              </div>
+
+              <div style="display: flex; gap: 0.6rem;">
+                <button class="btn-cyan" onclick="exportHistoryCSV()">📥 Export CSV</button>
+                <button class="btn-secondary" onclick="window.print()">🖨️ Print / Export Chart</button>
+              </div>
+            </div>
+
+            <!-- Controls Grid (Exact Match to localhost:5173/analytics) -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-top: 1px solid var(--card-border); padding-top: 1rem;">
+              
+              <!-- 1. Time Range Selector Pills -->
+              <div>
+                <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">TIME RANGE SELECTOR</label>
+                <div style="display: flex; gap: 0.25rem; background: var(--inner-box-bg); padding: 0.25rem; border-radius: 6px;">
+                  <button class="btn-metric active" onclick="setHistTimeRange('24H')" id="btnHist24H">24H</button>
+                  <button class="btn-metric" onclick="setHistTimeRange('7D')" id="btnHist7D">7D</button>
+                  <button class="btn-metric" onclick="setHistTimeRange('30D')" id="btnHist30D">30D</button>
+                  <button class="btn-metric" onclick="setHistTimeRange('1Y')" id="btnHist1Y">1Y</button>
+                  <button class="btn-metric" onclick="setHistTimeRange('Custom')" id="btnHistCustom">Custom</button>
+                </div>
+              </div>
+
+              <!-- 2. Sensor Selection -->
+              <div>
+                <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">SENSOR NODE SELECTION</label>
+                <select class="shm-select" id="histSensorSelect" onchange="renderHistoryChart()">
+                  <option value="ALL">ALL Bridge Sensors (Combined Stream)</option>
+                </select>
+              </div>
+
+              <!-- 3. Primary Metric Axis (Left Y-Axis) -->
+              <div>
+                <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">PRIMARY METRIC AXIS (LEFT Y-AXIS)</label>
+                <select class="shm-select" id="histPrimaryMetric" onchange="onHistPrimaryChange()">
+                  <option value="Force (kN)">Force (kN)</option>
+                  <option value="Strain (µε)">Strain (µε)</option>
+                  <option value="Displacement (mm)">Displacement (mm)</option>
+                  <option value="Stress (MPa)">Stress (MPa)</option>
+                  <option value="Humidity (%)">Humidity (%)</option>
+                  <option value="Ambient Temperature (°C)">Ambient Temperature (°C)</option>
+                </select>
+              </div>
+
+              <!-- 4. Secondary Metric Overlay (Right Y-Axis) -->
+              <div>
+                <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">SECONDARY METRIC OVERLAY (RIGHT Y-AXIS)</label>
+                <select class="shm-select" id="histSecondaryMetric" onchange="renderHistoryChart()">
+                  <option value="Single Metric View">Single Metric View (No overlay)</option>
+                  <option value="Ambient Temperature (°C)">Ambient Temperature (°C)</option>
+                  <option value="Strain (µε)">Strain (µε)</option>
+                  <option value="Stress (MPa)">Stress (MPa)</option>
+                  <option value="Force (kN)">Force (kN)</option>
+                  <option value="Displacement (mm)">Displacement (mm)</option>
+                  <option value="Humidity (%)">Humidity (%)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Custom DateTime Picker Container -->
+            <div id="histCustomDateContainer" style="display: none; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px dashed var(--card-border); gap: 1rem; align-items: center;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">📅 Start Date & Time:</span>
+              <input type="datetime-local" id="histCustomStart" class="shm-input font-mono" style="width: auto;" value="2026-08-01T00:00">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">End Date & Time:</span>
+              <input type="datetime-local" id="histCustomEnd" class="shm-input font-mono" style="width: auto;" value="2026-08-09T23:59">
+            </div>
+          </div>
+
+          <!-- Main Visualizer Chart Card -->
+          <div class="shm-card" style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+              <div>
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main);" id="histChartHeaderTitle">
+                  Time-Series Dual Axis Overlay (24H)
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem;" id="histChartHeaderSub">
+                  Left Y-Axis: <strong style="color: var(--accent-cyan);" id="histSubPri">Force (kN)</strong>
+                  <span id="histSubSecWrap" style="display: none;"> | Right Y-Axis: <strong style="color: var(--amber-warning);" id="histSubSec">Single Metric View</strong></span>
+                </p>
+              </div>
+            </div>
+
+            <div style="width: 100%; height: 380px; position: relative; overflow: hidden; border-radius: 8px; box-sizing: border-box;">
+              <canvas id="histCanvasChart" style="width: 100%; height: 100%; display: block;"></canvas>
+            </div>
+
+            <!-- Bottom Legend Container matching React screenshot -->
+            <div id="histChartLegendContainer" style="display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; align-items: center; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--card-border); font-size: 0.8rem;"></div>
+          </div>
+
+        </section>
+
+        <!-- PAGE 3: SENSORS DIRECTORY -->
+        <section id="page-sensors" style="display: none; flex-direction: column; gap: 1.25rem;">
+          
+          <div class="shm-card" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h2>Sensor Node Directory & Hardware Mapping</h2>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Dynamic Hardware Registry read directly from Google Sheets.</p>
+              </div>
+              <button class="btn-cyan" onclick="openRegisterModal()">+ Register Hardware Sensor</button>
+            </div>
+          </div>
+
+          <div class="shm-card" style="padding: 0; overflow: hidden;">
+            <table class="shm-table">
+              <thead>
+                <tr>
+                  <th>Sensor ID</th>
+                  <th>Name / Type</th>
+                  <th>Subsystem</th>
+                  <th>Hardware Bus</th>
+                  <th>Current Value</th>
+                  <th>Safety Threshold</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="sensorsDirectoryTbody">
+                <tr><td colSpan="7" style="text-align: center; padding: 2rem;">Loading sensor registry from Google Sheets...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+        <!-- PAGE 4: ALERTS & EVENTS -->
+        <section id="page-alerts" style="display: none; flex-direction: column; gap: 1.25rem;">
+          
+          <div class="shm-card" style="padding: 1.25rem;">
+            <h2>Structural Anomaly Triage & Event Log</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">Real-time rule-based alerts triggered by Apps Script telemetry processing.</p>
+          </div>
+
+          <div id="alertsContainer" style="display: flex; flex-direction: column; gap: 0.85rem;">
+            <div class="shm-card" style="padding: 2rem; text-align: center; color: var(--text-muted);">
+              No active structural anomaly alerts logged. All sensors operating within safety threshold envelope.
+            </div>
+          </div>
+
+        </section>
+
+        <!-- PAGE 5: SYSTEM ADMIN -->
+        <section id="page-admin" style="display: none; flex-direction: column; gap: 1.25rem;">
+          
+          <div class="shm-card" style="padding: 1.25rem;">
+            <h2>System Admin & Cloud Telemetry Settings</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">Google Apps Script Web App Endpoint Configuration & Bridge Parameters.</p>
+
+            <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+              <label style="font-weight: 700; font-size: 0.8rem;">GOOGLE APPS SCRIPT WEB APP ENDPOINT URL:</label>
+              <div style="display: flex; gap: 0.75rem;">
+                <input type="text" id="adminEndpointInput" class="shm-input font-mono" placeholder="https://script.google.com/macros/s/.../exec">
+                <button class="btn-cyan" onclick="saveAdminEndpoint()">Save & Test</button>
+              </div>
+              <div id="adminConnStatus" style="font-size: 0.8rem; color: var(--emerald-green);"></div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- PAGE 6: SIGN IN / PERSONA -->
+        <section id="page-signin" style="display: none; flex-direction: column; align-items: center; justify-content: center; padding: 3rem;">
+          <div class="shm-card" style="width: 100%; max-width: 420px; padding: 2rem; text-align: center;">
+            <h2 style="margin-bottom: 0.5rem;">Bridge AI Persona Switcher</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Select access role for Google Sites embedded dashboard.</p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <button class="btn-cyan" style="justify-content: center;" onclick="setPersona('admin')">🛡️ Admin Operator Persona</button>
+              <button class="btn-secondary" style="justify-content: center;" onclick="setPersona('user')">👤 Standard User Persona</button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Register Sensor Modal -->
+  <div id="registerModal" class="modal-overlay" style="display: none;">
+    <div class="shm-card" style="width: 100%; max-width: 480px; padding: 1.5rem;">
+      <h3 style="margin-bottom: 1rem;">Register Hardware Sensor</h3>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <div>
+          <label style="font-size: 0.75rem; color: var(--text-muted);">SENSOR ID</label>
+          <input type="text" id="modSensorId" class="shm-input font-mono" placeholder="e.g. FORCE-03">
+        </div>
+        <div>
+          <label style="font-size: 0.75rem; color: var(--text-muted);">SENSOR NAME</label>
+          <input type="text" id="modSensorName" class="shm-input" placeholder="e.g. Cable Tension Sensor">
+        </div>
+        <div>
+          <label style="font-size: 0.75rem; color: var(--text-muted);">TYPE</label>
+          <select id="modSensorType" class="shm-select">
+            <option value="force">Load / Force (kN)</option>
+            <option value="displacement">Displacement (mm)</option>
+            <option value="strain">Strain (µε)</option>
+          </select>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem;">
+          <button class="btn-secondary" onclick="closeRegisterModal()">Cancel</button>
+          <button class="btn-cyan" onclick="saveNewSensor()">Save Sensor</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State Management
+    const DEFAULT_ENDPOINT = "https://script.google.com/macros/s/AKfycbxcRoP455oy9W7SAwEwO5mu9lGJLaJg2DvL2W2gz2a39g7qzWK5Y42BmJ8MEpx-8COY9w/exec";
+    
+    // Auto-migrate legacy endpoint stored in localStorage if it contains outdated deployment ID
+    let appScriptUrl = localStorage.getItem("SHM_APPS_SCRIPT_URL");
+    if (!appScriptUrl || appScriptUrl.includes("AKfycbRtl6R0") || appScriptUrl.includes("YOUR_DEPLOYMENT_ID")) {
+      appScriptUrl = DEFAULT_ENDPOINT;
+      localStorage.setItem("SHM_APPS_SCRIPT_URL", DEFAULT_ENDPOINT);
+    }
+
+    let dashboardData = {
+      isDaqOnline: false,
+      sensors: [],
+      recentEntries: [],
+      alerts: [],
+      inventoryCounts: { totalSensors: 4, onlineSensors: 0, disconnectedSensors: 0, offlineSensors: 4 }
+    };
+
+    let theme = "dark";
+    let isFetching = false;
+    let lastRenderedSequence = null;
+
+    function toggleTheme() {
+      theme = theme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+
+    let historyEntriesBuffer = [];
+
+    function switchPage(pageId) {
+      ['live', 'analytics', 'sensors', 'alerts', 'admin', 'signin'].forEach(p => {
+        document.getElementById(`page-${p}`).style.display = p === pageId ? 'flex' : 'none';
+        document.getElementById(`nav-${p}`).className = p === pageId ? 'active' : '';
+      });
+      if (pageId === 'analytics') {
+        fetchHistoricalData();
+      }
+    }
+
+    async function fetchHistoricalData() {
+      if (!appScriptUrl || appScriptUrl.includes("YOUR_DEPLOYMENT_ID")) return;
+      try {
+        const url = `${appScriptUrl}?action=getHistory&t=${Date.now()}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        if (data && data.status === "OK" && Array.isArray(data.entries)) {
+          historyEntriesBuffer = data.entries;
+        }
+      } catch (err) {
+        console.warn("Failed fetching historical data:", err);
+      } finally {
+        populateHistoricalSensorDropdown();
+        renderHistoryChart();
+      }
+    }
+
+    function populateHistoricalSensorDropdown() {
+      const select = document.getElementById("histSensorSelect");
+      if (!select) return;
+      const currentVal = select.value || "ALL";
+      let html = `<option value="ALL">ALL Bridge Sensors (Combined Stream)</option>`;
+      if (dashboardData.sensors && dashboardData.sensors.length > 0) {
+        dashboardData.sensors.forEach(s => {
+          html += `<option value="${s.id}">${s.id} — ${s.name} (${s.subsystem})</option>`;
+        });
+      }
+      select.innerHTML = html;
+      select.value = currentVal;
+    }
+
+    function promptEndpointConfig() {
+      const val = prompt("Enter Google Apps Script Web App Endpoint URL:", appScriptUrl);
+      if (val) {
+        appScriptUrl = val.trim();
+        localStorage.setItem("SHM_APPS_SCRIPT_URL", appScriptUrl);
+        fetchTelemetryData(true);
+      }
+    }
+
+    function saveAdminEndpoint() {
+      const val = document.getElementById("adminEndpointInput").value.trim();
+      if (val) {
+        appScriptUrl = val;
+        localStorage.setItem("SHM_APPS_SCRIPT_URL", val);
+        fetchTelemetryData(true);
+      }
+    }
+
+    // High-Performance Polling Engine (<1.2s live dashboard latency)
+    async function fetchTelemetryData(forceSync = false) {
+      if (!appScriptUrl || appScriptUrl.includes("YOUR_DEPLOYMENT_ID")) {
+        renderUIWithNoData("Google Apps Script URL not configured.");
+        return;
+      }
+
+      // Prevent overlapping concurrent network requests
+      if (isFetching && !forceSync) return;
+      isFetching = true;
+
+      try {
+        const url = `${appScriptUrl}?action=getDashboardData&t=${Date.now()}`;
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (!res.ok) throw new Error("HTTP error " + res.status);
+        const data = await res.json();
+
+        if (data && data.status === "OK") {
+          lastRenderedSequence = data.lastSequenceNum;
+          dashboardData = data;
+          updateDashboardUI();
+        } else {
+          throw new Error("Invalid Apps Script response payload");
+        }
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          console.warn("Apps Script API fetch warning:", err);
+          renderUIWithNoData("Apps Script unreachable / offline.");
+        }
+      } finally {
+        isFetching = false;
+      }
+    }
+
+    function renderUIWithNoData(msg) {
+      document.getElementById("hdrDaqStatusBadge").className = "badge badge-red";
+      document.getElementById("hdrDaqStatusBadge").innerText = "● DAQ OFFLINE";
+      document.getElementById("daqOfflineBanner").style.display = "flex";
+      document.getElementById("liveStreamDaqText").innerText = "● DAQ OFFLINE";
+    }
+
+    function updateDashboardUI() {
+      const isOnline = dashboardData.isDaqOnline;
+      
+      document.getElementById("hdrDaqStatusBadge").className = isOnline ? "badge badge-green" : "badge badge-red";
+      document.getElementById("hdrDaqStatusBadge").innerText = isOnline ? "● DAQ ONLINE" : "● DAQ STANDBY";
+      document.getElementById("daqOfflineBanner").style.display = isOnline ? "none" : "flex";
+
+      document.getElementById("hdrLastPacketText").innerText = dashboardData.lastPacketTime ? `Last sheet packet: ${dashboardData.lastPacketTime}` : "No telemetry logged";
+      
+      const counts = dashboardData.inventoryCounts || { totalSensors: 4, onlineSensors: 0, disconnectedSensors: 0, offlineSensors: 4 };
+      document.getElementById("hdrNodesBadge").innerText = `📡 NODES (Online: ${counts.onlineSensors}/${counts.totalSensors})`;
+
+      document.getElementById("liveTotalSensors").innerText = counts.totalSensors;
+      document.getElementById("badgeOnlineCount").innerText = `Online: ${counts.onlineSensors}`;
+      document.getElementById("badgeDiscCount").innerText = `Disc: ${counts.disconnectedSensors}`;
+      document.getElementById("badgeOffCount").innerText = `Offline: ${counts.offlineSensors}`;
+
+      document.getElementById("liveStreamDaqText").innerText = isOnline ? "● DAQ ONLINE" : "● DAQ OFFLINE";
+      document.getElementById("liveStreamDaqText").style.color = isOnline ? "var(--emerald-green)" : "var(--coral-critical)";
+
+      // Render Group Cards
+      renderGroupStats("force", dashboardData.groupedStats ? dashboardData.groupedStats.force : null);
+      renderGroupStats("disp", dashboardData.groupedStats ? dashboardData.groupedStats.displacement : null);
+      renderGroupStats("strain", dashboardData.groupedStats ? dashboardData.groupedStats.strain : null);
+
+      // Render Live Canvas Chart
+      renderLiveChart(dashboardData.recentEntries || []);
+
+      // Synchronize live incoming packets with historical buffer
+      if (Array.isArray(dashboardData.recentEntries) && dashboardData.recentEntries.length > 0) {
+        syncHistoryEntriesWithLiveStream(dashboardData.recentEntries);
+      }
+
+      // Re-render Historical Analytics Chart live if analytics tab is visible
+      const analyticsPage = document.getElementById("page-analytics");
+      if (analyticsPage && analyticsPage.style.display !== "none") {
+        renderHistoryChart();
+      }
+
+      // Render Sensors Directory Table
+      renderSensorsTable(dashboardData.sensors || []);
+
+      // Render Alerts
+      renderAlertsList(dashboardData.alerts || []);
+    }
+
+    function syncHistoryEntriesWithLiveStream(recentEntries) {
+      if (!Array.isArray(recentEntries) || recentEntries.length === 0) return;
+      
+      const existingMap = new Map();
+      (historyEntriesBuffer || []).forEach((e, idx) => {
+        const key = (e.seq !== undefined && e.seq !== null) ? `seq_${e.seq}` : (e.timestamp ? `t_${e.timestamp}` : `idx_${idx}`);
+        existingMap.set(key, e);
+      });
+
+      recentEntries.forEach((e, idx) => {
+        const key = (e.seq !== undefined && e.seq !== null) ? `seq_${e.seq}` : (e.timestamp ? `t_${e.timestamp}` : `rec_${idx}`);
+        existingMap.set(key, e);
+      });
+
+      historyEntriesBuffer = Array.from(existingMap.values()).sort((a, b) => {
+        if (a.seq !== undefined && b.seq !== undefined && a.seq !== null && b.seq !== null) {
+          return Number(a.seq) - Number(b.seq);
+        }
+        const tA = a.timestamp ? new Date(a.timestamp).getTime() : 0;
+        const tB = b.timestamp ? new Date(b.timestamp).getTime() : 0;
+        return tA - tB;
+      });
+
+      if (historyEntriesBuffer.length > 500) {
+        historyEntriesBuffer = historyEntriesBuffer.slice(-500);
+      }
+    }
+
+    function renderGroupStats(prefix, stats) {
+      if (!stats) return;
+      document.getElementById(`${prefix}GroupBadge`).className = stats.isInstantLive ? "badge badge-green" : "badge badge-yellow";
+      document.getElementById(`${prefix}GroupBadge`).innerText = stats.isInstantLive ? `${stats.activeCount}/${stats.totalCount} Online` : "STANDBY (LAST DATA)";
+      
+      document.getElementById(`${prefix}AvgVal`).innerText = stats.avg !== null && stats.avg !== undefined ? Number(stats.avg).toFixed(1) : "—";
+      document.getElementById(`${prefix}MaxVal`).innerText = stats.max !== null && stats.max !== undefined ? Number(stats.max).toFixed(1) : "—";
+      document.getElementById(`${prefix}MinVal`).innerText = stats.min !== null && stats.min !== undefined ? Number(stats.min).toFixed(1) : "—";
+    }
+
+    function renderSensorsTable(sensors) {
+      const tbody = document.getElementById("sensorsDirectoryTbody");
+      if (!tbody) return;
+      if (!sensors || sensors.length === 0) {
+        tbody.innerHTML = `<tr><td colSpan="7" style="text-align: center; padding: 2rem;">No sensors registered in Google Sheets.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = sensors.map(s => {
+        const valDisplay = s.currentValue !== null && s.currentValue !== undefined
+          ? `${s.currentValue} ${s.unit}`
+          : (s.lastKnownValue !== null && s.lastKnownValue !== undefined
+            ? `${s.lastKnownValue} ${s.unit} (last)`
+            : '—');
+
+        return `
+          <tr>
+            <td class="font-mono" style="font-weight: 700; color: var(--accent-cyan);">${s.id}</td>
+            <td><strong>${s.name}</strong><br><span style="font-size: 0.72rem; color: var(--text-muted);">Type: ${s.type} (${s.unit})</span></td>
+            <td><span class="badge badge-cyan">${s.subsystem}</span></td>
+            <td class="font-mono">${s.hardwareBus}</td>
+            <td class="font-mono" style="font-weight: 700;">${valDisplay}</td>
+            <td class="font-mono">${s.threshold} ${s.unit}</td>
+            <td><span class="badge ${s.status === 'online' ? 'badge-green' : s.status === 'disconnected' ? 'badge-yellow' : 'badge-red'}">● ${s.status.toUpperCase()}</span></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderAlertsList(alerts) {
+      const container = document.getElementById("alertsContainer");
+      if (!container) return;
+      if (!alerts || alerts.length === 0) {
+        container.innerHTML = `<div class="shm-card" style="padding: 2rem; text-align: center; color: var(--text-muted);">No active structural anomaly alerts logged. All sensors operating within safety threshold envelope.</div>`;
+        return;
+      }
+
+      container.innerHTML = alerts.map(a => `
+        <div class="shm-card" style="padding: 1.25rem; border-left: 4px solid ${a.severity === 'CRITICAL' ? 'var(--coral-critical)' : 'var(--amber-warning)'};">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span class="badge ${a.severity === 'CRITICAL' ? 'badge-red' : 'badge-yellow'}">${a.severity}</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted);">${a.timestamp}</span>
+          </div>
+          <div style="font-weight: 700; margin-bottom: 0.25rem;">${a.title}</div>
+          <div style="font-size: 0.825rem; color: var(--text-muted);">${a.description}</div>
+          <div style="font-size: 0.75rem; color: var(--accent-cyan); margin-top: 0.4rem;">💡 Action: ${a.recommendedAction}</div>
+        </div>
+      `).join('');
+    }
+
+    let activeLiveMetric = 'force';
+
+    function setLiveChartMetric(m) {
+      activeLiveMetric = m;
+      const ids = {
+        force: 'btnMetricForce',
+        stress: 'btnMetricStress',
+        strain: 'btnMetricStrain',
+        displacement: 'btnMetricDisp',
+        humidity: 'btnMetricHumidity',
+        temperature: 'btnMetricTemp'
+      };
+      Object.keys(ids).forEach(key => {
+        const btn = document.getElementById(ids[key]);
+        if (btn) {
+          if (key === m) btn.classList.add('active');
+          else btn.classList.remove('active');
+        }
+      });
+      renderLiveChart(dashboardData.recentEntries || []);
+    }
+
+    // Canvas Live Line Chart Renderer with Full X & Y Axes (Image 3 Spec)
+    function renderLiveChart(entries) {
+      const canvas = document.getElementById("liveCanvasChart");
+      const emptyState = document.getElementById("liveChartEmptyState");
+      if (!canvas) return;
+
+      const isOnline = dashboardData.isDaqOnline && entries && entries.length > 0;
+      if (emptyState) {
+        emptyState.style.display = isOnline ? "none" : "flex";
+      }
+
+      const ctx = canvas.getContext("2d");
+      const parent = canvas.parentElement;
+      const w = parent ? parent.clientWidth : 600;
+      const h = parent ? parent.clientHeight : 320;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (!isOnline) return;
+
+      const unitsMap = {
+        force: 'kN',
+        stress: 'MPa',
+        strain: 'µε',
+        displacement: 'mm',
+        humidity: '%',
+        temperature: '°C'
+      };
+
+      const unit = unitsMap[activeLiveMetric] || '';
+
+      const sensorKeysMap = {
+        force: ['FORCE-01', 'FORCE-02', 'FO-01'],
+        stress: ['STRESS-01', 'STRAIN-01'],
+        strain: ['STRAIN-01', 'STRAIN-02', 'HX-01'],
+        displacement: ['DISPLACEMENT-01', 'DISP-01'],
+        humidity: ['HUMIDITY-01', 'HUM-01'],
+        temperature: ['TEMPERATURE-01', 'TEMP-01']
+      };
+
+      const keys = sensorKeysMap[activeLiveMetric] || ['FORCE-01'];
+      const rawVals = entries.map(e => {
+        for (let k of keys) {
+          if (e[k] !== undefined && e[k] !== null) return Number(e[k]);
+          if (e.readingsMap && e.readingsMap[k] !== undefined && e.readingsMap[k] !== null) return Number(e.readingsMap[k]);
+        }
+        return 0;
+      });
+
+      const padLeft = 60 * dpr;
+      const padRight = 25 * dpr;
+      const padTop = 30 * dpr;
+      const padBottom = 40 * dpr;
+
+      const chartW = canvas.width - padLeft - padRight;
+      const chartH = canvas.height - padTop - padBottom;
+
+      const maxValRaw = Math.max(...rawVals, 10);
+      const minValRaw = Math.min(...rawVals, 0);
+      const maxVal = Math.ceil(maxValRaw * 1.15);
+      const minVal = Math.floor(minValRaw < 0 ? minValRaw * 1.15 : 0);
+      const valRange = Math.max(1, maxVal - minVal);
+
+      // 1. Draw Grid Lines and Y-Axis Ticks / Numbers
+      const steps = 4;
+      ctx.lineWidth = 1 * dpr;
+
+      for (let i = 0; i <= steps; i++) {
+        const y = padTop + (chartH / steps) * i;
+        const tickVal = maxVal - (valRange / steps) * i;
+
+        ctx.strokeStyle = "rgba(51, 65, 85, 0.6)";
+        ctx.setLineDash([4 * dpr, 4 * dpr]);
+        ctx.beginPath();
+        ctx.moveTo(padLeft, y);
+        ctx.lineTo(canvas.width - padRight, y);
+        ctx.stroke();
+
+        ctx.setLineDash([]);
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = `${11 * dpr}px 'JetBrains Mono', monospace`;
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        ctx.fillText(tickVal.toFixed(1), padLeft - 10 * dpr, y);
+      }
+
+      ctx.fillStyle = "#00B4D8";
+      ctx.font = `bold ${11 * dpr}px 'JetBrains Mono', monospace`;
+      ctx.textAlign = "right";
+      ctx.fillText(`[${unit}]`, padLeft - 10 * dpr, padTop - 12 * dpr);
+
+      // 2. Draw X-Axis Timestamps
+      ctx.fillStyle = "#94A3B8";
+      ctx.font = `${10 * dpr}px 'Inter', sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "top";
+
+      const numLabels = Math.min(6, entries.length);
+      const labelStep = Math.max(1, Math.floor(entries.length / numLabels));
+
+      entries.forEach((e, idx) => {
+        if (idx % labelStep === 0 || idx === entries.length - 1) {
+          const x = padLeft + (chartW / Math.max(1, entries.length - 1)) * idx;
+          const timeText = e.timeLabel || (e.timestamp ? e.timestamp.substr(11, 8) : '');
+          ctx.fillText(timeText, x, canvas.height - padBottom + 10 * dpr);
+
+          ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
+          ctx.beginPath();
+          ctx.moveTo(x, padTop);
+          ctx.lineTo(x, canvas.height - padBottom);
+          ctx.stroke();
+        }
+      });
+
+      // 3. Area Fill under Line Chart
+      ctx.beginPath();
+      rawVals.forEach((val, idx) => {
+        const x = padLeft + (chartW / Math.max(1, rawVals.length - 1)) * idx;
+        const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
+        if (idx === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.lineTo(padLeft + chartW, padTop + chartH);
+      ctx.lineTo(padLeft, padTop + chartH);
+      ctx.closePath();
+
+      const grad = ctx.createLinearGradient(0, padTop, 0, padTop + chartH);
+      grad.addColorStop(0, "rgba(0, 180, 216, 0.35)");
+      grad.addColorStop(1, "rgba(0, 180, 216, 0.0)");
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // 4. Line Plot
+      ctx.strokeStyle = "#00B4D8";
+      ctx.lineWidth = 2.8 * dpr;
+      ctx.beginPath();
+      rawVals.forEach((val, idx) => {
+        const x = padLeft + (chartW / Math.max(1, rawVals.length - 1)) * idx;
+        const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
+        if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+
+      // 5. Node Points
+      rawVals.forEach((val, idx) => {
+        const x = padLeft + (chartW / Math.max(1, rawVals.length - 1)) * idx;
+        const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
+        ctx.fillStyle = "#38BDF8";
+        ctx.beginPath();
+        ctx.arc(x, y, 4 * dpr, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "#0B1220";
+        ctx.lineWidth = 1.5 * dpr;
+        ctx.stroke();
+      });
+    }
+
+    let selectedHistTimeRange = '24H';
+
+    function setHistTimeRange(tr) {
+      selectedHistTimeRange = tr;
+      ['24H', '7D', '30D', '1Y', 'Custom'].forEach(t => {
+        const btn = document.getElementById(`btnHist${t}`);
+        if (btn) {
+          if (t === tr) btn.classList.add('active');
+          else btn.classList.remove('active');
+        }
+      });
+
+      const dateContainer = document.getElementById("histCustomDateContainer");
+      if (dateContainer) {
+        dateContainer.style.display = (tr === 'Custom') ? "flex" : "none";
+      }
+      renderHistoryChart();
+    }
+
+    function onHistPrimaryChange() {
+      const priSel = document.getElementById("histPrimaryMetric");
+      const secSel = document.getElementById("histSecondaryMetric");
+      if (priSel && secSel && priSel.value === secSel.value) {
+        secSel.value = "Single Metric View";
+      }
+      renderHistoryChart();
+    }
+
+    // Dual-Axis Time Series Historical Analytics Renderer (Localhost 5173 1:1 Match)
+    function renderHistoryChart() {
+      const canvas = document.getElementById("histCanvasChart");
+      if (!canvas) return;
+
+      const priMetric = document.getElementById("histPrimaryMetric") ? document.getElementById("histPrimaryMetric").value : "Force (kN)";
+      const secMetric = document.getElementById("histSecondaryMetric") ? document.getElementById("histSecondaryMetric").value : "Single Metric View";
+      const selectedSensor = document.getElementById("histSensorSelect") ? document.getElementById("histSensorSelect").value : "ALL";
+
+      // Update Header Text & Subtitles
+      const titleElem = document.getElementById("histChartHeaderTitle");
+      if (titleElem) titleElem.innerText = `Time-Series Dual Axis Overlay (${selectedHistTimeRange})`;
+
+      const subPri = document.getElementById("histSubPri");
+      if (subPri) subPri.innerText = priMetric;
+
+      const secWrap = document.getElementById("histSubSecWrap");
+      const subSec = document.getElementById("histSubSec");
+      if (secWrap && subSec) {
+        if (secMetric !== "Single Metric View") {
+          secWrap.style.display = "inline";
+          subSec.innerText = secMetric;
+        } else {
+          secWrap.style.display = "none";
+        }
+      }
+
+      const ctx = canvas.getContext("2d");
+      const parent = canvas.parentElement;
+      const w = parent ? parent.clientWidth : 800;
+      const h = parent ? parent.clientHeight : 380;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const rawEntries = (historyEntriesBuffer && historyEntriesBuffer.length > 0)
+        ? historyEntriesBuffer
+        : (dashboardData.recentEntries || []);
+
+      const legendContainer = document.getElementById("histChartLegendContainer");
+
+      if (rawEntries.length === 0) {
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = `${13 * dpr}px 'Inter', sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText("No historical telemetry stream recorded in Google Sheets database.", canvas.width / 2, canvas.height / 2);
+        if (legendContainer) legendContainer.innerHTML = "";
+        return;
+      }
+
+      const getMetricKeys = (metricStr) => {
+        if (metricStr.includes('Force')) return ['FORCE-01', 'FORCE-02', 'FO-01'];
+        if (metricStr.includes('Displacement')) return ['DISPLACEMENT-01', 'DISP-01'];
+        if (metricStr.includes('Strain')) return ['STRAIN-01', 'STRAIN-02', 'HX-01'];
+        if (metricStr.includes('Stress')) return ['STRESS-01', 'STRAIN-01'];
+        if (metricStr.includes('Temperature')) return ['TEMP-01', 'TEMPERATURE-01'];
+        if (metricStr.includes('Humidity')) return ['HUMIDITY-01', 'HUM-01'];
+        return ['FORCE-01'];
+      };
+
+      const priKeys = (selectedSensor !== 'ALL') ? [selectedSensor] : getMetricKeys(priMetric);
+      const secKeys = (selectedSensor !== 'ALL') ? [selectedSensor] : (secMetric !== 'Single Metric View' ? getMetricKeys(secMetric) : []);
+
+      const extractVal = (entry, keys) => {
+        for (let k of keys) {
+          if (entry[k] !== undefined && entry[k] !== null && !isNaN(entry[k])) return Number(entry[k]);
+          if (entry.readingsMap && entry.readingsMap[k] !== undefined && entry.readingsMap[k] !== null && !isNaN(entry.readingsMap[k])) return Number(entry.readingsMap[k]);
+        }
+        return null;
+      };
+
+      const priVals = rawEntries.map(e => extractVal(e, priKeys)).filter(v => v !== null);
+      const secVals = (secMetric !== 'Single Metric View') ? rawEntries.map(e => extractVal(e, secKeys)).filter(v => v !== null) : [];
+
+      if (priVals.length === 0) {
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = `${13 * dpr}px 'Inter', sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText("No data matching current metric filters in historical database.", canvas.width / 2, canvas.height / 2);
+        if (legendContainer) legendContainer.innerHTML = "";
+        return;
+      }
+
+      // Safe Canvas Margins inside container so text and tick labels NEVER bleed out of card box
+      const padLeft = 85 * dpr;
+      const padRight = (secMetric !== 'Single Metric View') ? 85 * dpr : 45 * dpr;
+      const padTop = 35 * dpr;
+      const padBottom = 50 * dpr;
+
+      const chartW = canvas.width - padLeft - padRight;
+      const chartH = canvas.height - padTop - padBottom;
+
+      // Calculate Axis Domains
+      const priMaxRaw = Math.max(...priVals, 10);
+      const priMinRaw = Math.min(...priVals, 0);
+      const priMax = Math.ceil(priMaxRaw * 1.15);
+      const priMin = Math.floor(priMinRaw < 0 ? priMinRaw * 1.15 : 0);
+      const priRange = Math.max(1, priMax - priMin);
+
+      let secMax = 100, secMin = 0, secRange = 100;
+      if (secVals.length > 0) {
+        const secMaxRaw = Math.max(...secVals, 10);
+        const secMinRaw = Math.min(...secVals, 0);
+        secMax = Math.ceil(secMaxRaw * 1.15);
+        secMin = Math.floor(secMinRaw < 0 ? secMinRaw * 1.15 : 0);
+        secRange = Math.max(1, secMax - secMin);
+      }
+
+      // 1. Gridlines and Y-Axis Ticks
+      const steps = 4;
+      ctx.lineWidth = 1 * dpr;
+
+      for (let i = 0; i <= steps; i++) {
+        const y = padTop + (chartH / steps) * i;
+        const tickVal = priMax - (priRange / steps) * i;
+
+        // Grid line
+        ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
+        ctx.setLineDash([4 * dpr, 4 * dpr]);
+        ctx.beginPath();
+        ctx.moveTo(padLeft, y);
+        ctx.lineTo(canvas.width - padRight, y);
+        ctx.stroke();
+
+        // Left Y-axis Tick Number (Cyan)
+        ctx.setLineDash([]);
+        ctx.fillStyle = "#00B4D8";
+        ctx.font = `${11 * dpr}px 'JetBrains Mono', monospace`;
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        ctx.fillText(tickVal.toFixed(1), padLeft - 10 * dpr, y);
+
+        // Right Y-axis Tick Number (Amber)
+        if (secMetric !== 'Single Metric View' && secVals.length > 0) {
+          const secTickVal = secMax - (secRange / steps) * i;
+          ctx.fillStyle = "#F59E0B";
+          ctx.textAlign = "left";
+          ctx.fillText(secTickVal.toFixed(1), canvas.width - padRight + 10 * dpr, y);
+        }
+      }
+
+      // 2. Vertical Axis Labels (Rotated 90 deg safely inside left/right padding)
+      ctx.save();
+      ctx.translate(28 * dpr, padTop + chartH / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillStyle = "#00B4D8";
+      ctx.font = `bold ${12 * dpr}px 'Inter', sans-serif`;
+      ctx.textAlign = "center";
+      ctx.fillText(priMetric, 0, 0);
+      ctx.restore();
+
+      if (secMetric !== 'Single Metric View') {
+        ctx.save();
+        ctx.translate(canvas.width - 25 * dpr, padTop + chartH / 2);
+        ctx.rotate(Math.PI / 2);
+        ctx.fillStyle = "#F59E0B";
+        ctx.font = `bold ${12 * dpr}px 'Inter', sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText(secMetric, 0, 0);
+        ctx.restore();
+      }
+
+      // 3. X-Axis Timestamps
+      ctx.fillStyle = "#94A3B8";
+      ctx.font = `${10 * dpr}px 'Inter', sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "top";
+
+      const numLabels = Math.min(8, rawEntries.length);
+      const labelStep = Math.max(1, Math.floor(rawEntries.length / numLabels));
+
+      rawEntries.forEach((e, idx) => {
+        if (idx % labelStep === 0 || idx === rawEntries.length - 1) {
+          const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
+          const timeText = e.timeLabel || (e.timestamp ? e.timestamp.substr(11, 8) : '');
+          ctx.fillText(timeText, x, canvas.height - padBottom + 12 * dpr);
+
+          ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
+          ctx.beginPath();
+          ctx.moveTo(x, padTop);
+          ctx.lineTo(x, canvas.height - padBottom);
+          ctx.stroke();
+        }
+      });
+
+      // 4. Primary Metric Line Plot (Solid Glowing Cyan Curve)
+      ctx.setLineDash([]);
+      ctx.strokeStyle = "#00B4D8";
+      ctx.lineWidth = 3 * dpr;
+      ctx.beginPath();
+
+      rawEntries.forEach((e, idx) => {
+        const val = extractVal(e, priKeys);
+        if (val !== null) {
+          const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
+          const y = padTop + chartH - ((val - priMin) / priRange) * chartH;
+          if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+      });
+      ctx.stroke();
+
+      // Primary Points
+      rawEntries.forEach((e, idx) => {
+        const val = extractVal(e, priKeys);
+        if (val !== null) {
+          const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
+          const y = padTop + chartH - ((val - priMin) / priRange) * chartH;
+          ctx.fillStyle = "#38BDF8";
+          ctx.beginPath();
+          ctx.arc(x, y, 4 * dpr, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      // 5. Secondary Metric Line Plot (Dashed Amber Curve)
+      if (secMetric !== 'Single Metric View' && secVals.length > 0) {
+        ctx.strokeStyle = "#F59E0B";
+        ctx.lineWidth = 2.5 * dpr;
+        ctx.setLineDash([6 * dpr, 4 * dpr]);
+        ctx.beginPath();
+
+        rawEntries.forEach((e, idx) => {
+          const val = extractVal(e, secKeys);
+          if (val !== null) {
+            const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
+            const y = padTop + chartH - ((val - secMin) / secRange) * chartH;
+            if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+        });
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Secondary Points
+        rawEntries.forEach((e, idx) => {
+          const val = extractVal(e, secKeys);
+          if (val !== null) {
+            const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
+            const y = padTop + chartH - ((val - secMin) / secRange) * chartH;
+            ctx.fillStyle = "#F59E0B";
+            ctx.beginPath();
+            ctx.arc(x, y, 3.5 * dpr, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        });
+      }
+
+      // 6. Build Legend at Bottom Container
+      if (legendContainer) {
+        let legendHtml = `
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #00B4D8;"></span>
+            <span style="color: var(--text-main); font-weight: 600;">Main Stay Cable T1 Load Cell (${priMetric.split(' ')[0]}) — [Left Axis]</span>
+          </div>
+        `;
+        if (secMetric !== 'Single Metric View') {
+          legendHtml += `
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #F59E0B;"></span>
+              <span style="color: var(--text-main); font-weight: 600;">North Span Anchor Cable Tension Sensor (${secMetric.split(' ')[0]}) — [Right Axis]</span>
+            </div>
+          `;
+        }
+        legendContainer.innerHTML = legendHtml;
+      }
+    }
+
+    function exportHistoryCSV() {
+      const rawEntries = (historyEntriesBuffer && historyEntriesBuffer.length > 0)
+        ? historyEntriesBuffer
+        : (dashboardData.recentEntries || []);
+
+      if (rawEntries.length === 0) {
+        alert("No historical telemetry data available in Google Sheets to export.");
+        return;
+      }
+
+      const sensorIds = (dashboardData.sensors && dashboardData.sensors.length > 0)
+        ? dashboardData.sensors.map(s => s.id)
+        : ['FORCE-01', 'DISPLACEMENT-01', 'STRAIN-01'];
+
+      const headers = ['Timestamp ISO', 'Time Label', 'Sequence Number', 'DAQ Status', ...sensorIds].join(',');
+      const rows = rawEntries.map(e => {
+        const vals = sensorIds.map(sId => e[sId] !== undefined && e[sId] !== null ? e[sId] : (e.readingsMap && e.readingsMap[sId] !== undefined ? e.readingsMap[sId] : ''));
+        return [`"${e.timestamp || ''}"`, `"${e.timeLabel || ''}"`, e.seq || 0, `"${e.daqStatus || 'ONLINE'}"`, ...vals].join(',');
+      });
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers, ...rows].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `Bridge_SHM_Telemetry_Google_Sheets_Export_${Date.now()}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function openRegisterModal() { document.getElementById("registerModal").style.display = "flex"; }
+    function closeRegisterModal() { document.getElementById("registerModal").style.display = "none"; }
+    function saveNewSensor() { closeRegisterModal(); fetchTelemetryData(true); }
+
+    function setPersona(role) {
+      document.getElementById("hdrUserPersona").innerText = role === 'admin' ? "👤 ADMIN OPERATOR" : "👤 PUBLIC OPERATOR";
+      switchPage('live');
+    }
+
+    function runTestScenario(key) {
+      alert(`Triggering Section 25 Test Scenario ${key}. Updating in-memory diagnostic state.`);
+    }
+
+    // Initial Load & Clock
+    setInterval(() => {
+      document.getElementById("hdrLocalTime").innerText = new Date().toLocaleTimeString();
+    }, 1000);
+
+    fetchTelemetryData();
+    setInterval(fetchTelemetryData, 1200); // 1.2s cadence matching Arduino ~1.0s acquisition
+  </script>
+</body>
+</html>
