@@ -211,7 +211,7 @@
     }
     .shm-table tr:hover { background: rgba(255, 255, 255, 0.02); }
 
-    /* Sidebar Navigation Links (Image 2 Target Specification) */
+    /* Sidebar Navigation Links */
     .nav-item {
       display: flex;
       align-items: center;
@@ -268,75 +268,75 @@
 <body>
 
   <!-- HEADER (Header.tsx 1:1 Replica) -->
-  <header class="shm-card" style="border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 0.85rem 1.5rem; background: var(--header-bg); z-index: 100;">
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+  <header class="shm-card" style="border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 0.65rem 1.25rem; background: var(--header-bg); z-index: 100; overflow-x: auto;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 0.75rem; min-width: max-content;">
       
       <!-- Left Title & Dual Layer Connectivity -->
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: var(--accent-cyan); font-size: 1.2rem; font-weight: 800;">⚡</span>
-            <h1 style="font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-main);" id="hdrBridgeTitle">
-              St. Lawrence Cable-Stayed Viaduct <span class="font-mono" style="color: var(--text-muted); font-size: 0.9rem; font-weight: 400;" id="hdrBridgeCode">(SLV-SPAN-04B)</span>
-            </h1>
-          </div>
-          
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.25rem; font-size: 0.75rem; flex-wrap: wrap;">
-            <span style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700;" id="hdrDaqStatusBadge" class="badge badge-red">
-              ● DAQ OFFLINE
-            </span>
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: nowrap; white-space: nowrap;">
+        <div style="display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0;">
+          <span style="color: var(--accent-cyan); font-size: 1.1rem; font-weight: 800;">⚡</span>
+          <h1 style="font-size: 1.0rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-main); margin: 0; white-space: nowrap;" id="hdrBridgeTitle">
+            St. Lawrence Cable-Stayed Viaduct <span class="font-mono" style="color: var(--text-muted); font-size: 0.85rem; font-weight: 400;" id="hdrBridgeCode">(SLV-SPAN-04B)</span>
+          </h1>
+        </div>
+        
+        <span style="color: var(--card-border);">|</span>
 
-            <span class="font-mono" style="color: var(--text-muted);" id="hdrLastPacketText">
-              (Last packet: --)
-            </span>
+        <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; flex-wrap: nowrap; white-space: nowrap;">
+          <span style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700;" id="hdrDaqStatusBadge" class="badge badge-red">
+            ● DAQ OFFLINE
+          </span>
 
-            <span class="badge badge-cyan font-mono" style="font-size: 0.68rem; padding: 0.1rem 0.4rem;" id="hdrSeqBadge">
-              SEQ:--
-            </span>
+          <span class="font-mono" style="color: var(--text-muted);" id="hdrLastPacketText">
+            (Last packet: --)
+          </span>
 
-            <span style="color: var(--card-border);">|</span>
+          <span class="badge badge-cyan font-mono" style="font-size: 0.68rem; padding: 0.1rem 0.4rem;" id="hdrSeqBadge">
+            SEQ:--
+          </span>
 
-            <span class="badge font-mono badge-cyan" id="hdrNodesBadge">
-              📡 NODES (Total:4 | Online:0 | Disc:0)
-            </span>
+          <span style="color: var(--card-border);">|</span>
 
-            <span style="color: var(--card-border);">|</span>
+          <span class="badge font-mono badge-cyan" id="hdrNodesBadge">
+            📡 NODES (Total:6 | Online:0 | Disc:0)
+          </span>
 
-            <span class="font-mono" style="color: var(--accent-cyan);" id="hdrLocalTime">
-              LOCAL: --:--:--
-            </span>
-          </div>
+          <span style="color: var(--card-border);">|</span>
+
+          <span class="font-mono" style="color: var(--accent-cyan);" id="hdrLocalTime">
+            LOCAL: --:--:--
+          </span>
         </div>
       </div>
 
       <!-- Right Controls -->
-      <div style="display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: nowrap; flex-shrink: 0; white-space: nowrap;">
         
         <!-- Theme Toggle -->
-        <button onclick="toggleTheme()" class="btn-secondary" style="padding: 0.5rem;" title="Toggle Dark/Light Theme">
+        <button onclick="toggleTheme()" class="btn-secondary" style="padding: 0.45rem; flex-shrink: 0;" title="Toggle Dark/Light Theme">
           <span id="themeIcon">🌙</span>
         </button>
 
         <!-- Unread Notifications Bell -->
-        <button onclick="switchPage('alerts')" class="btn-secondary" style="padding: 0.5rem; position: relative;" title="View Active Alerts">
+        <button onclick="switchPage('alerts')" class="btn-secondary" style="padding: 0.45rem; position: relative; flex-shrink: 0;" title="View Active Alerts">
           🔔
-          <span id="unreadAlertsBadge" style="position: absolute; top: -4px; right: -4px; background: var(--coral-critical); color: #FFF; font-size: 0.65rem; font-weight: 800; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">0</span>
+          <span id="unreadAlertsBadge" style="position: absolute; top: -4px; right: -4px; background: var(--coral-critical); color: #FFF; font-size: 0.65rem; font-weight: 800; width: 17px; height: 17px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">0</span>
         </button>
 
         <!-- Reset Telemetry Data -->
-        <button onclick="toggleResetConfirm()" class="btn-secondary" style="font-size: 0.78rem; padding: 0.5rem 0.8rem; border-color: rgba(245,158,11,0.4); color: var(--amber-warning);">
+        <button onclick="toggleResetConfirm()" class="btn-secondary" style="font-size: 0.75rem; padding: 0.45rem 0.75rem; border-color: rgba(245,158,11,0.4); color: var(--amber-warning); white-space: nowrap; flex-shrink: 0;">
           🔄 Reset View
         </button>
 
         <!-- Connect / Disconnect Arduino -->
-        <button onclick="toggleArduinoConnection()" class="btn-cyan" id="btnArduinoConnect">
+        <button onclick="toggleArduinoConnection()" class="btn-cyan" id="btnArduinoConnect" style="font-size: 0.75rem; padding: 0.45rem 0.75rem; white-space: nowrap; flex-shrink: 0;">
           ⚡ Connect USB Arduino (115200 Baud)
         </button>
 
         <!-- User Persona Badge -->
-        <div id="userPersonaWidget" style="display: flex; align-items: center; gap: 0.6rem; padding: 0.35rem 0.75rem; background: var(--inner-box-bg); border-radius: 8px; border: 1px solid var(--card-border);">
-          <span style="font-size: 0.825rem; font-weight: 600;" id="hdrUserName">System Admin</span>
-          <span class="badge badge-cyan" id="hdrUserRole">ADMIN</span>
+        <div id="userPersonaWidget" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.65rem; background: var(--inner-box-bg); border-radius: 8px; border: 1px solid var(--card-border); white-space: nowrap; flex-shrink: 0;">
+          <span style="font-size: 0.8rem; font-weight: 600;" id="hdrUserName">System Admin</span>
+          <span class="badge badge-cyan" id="hdrUserRole" style="font-size: 0.65rem; padding: 0.1rem 0.35rem;">ADMIN</span>
           <button onclick="signOutUser()" style="background: none; border: none; color: var(--coral-critical); cursor: pointer; padding: 0.2rem;" title="Sign Out">🚪</button>
         </div>
 
@@ -359,1644 +359,1229 @@
   <!-- MAIN LAYOUT (Sidebar + Main Content) -->
   <div class="shm-layout">
     
-    <!-- SIDEBAR (Image 2 Target Specification) -->
-    <aside style="width: 260px; min-width: 260px; background-color: var(--sidebar-bg, #0B1220); border-right: 1px solid var(--card-border, #1E2D4A); display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem 0.85rem; user-select: none;">
+    <!-- SIDEBAR (Sidebar.tsx 1:1 Replica) -->
+    <aside style="width: 260px; background: var(--sidebar-bg); border-right: 1px solid var(--card-border); padding: 1.25rem 1rem; display: flex; flex-direction: column; justify-content: space-between; flex-shrink: 0;">
       <div>
-        <!-- Brand / Logo Header Area (Image 2 Target) -->
-        <div style="padding: 0.25rem 0.5rem 1.25rem 0.5rem; border-bottom: 1px solid var(--card-border, #1E2D4A); margin-bottom: 1.25rem;">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <div style="width: 42px; height: 42px; border-radius: 10px; background-color: #0C1E38; border: 1px solid rgba(0, 180, 216, 0.4); box-shadow: 0 0 12px rgba(0, 180, 216, 0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <div>
-              <div style="font-weight: 800; font-size: 1.1rem; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.2;">
-                Bridge<span style="color: #00B4D8;">AI</span> SHM
-              </div>
-              <div style="font-size: 0.68rem; color: #94A3B8; font-weight: 700; letter-spacing: 0.08em; margin-top: 2px;">
-                TELEMETRY V2.4
-              </div>
-            </div>
+        
+        <!-- Brand Header Area (Target Spec) -->
+        <div style="padding: 0.5rem 0.75rem; margin-bottom: 1.5rem; background: var(--inner-box-bg); border-radius: 8px; border: 1px solid var(--card-border);">
+          <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">AASHTO LRFD SHM ENGINE</div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.15rem;">
+            <span>⚡ BRIDGE AI SCADA</span>
+          </div>
+          <div style="font-size: 0.68rem; color: var(--emerald-green); font-weight: 600; margin-top: 0.25rem;" id="sbRoleTitle">
+            🛡️ SYSTEM ADMIN
           </div>
         </div>
 
-        <!-- Navigation Menu Links (Image 2 Target) -->
-        <nav style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <!-- Navigation Menu -->
+        <nav style="display: flex; flex-direction: column; gap: 0.35rem;">
           
-          <button class="nav-item active" onclick="switchPage('live')" id="nav-live">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            <span>Live Overview</span>
+          <button onclick="switchPage('live')" class="nav-item active" id="nav-live">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Live SCADA Overview</span>
           </button>
 
-          <button class="nav-item" onclick="switchPage('analytics')" id="nav-analytics">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          <button onclick="switchPage('history')" class="nav-item" id="nav-history">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             <span>Historical Analytics</span>
           </button>
 
-          <button class="nav-item" onclick="switchPage('sensors')" id="nav-sensors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+          <button onclick="switchPage('sensors')" class="nav-item" id="nav-sensors">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             <span>Sensors Directory</span>
           </button>
 
-          <button class="nav-item" onclick="switchPage('alerts')" id="nav-alerts">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
-            <span>Alerts & Events</span>
-            <span style="margin-left: auto; background: rgba(239, 68, 68, 0.2); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 9999px; font-size: 0.72rem; font-weight: 800; padding: 0.15rem 0.55rem; display: none; font-family: 'JetBrains Mono', monospace;" id="sidebarAlertsBadge">0</span>
+          <button onclick="switchPage('alerts')" class="nav-item" id="nav-alerts">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+              <span>Alerts & Events</span>
+              <span id="sidebarAlertsBadge" class="badge badge-red" style="font-size: 0.6rem; padding: 0.05rem 0.35rem; display: none;">0</span>
+            </span>
           </button>
 
-          <button class="nav-item" onclick="switchPage('admin')" id="nav-admin">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <button onclick="switchPage('admin')" class="nav-item" id="nav-admin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             <span>System Admin</span>
-            <span style="margin-left: auto; background: rgba(0, 180, 216, 0.15); color: #00B4D8; border: 1px solid rgba(0, 180, 216, 0.4); border-radius: 9999px; font-size: 0.65rem; font-weight: 800; padding: 0.1rem 0.45rem; letter-spacing: 0.04em;">ADMIN</span>
           </button>
 
-          <button class="nav-item" onclick="switchPage('signin')" id="nav-signin" style="margin-top: 0.75rem; border-top: 1px solid var(--card-border, #1E2D4A); padding-top: 0.85rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Sign In / Persona</span>
+          <button onclick="switchPage('signin')" class="nav-item" id="nav-signin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            <span>Sign In / Sign Up</span>
           </button>
+
         </nav>
+
       </div>
 
-      <div style="background: var(--inner-box-bg, #0F172A); padding: 0.75rem 0.85rem; border-radius: 8px; border: 1px solid var(--card-border, #1E2D4A); font-size: 0.75rem; color: #94A3B8;">
-        <div style="display: flex; align-items: center; gap: 0.35rem; color: #00B4D8; font-weight: 700; margin-bottom: 0.2rem;" id="sbRoleTitle">
-          🛡️ SYSTEM ADMIN
-        </div>
-        <div style="color: #F8FAFC; font-size: 0.75rem; font-weight: 500;" id="sbRoleSub">
-          Bridge Monitoring & Sensor Management
-        </div>
+      <!-- Footer Info -->
+      <div style="border-top: 1px solid var(--card-border); padding-top: 1rem; font-size: 0.72rem; color: var(--text-muted);">
+        <div>Bridge AI Telemetry Engine</div>
+        <div style="font-weight: 700; color: var(--text-main); margin-top: 0.2rem;">V2.4 Production Build</div>
       </div>
+
     </aside>
 
-    <!-- MAIN CONTENT VIEWPORT -->
+    <!-- MAIN PAGE CONTAINER -->
     <main style="flex: 1; padding: 1.5rem; overflow-y: auto;">
-
-      <!-- PAGE 1: LIVE OVERVIEW (LiveOverviewPage.tsx 1:1 Replica) -->
-      <section id="page-live" class="animate-fadeIn" style="display: flex; flex-direction: column; gap: 1.5rem;">
+      
+      <!-- PAGE 1: LIVE SCADA OVERVIEW -->
+      <div id="page-live" class="animate-fadeIn">
         
-        <!-- DAQ Offline Warning Banner -->
-        <div id="daqOfflineBanner" style="display: flex; padding: 1rem 1.25rem; border-radius: 8px; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); color: var(--coral-critical); align-items: center; justify-content: space-between;">
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <span style="font-size: 1.4rem;">⚠️</span>
-            <div>
-              <strong style="display: block; font-size: 0.95rem;">Arduino DAQ Disconnected — Operating in Hardware Standby Mode</strong>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Connect physical USB Serial Arduino on COM6 @ 115200 Baud or run daq_bridge.py to stream live sensor readings.</span>
-            </div>
-          </div>
-          <button onclick="toggleArduinoConnection()" class="btn-cyan">Connect Arduino</button>
-        </div>
-
-        <!-- Subsystem Metric Group Cards Grid (Force, Displacement, Strain) -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+        <!-- Top Metrics Grid (Live Overview Section) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
           
-          <!-- Group 1: Load / Force -->
-          <div class="shm-card" style="padding: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Load / Force <span style="color: var(--text-muted); font-weight: 400;">kN</span></div>
-              <span class="badge badge-green" id="forceGroupBadge">1/1 ONLINE</span>
+          <!-- Card 1: Cable Stay Tension Group -->
+          <div class="shm-card shm-card-glow" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">MAIN CABLE TENSION</div>
+                <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent-cyan); margin: 0.25rem 0;" class="font-mono" id="cardForceAvg">-- kN</div>
+              </div>
+              <span class="badge badge-cyan">FORCE GROUP</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.85rem;">
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">AVG</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="forceAvgVal">—</div>
-              </div>
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">MAX</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="forceMaxVal">—</div>
-              </div>
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">MIN</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="forceMinVal">—</div>
-              </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-top: 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--card-border);" class="font-mono">
+              <span>MAX: <strong id="cardForceMax" style="color: var(--text-main);">--</strong></span>
+              <span>MIN: <strong id="cardForceMin" style="color: var(--text-main);">--</strong></span>
+              <span style="color: var(--emerald-green);" id="cardForceCount">0/0 Active</span>
             </div>
-            <div id="forceSensorsList" style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.78rem;"></div>
           </div>
 
-          <!-- Group 2: Displacement -->
-          <div class="shm-card" style="padding: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Displacement <span style="color: var(--text-muted); font-weight: 400;">mm</span></div>
-              <span class="badge badge-yellow" id="dispGroupBadge">STANDBY (LAST DATA)</span>
+          <!-- Card 2: Expansion Joint Displacement Group -->
+          <div class="shm-card shm-card-glow" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">DECK EXPANSION JOINT</div>
+                <div style="font-size: 1.75rem; font-weight: 800; color: var(--emerald-green); margin: 0.25rem 0;" class="font-mono" id="cardDispAvg">-- mm</div>
+              </div>
+              <span class="badge badge-green">DISPLACEMENT</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.85rem;">
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">AVG</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="dispAvgVal">—</div>
-              </div>
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">MAX</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="dispMaxVal">—</div>
-              </div>
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">MIN</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="dispMinVal">—</div>
-              </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-top: 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--card-border);" class="font-mono">
+              <span>MAX: <strong id="cardDispMax" style="color: var(--text-main);">--</strong></span>
+              <span>MIN: <strong id="cardDispMin" style="color: var(--text-main);">--</strong></span>
+              <span style="color: var(--emerald-green);" id="cardDispCount">0/0 Active</span>
             </div>
-            <div id="dispSensorsList" style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.78rem;"></div>
           </div>
 
-          <!-- Group 3: Strain -->
-          <div class="shm-card" style="padding: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Strain <span style="color: var(--text-muted); font-weight: 400;">µε</span></div>
-              <span class="badge badge-yellow" id="strainGroupBadge">STANDBY (LAST DATA)</span>
+          <!-- Card 3: Mid-Span Girder Strain Group -->
+          <div class="shm-card shm-card-glow" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">GIRDER STRAIN ROSETTE</div>
+                <div style="font-size: 1.75rem; font-weight: 800; color: var(--amber-warning); margin: 0.25rem 0;" class="font-mono" id="cardStrainAvg">-- µε</div>
+              </div>
+              <span class="badge badge-yellow">STRAIN GROUP</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.85rem;">
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">AVG</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="strainAvgVal">—</div>
-              </div>
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">MAX</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="strainMaxVal">—</div>
-              </div>
-              <div style="background: var(--inner-box-bg); padding: 0.4rem; border-radius: 6px;">
-                <div style="font-size: 0.65rem; color: var(--text-muted);">MIN</div>
-                <div class="font-mono" style="font-weight: 700; font-size: 1.1rem;" id="strainMinVal">—</div>
-              </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-top: 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--card-border);" class="font-mono">
+              <span>MAX: <strong id="cardStrainMax" style="color: var(--text-main);">--</strong></span>
+              <span>MIN: <strong id="cardStrainMin" style="color: var(--text-main);">--</strong></span>
+              <span style="color: var(--emerald-green);" id="cardStrainCount">0/0 Active</span>
             </div>
-            <div id="strainSensorsList" style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.78rem;"></div>
+          </div>
+
+          <!-- Card 4: Inventory Summary -->
+          <div class="shm-card shm-card-glow" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">SENSOR INVENTORY</div>
+                <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin: 0.25rem 0;" class="font-mono" id="cardInventoryTotal">0 NODES</div>
+              </div>
+              <span class="badge badge-cyan">HARDWARE BUS</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; margin-top: 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--card-border);" class="font-mono">
+              <span style="color: var(--emerald-green);">ONLINE: <strong id="cardInvOnline">0</strong></span>
+              <span style="color: var(--amber-warning);">DISC: <strong id="cardInvDisc">0</strong></span>
+              <span style="color: var(--coral-critical);">OFFLINE: <strong id="cardInvOff">0</strong></span>
+            </div>
           </div>
 
         </div>
 
-        <!-- Real-Time Live Trend Chart -->
-        <div class="shm-card" style="padding: 1.25rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--accent-cyan); font-size: 1.1rem; font-weight: 800;">📊</span>
-              <h3 style="font-size: 1rem; font-weight: 700;">Live Telemetry Stream Chart</h3>
-            </div>
-
-            <!-- Metric Selection Toggle Pills -->
-            <div style="display: flex; gap: 0.35rem; background: var(--inner-box-bg); padding: 0.3rem; border-radius: 8px; border: 1px solid var(--card-border);" id="metricToggleContainer">
-              <button class="btn-metric active" onclick="setLiveChartMetric('force')" id="btnMetricForce">FORCE</button>
-              <button class="btn-metric" onclick="setLiveChartMetric('stress')" id="btnMetricStress">STRESS</button>
-              <button class="btn-metric" onclick="setLiveChartMetric('strain')" id="btnMetricStrain">STRAIN</button>
-              <button class="btn-metric" onclick="setLiveChartMetric('displacement')" id="btnMetricDisp">DISPLACEMENT</button>
-              <button class="btn-metric" onclick="setLiveChartMetric('humidity')" id="btnMetricHumidity">HUMIDITY</button>
-              <button class="btn-metric" onclick="setLiveChartMetric('temperature')" id="btnMetricTemp">TEMP</button>
-            </div>
-          </div>
-
-          <div style="width: 100%; height: 320px; position: relative; overflow: hidden; border-radius: 8px; box-sizing: border-box;">
-            <canvas id="liveCanvasChart" style="width: 100%; height: 100%; display: block;"></canvas>
-
-            <!-- Disconnected State Overlay -->
-            <div id="liveChartEmptyState" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(15, 23, 42, 0.95); border: 1px dashed var(--card-border); border-radius: 8px; text-align: center; padding: 2rem;">
-              <div style="font-size: 2.2rem; margin-bottom: 0.75rem; color: var(--accent-cyan); font-weight: 800; letter-spacing: 0.1em; text-shadow: 0 0 12px rgba(0, 180, 216, 0.5);">((o))</div>
-              <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">Arduino Disconnected — Waiting for Live Telemetry Packets</div>
-              <div style="font-size: 0.825rem; color: var(--text-muted); max-width: 480px;">Connect USB Serial Arduino or run the Python DAQ Bridge to stream live sensor readings.</div>
-            </div>
+        <!-- Registered Nodes Grid (Multi-Sensor Live Metrics) -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📡 Multi-Sensor Registered Hardware Nodes</span>
+            <span class="badge badge-cyan" id="liveNodesCountBadge">6 Active Channels</span>
+          </h2>
+          <div id="liveSensorsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <!-- Rendered dynamically -->
           </div>
         </div>
 
-      </section>
-
-      <!-- PAGE 2: HISTORICAL ANALYTICS (HistoricalAnalyticsPage.tsx 1:1 Replica) -->
-      <section id="page-analytics" style="display: none; flex-direction: column; gap: 1.25rem;">
-        
-        <div class="shm-card" style="padding: 1.25rem;">
+        <!-- Live Real-Time Multi-Sensor Chart Section -->
+        <div class="shm-card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
             <div>
-              <h1 style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">Historical Telemetry & Dual-Axis Overlay</h1>
-              <p style="font-size: 0.825rem; color: var(--text-muted);">Multi-parametric time-series overlay chart engine with left and right Y-axis dual metric plotting.</p>
+              <h2 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main);">Real-Time Multi-Sensor Telemetry Plot</h2>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Plotting individual sensor streams concurrently from Arduino hardware bus</div>
             </div>
-
-            <div style="display: flex; gap: 0.6rem;">
-              <button class="btn-cyan" onclick="exportHistoryCSV()">📥 Export CSV</button>
-              <button class="btn-secondary" onclick="window.print()">🖨️ Print / Export Chart</button>
+            <div style="display: flex; gap: 0.4rem; background: var(--inner-box-bg); padding: 0.25rem; border-radius: 8px; border: 1px solid var(--card-border);">
+              <button onclick="setLiveMetric('force')" class="btn-metric active" id="btnLiveMetricForce">Force (kN)</button>
+              <button onclick="setLiveMetric('displacement')" class="btn-metric" id="btnLiveMetricDisp">Displacement (mm)</button>
+              <button onclick="setLiveMetric('strain')" class="btn-metric" id="btnLiveMetricStrain">Strain (µε)</button>
             </div>
           </div>
 
-          <!-- Controls Grid -->
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-top: 1px solid var(--card-border); padding-top: 1rem;">
+          <!-- Canvas Container -->
+          <div style="position: relative; height: 320px; width: 100%;">
+            <canvas id="liveChartCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+          </div>
+
+          <!-- Chart Dynamic Legend -->
+          <div id="liveChartLegend" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--card-border); display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.8rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Active Structural Anomalies & Alerts Widget (Section 6 Requirement) -->
+        <div>
+          <h2 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>⚠️ Active Structural Anomalies & Watchdog Alerts</span>
+          </h2>
+          <div id="liveActiveAlertsWidget">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAGE 2: HISTORICAL ANALYTICS -->
+      <div id="page-history" style="display: none;" class="animate-fadeIn">
+        
+        <!-- Controls Header -->
+        <div class="shm-card" style="padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: flex-end;">
             
-            <!-- 1. Time Range Selector Pills -->
             <div>
-              <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">TIME RANGE SELECTOR</label>
-              <div style="display: flex; gap: 0.25rem; background: var(--inner-box-bg); padding: 0.25rem; border-radius: 6px;">
-                <button class="btn-metric active" onclick="setHistTimeRange('24H')" id="btnHist24H">24H</button>
-                <button class="btn-metric" onclick="setHistTimeRange('7D')" id="btnHist7D">7D</button>
-                <button class="btn-metric" onclick="setHistTimeRange('30D')" id="btnHist30D">30D</button>
-                <button class="btn-metric" onclick="setHistTimeRange('1Y')" id="btnHist1Y">1Y</button>
-                <button class="btn-metric" onclick="setHistTimeRange('Custom')" id="btnHistCustom">Custom</button>
-              </div>
-            </div>
-
-            <!-- 2. Sensor Selection -->
-            <div>
-              <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">SENSOR NODE SELECTION</label>
-              <select class="shm-select" id="histSensorSelect" onchange="renderHistoryChart()">
-                <option value="ALL">ALL Bridge Sensors (Combined Stream)</option>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">PRIMARY METRIC</label>
+              <select id="histPrimaryMetricSelect" class="shm-select" onchange="updateHistoryChartUI()">
+                <option value="Force (kN)">Force (kN) — Stay Cable Tension</option>
+                <option value="Displacement (mm)">Displacement (mm) — Expansion Joint</option>
+                <option value="Strain (µε)">Strain (µε) — Deck Girder Rosette</option>
               </select>
             </div>
 
-            <!-- 3. Primary Metric Axis (Left Y-Axis) -->
             <div>
-              <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">PRIMARY METRIC AXIS (LEFT Y-AXIS)</label>
-              <select class="shm-select" id="histPrimaryMetric" onchange="onHistPrimaryChange()">
-                <option value="Force (kN)">Force (kN)</option>
-                <option value="Strain (µε)">Strain (µε)</option>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">SENSOR SELECTION</label>
+              <select id="histSensorSelect" class="shm-select" onchange="updateHistoryChartUI()">
+                <option value="All Matching Nodes">All Matching Nodes (Multi-Plot)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">SECONDARY METRIC (DUAL AXIS)</label>
+              <select id="histSecondaryMetricSelect" class="shm-select" onchange="updateHistoryChartUI()">
+                <option value="Single Metric View">Single Metric View</option>
                 <option value="Displacement (mm)">Displacement (mm)</option>
-                <option value="Stress (MPa)">Stress (MPa)</option>
-                <option value="Humidity (%)">Humidity (%)</option>
-                <option value="Ambient Temperature (°C)">Ambient Temperature (°C)</option>
-              </select>
-            </div>
-
-            <!-- 4. Secondary Metric Overlay (Right Y-Axis) -->
-            <div>
-              <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">SECONDARY METRIC OVERLAY (RIGHT Y-AXIS)</label>
-              <select class="shm-select" id="histSecondaryMetric" onchange="renderHistoryChart()">
-                <option value="Single Metric View">Single Metric View (No overlay)</option>
-                <option value="Ambient Temperature (°C)">Ambient Temperature (°C)</option>
                 <option value="Strain (µε)">Strain (µε)</option>
-                <option value="Stress (MPa)">Stress (MPa)</option>
                 <option value="Force (kN)">Force (kN)</option>
-                <option value="Displacement (mm)">Displacement (mm)</option>
-                <option value="Humidity (%)">Humidity (%)</option>
               </select>
             </div>
-          </div>
 
-          <!-- Custom DateTime Picker Container -->
-          <div id="histCustomDateContainer" style="display: none; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px dashed var(--card-border); gap: 1rem; align-items: center;">
-            <span style="font-size: 0.8rem; color: var(--text-muted);">📅 Start Date & Time:</span>
-            <input type="datetime-local" id="histCustomStart" class="shm-input font-mono" style="width: auto;" value="2026-08-01T00:00">
-            <span style="font-size: 0.8rem; color: var(--text-muted);">End Date & Time:</span>
-            <input type="datetime-local" id="histCustomEnd" class="shm-input font-mono" style="width: auto;" value="2026-08-09T23:59">
+            <div style="display: flex; gap: 0.5rem;">
+              <button onclick="handleExportSelectedData()" class="btn-cyan" style="width: 100%;">
+                📊 Export Selected Data (.xlsx/.csv)
+              </button>
+            </div>
+
           </div>
         </div>
 
-        <!-- Main Visualizer Chart Card -->
-        <div class="shm-card" style="padding: 1.5rem;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
-            <div>
-              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main);" id="histChartHeaderTitle">
-                Time-Series Dual Axis Overlay (24H)
-              </h3>
-              <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem;" id="histChartHeaderSub">
-                Left Y-Axis: <strong style="color: var(--accent-cyan);" id="histSubPri">Force (kN)</strong>
-                <span id="histSubSecWrap" style="display: none;"> | Right Y-Axis: <strong style="color: var(--amber-warning);" id="histSubSec">Single Metric View</strong></span>
-              </p>
-            </div>
+        <!-- Historical Canvas Plot -->
+        <div class="shm-card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2 style="font-size: 1.1rem; font-weight: 700;" id="histChartTitle">Historical Multi-Sensor Telemetry Analysis</h2>
+            <span class="badge badge-cyan font-mono" id="histDataCountBadge">0 Historical Data Points</span>
           </div>
 
-          <div style="width: 100%; height: 380px; position: relative; overflow: hidden; border-radius: 8px; box-sizing: border-box;">
-            <canvas id="histCanvasChart" style="width: 100%; height: 100%; display: block;"></canvas>
+          <div style="position: relative; height: 350px; width: 100%;">
+            <canvas id="histChartCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
           </div>
 
-          <!-- Bottom Legend Container -->
-          <div id="histChartLegendContainer" style="display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; align-items: center; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--card-border); font-size: 0.8rem;"></div>
+          <div id="histChartLegend" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--card-border); display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.8rem;">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
 
-      </section>
+        <!-- Statistical Analysis Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="shm-card" style="padding: 1rem;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">PERIOD MEAN (AVERAGE)</div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent-cyan);" class="font-mono" id="statMean">--</div>
+          </div>
+          <div class="shm-card" style="padding: 1rem;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">PEAK MAXIMUM</div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: var(--coral-critical);" class="font-mono" id="statMax">--</div>
+          </div>
+          <div class="shm-card" style="padding: 1rem;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">MINIMUM READING</div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: var(--emerald-green);" class="font-mono" id="statMin">--</div>
+          </div>
+          <div class="shm-card" style="padding: 1rem;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">SAMPLE COUNT</div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: var(--amber-warning);" class="font-mono" id="statCount">0</div>
+          </div>
+        </div>
 
-      <!-- PAGE 3: SENSORS DIRECTORY & CUSTOM EXPORT TOOL (SensorsDirectoryPage.tsx 1:1 Replica) -->
-      <section id="page-sensors" style="display: none; flex-direction: column; gap: 1.25rem;">
+      </div>
+
+      <!-- PAGE 3: SENSORS DIRECTORY -->
+      <div id="page-sensors" style="display: none;" class="animate-fadeIn">
         
-        <div class="shm-card" style="padding: 1.25rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <!-- Controls Bar -->
+        <div class="shm-card" style="padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; align-items: flex-end;">
+            
             <div>
-              <div style="display: flex; align-items: center; gap: 0.6rem;">
-                <span style="color: var(--accent-cyan); font-size: 1.2rem;">💾</span>
-                <h1 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">
-                  Sensor Node Directory & Device Health
-                </h1>
-              </div>
-              <p style="color: var(--text-muted); font-size: 0.825rem; margin-top: 0.2rem;">
-                Hardware Pin Mapping Registry, DAQ Bus Channels & Custom Telemetry Data Exporter.
-              </p>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">SEARCH QUERY</label>
+              <input type="text" id="dirSearchInput" class="shm-input" placeholder="Search ID, name, bus..." oninput="renderSensorsTableUI()">
             </div>
 
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <div style="display: flex; gap: 0.5rem;">
-                <span class="badge badge-cyan" id="dirTotalBadge">TOTAL: 4</span>
-                <span class="badge badge-green" id="dirOnlineBadge">ONLINE: 0</span>
-                <span class="badge badge-yellow" id="dirDiscBadge">DISC: 0</span>
-                <span class="badge badge-red" id="dirWarnBadge">WARN/CRIT: 0</span>
-              </div>
+            <div>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">STATUS FILTER</label>
+              <select id="dirStatusFilter" class="shm-select" onchange="renderSensorsTableUI()">
+                <option value="All">All Statuses</option>
+                <option value="online">Online Only</option>
+                <option value="disconnected">Disconnected</option>
+                <option value="offline">Offline</option>
+              </select>
+            </div>
 
+            <div>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">SUBSYSTEM LOCATION</label>
+              <select id="dirSubsystemFilter" class="shm-select" onchange="renderSensorsTableUI()">
+                <option value="All">All Subsystems</option>
+                <option value="Main Cable">Main Cable</option>
+                <option value="Expansion Joint">Expansion Joint</option>
+                <option value="Deck">Deck</option>
+                <option value="Pylon">Pylon</option>
+              </select>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
               <button onclick="openRegisterModal()" class="btn-cyan" id="btnDirRegister">
-                + Register Hardware Sensor
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Custom Excel (.xlsx) / CSV Data Export Tool -->
-        <div class="shm-card" style="padding: 1.25rem; background: var(--inner-box-bg); border-color: var(--card-border);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--accent-cyan); font-size: 1.1rem;">📊</span>
-              <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">
-                Custom Data Export Tool (.xlsx / .csv)
-              </h3>
-            </div>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">
-              Selected: <strong style="color: var(--accent-cyan);" id="selectedSensorsCountText">All Nodes</strong>
-            </span>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 1rem; align-items: center;">
-            <div>
-              <label style="display: block; font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.25rem; font-weight: 600;">
-                SELECT SPECIFIC SENSORS (MULTI-SELECT)
-              </label>
-              <button onclick="toggleSelectAllSensorsForExport()" class="btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.75rem; width: 100%; justify-content: center;" id="btnSelectAllExport">
-                Select All Hardware Nodes
+                ➕ Register New Node
               </button>
             </div>
 
-            <div>
-              <label style="display: block; font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.25rem; font-weight: 600;">
-                TIME INTERVAL SELECTION
-              </label>
-              <select class="shm-select" id="exportIntervalSelect" style="font-size: 0.8rem; padding: 0.4rem;">
-                <option value="1H">1 Hour Interval</option>
-                <option value="2H">2 Hours Interval</option>
-                <option value="12H">12 Hours Interval</option>
-                <option value="24H" selected>24 Hours Interval</option>
-                <option value="Custom">Custom Range</option>
-              </select>
-            </div>
-
-            <div>
-              <label style="display: block; font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.25rem; font-weight: 600;">
-                FILE FORMAT
-              </label>
-              <select class="shm-select" id="exportFormatSelect" style="font-size: 0.8rem; padding: 0.4rem;">
-                <option value="xlsx">Excel Workbook (.xlsx)</option>
-                <option value="csv">Comma-Separated (.csv)</option>
-              </select>
-            </div>
-
-            <div style="display: flex; align-items: flex-end;">
-              <button onclick="handleExportSelectedData()" class="btn-cyan" style="font-size: 0.8rem; padding: 0.5rem 1rem;">
-                📥 Export Selected Sensor Data
-              </button>
-            </div>
           </div>
         </div>
 
-        <!-- Search & Filter Controls -->
-        <div class="shm-card" style="padding: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-          <div style="flex: 1; min-width: 220px;">
-            <input type="text" id="dirSearchInput" class="shm-input" placeholder="Search by Sensor ID, name, location, or bus pin..." oninput="renderSensorsTableUI()">
+        <!-- Sensors Directory Table Card -->
+        <div class="shm-card" style="padding: 1.25rem; overflow-x: auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2 style="font-size: 1.05rem; font-weight: 700;">Authoritative Sensor Hardware Registry</h2>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="font-size: 0.75rem; color: var(--text-muted);" id="selectedSensorsCountText">All Nodes</span>
+              <button onclick="toggleSelectAllSensorsForExport()" class="btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.65rem;">Select All</button>
+            </div>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Status:</span>
-            <select class="shm-select" id="dirStatusFilter" style="width: auto;" onchange="renderSensorsTableUI()">
-              <option value="All">All Statuses</option>
-              <option value="Online">Online Only</option>
-              <option value="Disconnected">Disconnected Only</option>
-              <option value="Offline">Offline Only</option>
-              <option value="Warning">Warning Only</option>
-            </select>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Subsystem:</span>
-            <select class="shm-select" id="dirSubsystemFilter" style="width: auto;" onchange="renderSensorsTableUI()">
-              <option value="All">All Subsystems</option>
-              <option value="Main Cable">Main Cable</option>
-              <option value="Deck">Deck</option>
-              <option value="Pylon">Pylon</option>
-              <option value="Expansion Joint">Expansion Joint</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Installed Sensors Data Table -->
-        <div class="shm-card" style="padding: 0; overflow: hidden;">
           <table class="shm-table">
             <thead>
               <tr>
-                <th style="width: 40px;">
-                  <input type="checkbox" id="chkSelectAllTable" onchange="toggleSelectAllSensorsForExport()">
-                </th>
+                <th style="width: 40px;"><input type="checkbox" onchange="toggleSelectAllSensorsForExport()"></th>
                 <th>Sensor ID</th>
-                <th>Name / Type</th>
-                <th>Subsystem Location</th>
-                <th>Hardware Bus / Pin</th>
-                <th>Current Value</th>
-                <th>Safety Threshold</th>
+                <th>Sensor Name & Type</th>
+                <th>Subsystem</th>
+                <th>Hardware Bus</th>
+                <th>Live Value</th>
+                <th>Safety Limit</th>
                 <th>Status</th>
                 <th style="text-align: right;" id="thAdminActions">Admin Actions</th>
               </tr>
             </thead>
             <tbody id="sensorsDirectoryTbody">
-              <!-- Dynamically Populated -->
+              <!-- Rendered dynamically -->
             </tbody>
           </table>
         </div>
 
-      </section>
+      </div>
 
-      <!-- PAGE 4: ALERTS & EVENTS (AlertsEventsPage.tsx 1:1 Replica) -->
-      <section id="page-alerts" style="display: none; flex-direction: column; gap: 1.25rem;">
+      <!-- PAGE 4: ALERTS & EVENTS -->
+      <div id="page-alerts" style="display: none;" class="animate-fadeIn">
         
-        <div class="shm-card" style="padding: 1.25rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 0.6rem;">
-                <span style="color: var(--coral-critical); font-size: 1.3rem;">🛡️</span>
-                <h1 style="font-size: 1.3rem; font-weight: 800; color: var(--text-main);">
-                  Structural Anomaly Triage & Event Log
-                </h1>
-              </div>
-              <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;">
-                Real-Time Hardware Rule-Based Alerts & Automated Connectivity Incident Resolution.
-              </p>
-            </div>
-
-            <div style="display: flex; gap: 0.5rem;">
-              <span class="badge badge-red font-mono" id="altUnackBadge">ACTIVE UNACKNOWLEDGED: 0</span>
-              <span class="badge badge-green font-mono" id="altResBadge">AUTO-RESOLVED: 0</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Auto-Resolution Explanation Banner -->
-        <div class="shm-card" style="padding: 1rem 1.25rem; background: var(--inner-box-bg); border-left: 4px solid var(--accent-cyan); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; font-size: 0.825rem;">
-          <div style="display: flex; align-items: center; gap: 0.65rem;">
-            <span style="color: var(--accent-cyan); font-size: 1.2rem;">⚡</span>
-            <div>
-              <strong style="color: var(--text-main); display: block;">AUTOMATED ALERT RESOLUTION & WIPEOUT SYSTEM (SECTION 19)</strong>
-              <span style="color: var(--text-muted);">Connectivity alerts for Arduino USB or offline sensors automatically resolve and wipe out from active triage as soon as valid live telemetry resumes.</span>
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span class="badge badge-red" id="altDaqStatusBadge">🔌 DAQ OFFLINE</span>
-            <span class="badge badge-cyan font-mono" id="altNodesOpBadge">NODES OPERATIONAL: 0 / 4</span>
-          </div>
-        </div>
-
         <!-- Filter Bar -->
-        <div class="shm-card" style="padding: 1rem; display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
-          <div style="font-size: 0.825rem; font-weight: 700; color: var(--text-muted);">ALERT FILTERS:</div>
-
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="font-size: 0.78rem; color: var(--text-muted);">Severity:</span>
-            <select class="shm-select" id="altSeverityFilter" style="width: auto;" onchange="renderAlertsListUI()">
-              <option value="All Severities">All Severities</option>
-              <option value="Critical Only">Critical Only</option>
-              <option value="Warning Only">Warning Only</option>
-              <option value="Watch Only">Watch Only</option>
-              <option value="Info / Routine">Info / Routine</option>
-            </select>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="font-size: 0.78rem; color: var(--text-muted);">Status:</span>
-            <select class="shm-select" id="altStatusFilter" style="width: auto;" onchange="renderAlertsListUI()">
-              <option value="All Statuses">All Statuses</option>
-              <option value="Unacknowledged">Unacknowledged Only</option>
-              <option value="Resolved">Resolved Only</option>
-            </select>
-          </div>
-        </div>
-
-        <div style="font-size: 0.75rem; color: var(--text-muted); padding: 0 0.5rem;">
-          * <strong>Strict Anomaly Policy:</strong> Anomaly & connectivity events are generated automatically by the hardware watchdog. Alerts automatically clear when serial packet streams resume.
-        </div>
-
-        <!-- Event Stream Cards List -->
-        <div id="alertsContainer" style="display: flex; flex-direction: column; gap: 1rem;">
-          <!-- Dynamically Populated -->
-        </div>
-
-      </section>
-
-      <!-- PAGE 5: SYSTEM ADMIN (SystemAdminPage.tsx 1:1 Replica) -->
-      <section id="page-admin" style="display: none; flex-direction: column; gap: 1.25rem; max-width: 1100px; margin: 0 auto;">
-        
-        <!-- Access Protection Screen for Non-Admin Persona -->
-        <div id="adminAccessDeniedCard" class="shm-card" style="display: none; padding: 3rem; text-align: center; border-color: var(--coral-critical);">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--coral-critical);">🔒</div>
-          <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
-            Access Denied — Administrator Credentials Required
-          </h2>
-          <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">
-            System Administration and Hardware DAQ configuration is restricted exclusively to certified Administrators.
-          </p>
-          <button onclick="switchPage('live')" class="btn-cyan">Return to Live Overview</button>
-        </div>
-
-        <!-- Admin Interface Container -->
-        <div id="adminContentContainer" style="display: flex; flex-direction: column; gap: 1.25rem;">
-          
-          <div class="shm-card" style="padding: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-              <div>
-                <div style="display: flex; align-items: center; gap: 0.6rem;">
-                  <span style="color: var(--accent-cyan); font-size: 1.3rem;">⚙️</span>
-                  <h1 style="font-size: 1.3rem; font-weight: 800; color: var(--text-main);">
-                    System Admin & Infrastructure Preferences
-                  </h1>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">
-                  Bridge Metadata, Hardware DAQ Acquisition, Sensor Types Default Limits & Audit Log.
-                </p>
-              </div>
-
-              <span class="badge badge-cyan">🛡️ ADMIN AUTHENTICATED</span>
+        <div class="shm-card" style="padding: 1.25rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">SEVERITY</label>
+              <select id="altSeverityFilter" class="shm-select" onchange="renderAlertsListUI()">
+                <option value="All Severities">All Severities</option>
+                <option value="Critical Only">Critical Only</option>
+                <option value="Warning Only">Warning Only</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">STATUS</label>
+              <select id="altStatusFilter" class="shm-select" onchange="renderAlertsListUI()">
+                <option value="All Statuses">All Statuses</option>
+                <option value="Unacknowledged">Unacknowledged</option>
+                <option value="Resolved">Resolved</option>
+              </select>
             </div>
           </div>
 
-          <!-- Sub-Tabs Navbar -->
-          <div class="shm-card" style="padding: 0.5rem 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <button class="btn-secondary" onclick="setAdminTab('bridge')" id="tabBtnBridge">🏢 Bridge Infrastructure</button>
-            <button class="btn-secondary" onclick="setAdminTab('daq')" id="tabBtnDaq">💻 Hardware Mode & DAQ</button>
-            <button class="btn-secondary" onclick="setAdminTab('users')" id="tabBtnUsers">👥 User Management</button>
-            <button class="btn-secondary" onclick="setAdminTab('types')" id="tabBtnTypes">💾 Sensor Types & Default Limits</button>
-            <button class="btn-secondary" onclick="setAdminTab('audit')" id="tabBtnAudit">📜 System Audit Log</button>
+          <span class="badge badge-red" id="altUnackBadge" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">
+            ACTIVE UNACKNOWLEDGED: 0
+          </span>
+        </div>
+
+        <!-- Alerts Cards Container -->
+        <div id="alertsContainer" style="display: flex; flex-direction: column; gap: 1rem;">
+          <!-- Rendered dynamically -->
+        </div>
+
+      </div>
+
+      <!-- PAGE 5: SYSTEM ADMIN -->
+      <div id="page-admin" style="display: none;" class="animate-fadeIn">
+        
+        <!-- Access Denied Alert if Non-Admin -->
+        <div id="adminAccessDeniedCard" class="shm-card" style="padding: 3rem; text-align: center; display: none;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--coral-critical); margin-bottom: 0.5rem;">Access Denied — Administrator Privileges Required</h2>
+          <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem;">System Admin configuration, hardware calibration, user management, and safety threshold editing are restricted to authorized administrators.</p>
+          <button onclick="switchPage('signin')" class="btn-cyan">Sign In as Administrator</button>
+        </div>
+
+        <!-- Admin Content Container -->
+        <div id="adminContentContainer" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          
+          <!-- Sub-Tab Header -->
+          <div class="shm-card" style="padding: 0.75rem 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button onclick="setAdminTab('bridge')" class="btn-secondary btn-cyan" id="tabBtnBridge">🌉 Bridge Metadata</button>
+            <button onclick="setAdminTab('daq')" class="btn-secondary" id="tabBtnDaq">⚡ Hardware & DAQ Settings</button>
+            <button onclick="setAdminTab('users')" class="btn-secondary" id="tabBtnUsers">👥 User Management</button>
+            <button onclick="setAdminTab('types')" class="btn-secondary" id="tabBtnTypes">📏 Sensor Types & Limits</button>
+            <button onclick="setAdminTab('audit')" class="btn-secondary" id="tabBtnAudit">📜 Audit Log</button>
           </div>
 
-          <!-- TAB 1: BRIDGE INFRASTRUCTURE -->
+          <!-- SUB-TAB 1: Bridge Infrastructure Parameters -->
           <div id="adminTabBridge" class="shm-card" style="padding: 1.5rem;">
-            <h2 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1.25rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.75rem;">
-              Bridge Infrastructure Parameters
-            </h2>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem;">Infrastructure Asset Parameters</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">BRIDGE NAME *</label>
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">BRIDGE NAME</label>
                 <input type="text" id="admBridgeName" class="shm-input" value="St. Lawrence Cable-Stayed Viaduct">
               </div>
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">BRIDGE CODE / ID *</label>
-                <input type="text" id="admBridgeCode" class="shm-input font-mono" value="SLV-SPAN-04B">
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">BRIDGE CODE</label>
+                <input type="text" id="admBridgeCode" class="shm-input" value="SLV-SPAN-04B">
               </div>
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">BRIDGE TYPE *</label>
-                <input type="text" id="admBridgeType" class="shm-input" value="Cable-Stayed Twin-Pylon Composite">
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">GEOGRAPHIC LOCATION</label>
+                <input type="text" id="admBridgeLocation" class="shm-input" value="45.4972° N, 73.5543° W (St. Lawrence River)">
               </div>
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">GEOGRAPHIC LOCATION *</label>
-                <input type="text" id="admLocation" class="shm-input" value="45.4972° N, 73.5543° W (St. Lawrence River)">
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">DESIGN LIFE (YEARS)</label>
+                <input type="number" id="admDesignLife" class="shm-input" value="100">
+              </div>
+              <div>
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">COMMISSION YEAR</label>
+                <input type="number" id="admCommissionYear" class="shm-input" value="2019">
+              </div>
+              <div>
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">ASSET OWNER</label>
+                <input type="text" id="admAssetOwner" class="shm-input" value="Federal Bridge Infrastructure Authority">
               </div>
             </div>
 
-            <div style="display: flex; justify-content: flex-end;">
-              <button onclick="saveBridgeParameters()" class="btn-cyan">💾 Save Infrastructure Parameters</button>
-            </div>
+            <button onclick="saveBridgeParameters()" class="btn-cyan">💾 Save Infrastructure Parameters</button>
           </div>
 
-          <!-- TAB 2: HARDWARE MODE & DAQ -->
-          <div id="adminTabDaq" class="shm-card" style="display: none; padding: 1.5rem;">
-            <h2 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1.25rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.75rem;">
-              Hardware DAQ Acquisition Parameters & Endpoints
-            </h2>
-
-            <div style="background: var(--inner-box-bg); padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid var(--card-border);">
-              <label style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); display: block; margin-bottom: 0.5rem;">
-                🔗 GOOGLE APPS SCRIPT WEB APP ENDPOINT URL
-              </label>
-
-              <div style="display: flex; gap: 0.75rem; align-items: center;">
-                <input type="text" id="adminEndpointInput" class="shm-input font-mono" placeholder="https://script.google.com/macros/s/.../exec">
-                <button onclick="testAdminAppsScriptConn()" class="btn-secondary" style="white-space: nowrap;">📡 Test Connection</button>
+          <!-- SUB-TAB 2: Hardware & DAQ Settings -->
+          <div id="adminTabDaq" class="shm-card" style="padding: 1.5rem; display: none;">
+            <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem;">Hardware DAQ & Cloud Communication Parameters</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
+              <div>
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">SERIAL BAUD RATE</label>
+                <select id="admBaudRate" class="shm-select">
+                  <option value="115200">115200 Baud (High Speed Arduino)</option>
+                  <option value="9600">9600 Baud</option>
+                  <option value="57600">57600 Baud</option>
+                </select>
               </div>
-              <div id="adminConnStatusText" style="font-size: 0.78rem; color: var(--emerald-green); margin-top: 0.5rem; font-weight: 600;"></div>
+              <div>
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">DAQ SAMPLING RATE</label>
+                <select id="admSamplingRate" class="shm-select">
+                  <option value="100 Hz (High Fidelity)">100 Hz (High Fidelity)</option>
+                  <option value="50 Hz">50 Hz</option>
+                  <option value="10 Hz">10 Hz</option>
+                </select>
+              </div>
+              <div style="grid-column: span 2;">
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">GOOGLE APPS SCRIPT WEB APP ENDPOINT URL</label>
+                <input type="text" id="adminEndpointInput" class="shm-input font-mono" style="font-size: 0.8rem;">
+              </div>
             </div>
 
-            <div style="display: flex; justify-content: flex-end;">
-              <button onclick="saveAdminEndpoint()" class="btn-cyan">💾 Save DAQ Preferences</button>
+            <div style="display: flex; gap: 0.75rem;">
+              <button onclick="saveAdminEndpoint()" class="btn-cyan">💾 Save Endpoint URL</button>
+              <button onclick="testAdminAppsScriptConn()" class="btn-secondary">📡 Test Cloud Connection</button>
             </div>
+            
+            <div id="adminConnStatusText" style="margin-top: 1rem; font-size: 0.825rem; color: var(--accent-cyan); font-weight: 600;"></div>
           </div>
 
-          <!-- TAB 3: USER MANAGEMENT -->
-          <div id="adminTabUsers" class="shm-card" style="display: none; padding: 0; overflow: hidden;">
+          <!-- SUB-TAB 3: User Management -->
+          <div id="adminTabUsers" class="shm-card" style="padding: 1.5rem; display: none;">
+            <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem;">Persistent User Accounts & Role Permissions</h2>
+            
             <table class="shm-table">
               <thead>
                 <tr>
-                  <th>User</th>
-                  <th>Email</th>
-                  <th>Org / Dept</th>
+                  <th>User Full Name</th>
+                  <th>Email Identifier</th>
+                  <th>Organization & Dept</th>
                   <th>Role</th>
-                  <th>Status</th>
-                  <th style="text-align: right;">Actions</th>
+                  <th>Account Status</th>
+                  <th style="text-align: right;">Action</th>
                 </tr>
               </thead>
               <tbody id="adminUsersTbody">
-                <!-- Dynamically Populated -->
+                <!-- Rendered dynamically -->
               </tbody>
             </table>
           </div>
 
-          <!-- TAB 4: SENSOR TYPES & DEFAULT LIMITS -->
-          <div id="adminTabTypes" class="shm-card" style="display: none; padding: 1.5rem;">
-            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">Configured Sensor Types & Default Safety Limits</h3>
+          <!-- SUB-TAB 4: Sensor Types & Safety Limits -->
+          <div id="adminTabTypes" class="shm-card" style="padding: 1.5rem; display: none;">
+            <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem;">Sensor Types & Default Safety Threshold Envelopes</h2>
+            
             <table class="shm-table">
               <thead>
                 <tr>
                   <th>Type ID</th>
-                  <th>Name</th>
-                  <th>Unit</th>
+                  <th>Type Description</th>
+                  <th>Engineering Unit</th>
                   <th>Default Safety Threshold Limit</th>
-                  <th style="text-align: right;">Admin Modify Limit</th>
+                  <th style="text-align: right;">Action</th>
                 </tr>
               </thead>
               <tbody id="sensorTypesTbody">
-                <!-- Dynamically Populated -->
+                <!-- Rendered dynamically -->
               </tbody>
             </table>
           </div>
 
-          <!-- TAB 5: SYSTEM AUDIT LOG -->
-          <div id="adminTabAudit" class="shm-card" style="display: none; padding: 0; overflow: hidden;">
+          <!-- SUB-TAB 5: Audit Log -->
+          <div id="adminTabAudit" class="shm-card" style="padding: 1.5rem; display: none;">
+            <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem;">Chronological Security & Operational Audit Log</h2>
+            
             <table class="shm-table">
               <thead>
                 <tr>
                   <th>Timestamp</th>
-                  <th>Actor</th>
-                  <th>Action</th>
-                  <th>Details</th>
+                  <th>Actor Person</th>
+                  <th>Action Category</th>
+                  <th>Operational Details</th>
                 </tr>
               </thead>
               <tbody id="auditLogTbody">
-                <!-- Dynamically Populated -->
+                <!-- Rendered dynamically -->
               </tbody>
             </table>
           </div>
 
         </div>
 
-      </section>
+      </div>
 
-      <!-- PAGE 6: SIGN IN / PERSONA & ACCOUNT REGISTRATION (SignInPage.tsx 1:1 Replica) -->
-      <section id="page-signin" style="display: none; flex-direction: column; gap: 1.25rem; max-width: 850px; margin: 0 auto;">
-        
-        <div class="shm-card" style="padding: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 0.6rem;">
-                <span style="color: var(--accent-cyan); font-size: 1.3rem;">🛡️</span>
-                <h1 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">
-                  BridgeAI Authentication & Security Center
-                </h1>
-              </div>
-              <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">
-                Enterprise Infrastructure Gateway with Strict Role-Based Access Control (RBAC).
-              </p>
+      <!-- PAGE 6: AUTHENTICATION (SIGN IN / SIGN UP) -->
+      <div id="page-signin" style="display: none;" class="animate-fadeIn">
+        <div style="max-width: 480px; margin: 2rem auto;">
+          <div class="shm-card" style="padding: 2rem;">
+            
+            <!-- Auth Tab Buttons -->
+            <div style="display: flex; border-bottom: 1px solid var(--card-border); margin-bottom: 1.5rem;">
+              <button onclick="setAuthTab('signin')" class="btn-metric active" id="tabBtnSignIn" style="flex: 1; padding: 0.75rem; font-size: 0.9rem; border-bottom: 2px solid var(--accent-cyan); border-radius: 0;">Sign In</button>
+              <button onclick="setAuthTab('signup')" class="btn-metric" id="tabBtnSignUp" style="flex: 1; padding: 0.75rem; font-size: 0.9rem; border-bottom: 2px solid transparent; border-radius: 0;">Create Account</button>
             </div>
 
-            <div style="display: flex; gap: 0.5rem;">
-              <span class="badge badge-green">PRODUCTION AUTHENTICATION</span>
-              <span class="badge badge-cyan">SECURE 256-BIT JWT</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="background: var(--accent-cyan-glow); border: 1px solid var(--accent-cyan); border-radius: 8px; padding: 0.85rem 1.15rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.825rem; color: var(--text-main);">
-          <span style="color: var(--accent-cyan); font-size: 1.2rem;">ℹ️</span>
-          <div>
-            <strong style="color: var(--accent-cyan);">Role-Based Infrastructure Access:</strong> Please sign in with your registered account credentials or create a new engineer account below.
-          </div>
-        </div>
-
-        <div class="shm-card" style="padding: 2rem;">
-          
-          <!-- Auth Tabs -->
-          <div style="display: flex; border-bottom: 1px solid var(--card-border); margin-bottom: 1.75rem;">
-            <button onclick="setAuthTab('signin')" id="tabBtnSignIn" style="padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.95rem; background: none; border: none; border-bottom: 2px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer;">
-              🔒 Sign In
-            </button>
-
-            <button onclick="setAuthTab('signup')" id="tabBtnSignUp" style="padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.95rem; background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-muted); cursor: pointer;">
-              👤 Create Account (Sign Up)
-            </button>
-          </div>
-
-          <div id="authMessageBanner" style="display: none; padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1.25rem; font-size: 0.85rem;"></div>
-
-          <!-- SIGN IN FORM -->
-          <form id="formSignIn" onsubmit="handleSignInSubmit(event)" style="display: flex; flex-direction: column; gap: 1.25rem;">
-            <div>
-              <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.4rem;">EMAIL ADDRESS *</label>
-              <input type="email" id="txtSignInEmail" class="shm-input font-mono" placeholder="user@example.com" value="admin@example.com" required>
-            </div>
-
-            <div>
-              <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.4rem;">PASSWORD *</label>
-              <input type="password" id="txtSignInPassword" class="shm-input font-mono" placeholder="••••••••••••" value="admin123" required>
-            </div>
-
-            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem;">
-              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted);">
-                <input type="checkbox" checked style="accent-color: var(--accent-cyan);"> Remember Me
-              </label>
-              <a href="#forgot" onclick="alert('Password reset link sent to your registered email.')" style="color: var(--accent-cyan); text-decoration: none;">Forgot Password?</a>
-            </div>
-
-            <button type="submit" class="btn-cyan" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 0.95rem; margin-top: 0.5rem;">
-              SIGN IN TO SYSTEM
-            </button>
-          </form>
-
-          <!-- CREATE ACCOUNT (SIGN UP) FORM -->
-          <form id="formSignUp" onsubmit="handleSignUpSubmit(event)" style="display: none; flex-direction: column; gap: 1.25rem;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <!-- Form 1: Sign In -->
+            <form id="formSignIn" onsubmit="handleSignInSubmit(event)" style="display: flex; flex-direction: column; gap: 1.25rem;">
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">FULL NAME *</label>
-                <input type="text" id="txtSignUpName" class="shm-input" placeholder="Dr. Eleanor Vance" required>
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">EMAIL ADDRESS</label>
+                <input type="email" id="txtSignInEmail" class="shm-input" value="admin@example.com" required>
               </div>
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">EMAIL ADDRESS *</label>
-                <input type="email" id="txtSignUpEmail" class="shm-input font-mono" placeholder="eleanor.vance@infrastructure.org" required>
+                <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">PASSWORD</label>
+                <input type="password" id="txtSignInPassword" class="shm-input" value="Admin123!" required>
               </div>
-              <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">ORGANIZATION / INSTITUTION</label>
-                <input type="text" id="txtSignUpOrg" class="shm-input" placeholder="National Structural Research Lab">
-              </div>
-              <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">DEPARTMENT</label>
-                <input type="text" id="txtSignUpDept" class="shm-input" placeholder="Bridge Instrumentation">
-              </div>
+              <button type="submit" class="btn-cyan" style="justify-content: center; padding: 0.75rem;">Sign In to SCADA System</button>
+            </form>
 
-              <!-- Country Selection -->
+            <!-- Form 2: Sign Up -->
+            <form id="formSignUp" onsubmit="handleSignUpSubmit(event)" style="display: none; flex-direction: column; gap: 1rem;">
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">🌐 COUNTRY *</label>
-                <select id="selSignUpCountry" class="shm-select" onchange="onSignUpCountryChange()" required>
-                  <option value="United States">🇺🇸 United States (+1)</option>
-                  <option value="India">🇮🇳 India (+91)</option>
-                  <option value="Canada">🇨🇦 Canada (+1)</option>
-                  <option value="United Kingdom">🇬🇧 United Kingdom (+44)</option>
-                  <option value="Germany">🇩🇪 Germany (+49)</option>
-                  <option value="Japan">🇯🇵 Japan (+81)</option>
-                </select>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">FULL NAME</label>
+                <input type="text" id="txtSignUpName" class="shm-input" required>
               </div>
-
-              <!-- Synced Phone Calling Code -->
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">📞 PHONE NUMBER *</label>
-                <div style="display: flex; gap: 0.5rem;">
-                  <select id="selSignUpDialCode" class="shm-select font-mono" style="width: 120px; font-weight: 700; color: var(--accent-cyan);" onchange="onSignUpDialCodeChange()">
-                    <option value="+1">+1</option>
-                    <option value="+91">+91</option>
-                    <option value="+44">+44</option>
-                    <option value="+49">+49</option>
-                    <option value="+81">+81</option>
-                  </select>
-                  <input type="text" id="txtSignUpPhone" class="shm-input font-mono" placeholder="555-0149" required>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">EMAIL ADDRESS</label>
+                <input type="email" id="txtSignUpEmail" class="shm-input" required>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">ORGANIZATION</label>
+                  <input type="text" id="txtSignUpOrg" class="shm-input">
+                </div>
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">DEPARTMENT</label>
+                  <input type="text" id="txtSignUpDept" class="shm-input">
                 </div>
               </div>
-
-              <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">PASSWORD *</label>
-                <input type="password" id="txtSignUpPassword" class="shm-input font-mono" placeholder="••••••••••••" oninput="validateSignUpPassword()" required>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">COUNTRY</label>
+                  <select id="selSignUpCountry" class="shm-select" onchange="onSignUpCountryChange()">
+                    <option value="United States">United States</option>
+                    <option value="India">India</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Japan">Japan</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">DIAL CODE</label>
+                  <select id="selSignUpDialCode" class="shm-select" onchange="onSignUpDialCodeChange()">
+                    <option value="+1">+1 (US)</option>
+                    <option value="+91">+91 (IN)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+49">+49 (DE)</option>
+                    <option value="+81">+81 (JP)</option>
+                  </select>
+                </div>
               </div>
               <div>
-                <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted);">CONFIRM PASSWORD *</label>
-                <input type="password" id="txtSignUpConfirmPassword" class="shm-input font-mono" placeholder="••••••••••••" oninput="validateSignUpPassword()" required>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">PHONE NUMBER</label>
+                <input type="text" id="txtSignUpPhone" class="shm-input" required>
               </div>
-            </div>
-
-            <!-- Real-Time Password Validation Checklist -->
-            <div style="background: var(--inner-box-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
-              <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.6rem;">
-                REAL-TIME PASSWORD VALIDATION CHECKLIST
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">PASSWORD</label>
+                <input type="password" id="txtSignUpPassword" class="shm-input" oninput="validateSignUpPassword()" required>
+              </div>
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">CONFIRM PASSWORD</label>
+                <input type="password" id="txtSignUpConfirmPassword" class="shm-input" oninput="validateSignUpPassword()" required>
+              </div>
+              
+              <!-- Password Validator Feedback -->
+              <div style="font-size: 0.72rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem;" class="font-mono">
+                <span id="chkPwdLen">❌ At least 8 characters</span>
+                <span id="chkPwdUpper">❌ 1 Uppercase letter (A-Z)</span>
+                <span id="chkPwdLower">❌ 1 Lowercase letter (a-z)</span>
+                <span id="chkPwdNum">❌ 1 Number (0-9)</span>
+                <span id="chkPwdSpecial">❌ 1 Special character (!@#$%^&*)</span>
+                <span id="chkPwdMatch">❌ Passwords match</span>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.8rem;">
-                <div id="chkPwdLen" style="color: var(--text-muted);">❌ At least 8 characters</div>
-                <div id="chkPwdUpper" style="color: var(--text-muted);">❌ 1 Uppercase letter (A-Z)</div>
-                <div id="chkPwdLower" style="color: var(--text-muted);">❌ 1 Lowercase letter (a-z)</div>
-                <div id="chkPwdNum" style="color: var(--text-muted);">❌ 1 Number (0-9)</div>
-                <div id="chkPwdSpecial" style="color: var(--text-muted);">❌ 1 Special character (!@#$%^&*)</div>
-                <div id="chkPwdMatch" style="color: var(--text-muted);">❌ Passwords match</div>
-              </div>
-            </div>
+              <button type="submit" id="btnRegisterSubmit" class="btn-cyan" style="justify-content: center; padding: 0.75rem;" disabled>Complete Registration</button>
+            </form>
 
-            <button type="submit" class="btn-cyan" id="btnRegisterSubmit" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 0.95rem; margin-top: 1rem;" disabled>
-              REGISTER ACCOUNT
-            </button>
-          </form>
-
+          </div>
         </div>
-
-      </section>
+      </div>
 
     </main>
-
   </div>
 
-  <!-- REGISTER HARDWARE SENSOR MODAL (RegisterSensorModal.tsx 1:1 Replica) -->
-  <div id="registerModal" style="display: none; position: fixed; inset: 0; background: rgba(11, 18, 32, 0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 9999; padding: 1rem;">
-    <div class="shm-card animate-scaleIn" style="width: 100%; max-width: 540px; padding: 1.75rem; background: var(--card-bg);">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
-        <div style="display: flex; align-items: center; gap: 0.6rem;">
-          <span style="color: var(--accent-cyan); font-size: 1.3rem;">💾</span>
-          <h2 style="font-size: 1.15rem; font-weight: 700;">Register Hardware Sensor</h2>
-        </div>
-        <button onclick="closeRegisterModal()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem;">✖</button>
+  <!-- MODAL: REGISTER NEW SENSOR NODE -->
+  <div id="registerModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div class="shm-card animate-scaleIn" style="width: 100%; max-width: 520px; padding: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.15rem; font-weight: 700;">Register Hardware Sensor Node</h2>
+        <button onclick="closeRegisterModal()" style="background: none; border: none; color: var(--text-muted); font-size: 1.25rem; cursor: pointer;">✕</button>
       </div>
 
       <form onsubmit="handleRegisterModalSubmit(event)" style="display: flex; flex-direction: column; gap: 1rem;">
         <div>
-          <label style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">SENSOR NODE IDENTIFIER (ID) *</label>
-          <input type="text" id="modSensorId" class="shm-input font-mono" placeholder="e.g. FORCE-03" value="FORCE-03" required>
+          <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">SENSOR ID (EXACT ARDUINO CHANNEL)</label>
+          <input type="text" id="modSensorId" class="shm-input font-mono" placeholder="e.g. FORCE-01, DISPLACEMENT-02" required>
         </div>
-
         <div>
-          <label style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">SENSOR DISPLAY NAME *</label>
-          <input type="text" id="modSensorName" class="shm-input" placeholder="e.g. North Span Anchor Cable Tension Sensor" value="North Span Anchor Cable Tension Sensor" required>
+          <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">SENSOR DESCRIPTIVE NAME</label>
+          <input type="text" id="modSensorName" class="shm-input" placeholder="e.g. Stay Cable T1 Load Cell" required>
         </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
           <div>
-            <label style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">SENSOR TYPE *</label>
+            <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">SENSOR TYPE</label>
             <select id="modSensorType" class="shm-select" onchange="onModSensorTypeChange()">
-              <option value="force">Load / Force (kN)</option>
-              <option value="displacement">Displacement (mm)</option>
-              <option value="strain">Strain (µε)</option>
-              <option value="stress">Stress (MPa)</option>
-              <option value="temperature">Temperature (°C)</option>
-              <option value="humidity">Humidity (%)</option>
+              <option value="force">force (kN)</option>
+              <option value="displacement">displacement (mm)</option>
+              <option value="strain">strain (µε)</option>
+              <option value="stress">stress (MPa)</option>
+              <option value="temperature">temperature (°C)</option>
+              <option value="humidity">humidity (%)</option>
             </select>
           </div>
-
           <div>
-            <label style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">SUBSYSTEM LOCATION *</label>
+            <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">SUBSYSTEM</label>
             <select id="modSubsystem" class="shm-select">
               <option value="Main Cable">Main Cable</option>
+              <option value="Expansion Joint">Expansion Joint</option>
               <option value="Deck">Deck</option>
               <option value="Pylon">Pylon</option>
-              <option value="Expansion Joint">Expansion Joint</option>
             </select>
           </div>
         </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
           <div>
-            <label style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">HARDWARE BUS / PIN MAPPING *</label>
-            <input type="text" id="modHardwareBus" class="shm-input font-mono" placeholder="e.g. Arduino Pin A6" value="Arduino Pin A6" required>
+            <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">HARDWARE BUS</label>
+            <input type="text" id="modHardwareBus" class="shm-input" value="Arduino Pin A0" required>
           </div>
-
           <div>
-            <label style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">SAFETY THRESHOLD (<span id="modUnitLabel">kN</span>) *</label>
-            <input type="number" step="any" id="modThreshold" class="shm-input font-mono" value="5000" required>
+            <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">SAFETY THRESHOLD (<span id="modUnitLabel">kN</span>)</label>
+            <input type="number" id="modThreshold" class="shm-input" value="5000" required>
           </div>
         </div>
 
         <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem;">
           <button type="button" onclick="closeRegisterModal()" class="btn-secondary">Cancel</button>
-          <button type="submit" class="btn-cyan">➕ Save Hardware Node</button>
+          <button type="submit" class="btn-cyan">Register Node</button>
         </div>
       </form>
     </div>
   </div>
 
+  <!-- JAVASCRIPT SCADA APPLICATION LOGIC -->
   <script>
-    // State Management (SHMContext & AuthContext Equivalents)
-    const DEFAULT_ENDPOINT = "https://script.google.com/macros/s/AKfycbxcRoP455oy9W7SAwEwO5mu9lGJLaJg2DvL2W2gz2a39g7qzWK5Y42BmJ8MEpx-8COY9w/exec";
-    
-    let appScriptUrl = localStorage.getItem("SHM_APPS_SCRIPT_URL");
-    if (!appScriptUrl || appScriptUrl.includes("AKfycbRtl6R0") || appScriptUrl.includes("YOUR_DEPLOYMENT_ID")) {
-      appScriptUrl = DEFAULT_ENDPOINT;
-      localStorage.setItem("SHM_APPS_SCRIPT_URL", DEFAULT_ENDPOINT);
-    }
+    // Configuration & Backend URL
+    let appScriptUrl = localStorage.getItem("SHM_APPS_SCRIPT_URL") || "https://script.google.com/macros/s/AKfycbxcRoP455oy9W7SAwEwO5mu9lGJLaJg2DvL2W2gz2a39g7qzWK5Y42BmJ8MEpx-8COY9w/exec";
 
-    let currentUser = {
-      fullName: "System Admin",
-      email: "admin@example.com",
-      role: "admin"
-    };
-
+    // Application Global State
     let dashboardData = {
       isDaqOnline: false,
       sensors: [],
-      recentEntries: [],
       alerts: [],
-      inventoryCounts: { totalSensors: 4, onlineSensors: 0, disconnectedSensors: 0, offlineSensors: 4 }
+      recentEntries: [],
+      groupedStats: {},
+      inventoryCounts: { totalSensors: 0, onlineSensors: 0, disconnectedSensors: 0, offlineSensors: 0 },
+      settings: {}
     };
 
-    let historyEntriesBuffer = [];
+    let currentUser = JSON.parse(localStorage.getItem("SHM_CURRENT_USER") || '{"fullName":"System Admin","email":"admin@example.com","role":"admin"}');
+    let registeredUsersList = [];
+    let sensorTypesList = [];
+    let auditLogList = [];
     let selectedExportSensors = [];
-    let activeLiveMetric = 'force';
-    let selectedHistTimeRange = '24H';
-    let isFetching = false;
-    let theme = "dark";
+    let historyEntriesBuffer = [];
+    let activeTab = 'live';
+    let liveMetric = 'force';
 
-    // System Sensor Types & Default Thresholds
-    let sensorTypesList = [
-      { id: 'force', name: 'Load / Force', unit: 'kN', defaultThreshold: 5000 },
-      { id: 'displacement', name: 'Displacement', unit: 'mm', defaultThreshold: 150 },
-      { id: 'strain', name: 'Strain', unit: 'µε', defaultThreshold: 1000 },
-      { id: 'stress', name: 'Stress', unit: 'MPa', defaultThreshold: 350 },
-      { id: 'temperature', name: 'Ambient Temperature', unit: '°C', defaultThreshold: 45 },
-      { id: 'humidity', name: 'Relative Humidity', unit: '%', defaultThreshold: 90 },
-    ];
+    const COLOR_PALETTE = ['#00B4D8', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899', '#3B82F6', '#14B8A6'];
 
-    let auditLogList = [
-      { id: 'aud_01', timestamp: new Date().toISOString(), actor: 'System Admin', actorEmail: 'admin@example.com', action: 'System Initialization', details: 'Bridge AI SHM System initialized with Google Apps Script live data pipeline.' }
-    ];
-
-    let registeredUsersList = [
-      { id: 'usr_01', fullName: 'System Admin', email: 'admin@example.com', country: 'United States', phoneNumber: '+1 555-0192', organization: 'Infrastructure Authority', department: 'SHM Operations', role: 'admin', isActive: true }
-    ];
-
-    function toggleTheme() {
-      theme = theme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", theme);
-      document.getElementById("themeIcon").innerText = theme === "dark" ? "🌙" : "☀️";
-    }
-
-    function switchPage(pageId) {
-      ['live', 'analytics', 'sensors', 'alerts', 'admin', 'signin'].forEach(p => {
-        const elem = document.getElementById(`page-${p}`);
-        const nav = document.getElementById(`nav-${p}`);
-        if (elem) elem.style.display = p === pageId ? 'flex' : 'none';
-        if (nav) {
-          if (p === pageId) nav.classList.add('active'); else nav.classList.remove('active');
-        }
-      });
-
-      if (pageId === 'analytics') {
-        fetchHistoricalData();
-      } else if (pageId === 'admin') {
-        renderAdminPageUI();
-      } else if (pageId === 'sensors') {
-        renderSensorsTableUI();
-      } else if (pageId === 'alerts') {
-        renderAlertsListUI();
+    // RPC Action Dispatcher to Code.gs Backend
+    async function postRpc(action, payload = {}) {
+      if (!appScriptUrl) return { ok: false, error: { message: 'Apps Script URL not set.' } };
+      try {
+        const bodyData = JSON.stringify({ action, ...payload });
+        const res = await fetch(appScriptUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: bodyData
+        });
+        const data = await res.json();
+        return data;
+      } catch (err) {
+        console.error(`[RPC Error] Action ${action} failed:`, err);
+        return { ok: false, error: { message: err.toString() } };
       }
     }
 
-    // High-Performance Polling Engine (<1.2s live cadence)
+    // High Cadence Telemetry Poller
     async function fetchTelemetryData(forceSync = false) {
-      if (!appScriptUrl || appScriptUrl.includes("YOUR_DEPLOYMENT_ID")) return;
-
-      if (isFetching && !forceSync) return;
-      isFetching = true;
-
+      if (!appScriptUrl) return;
       try {
-        const url = `${appScriptUrl}?action=getDashboardData&t=${Date.now()}`;
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2500);
-
-        const res = await fetch(url, { signal: controller.signal });
-        clearTimeout(timeoutId);
-
-        if (!res.ok) throw new Error("HTTP error " + res.status);
-        const data = await res.json();
-
-        if (data && data.status === "OK") {
-          dashboardData = data;
-          updateDashboardUI();
+        const res = await fetch(`${appScriptUrl}?action=getDashboardData&t=${Date.now()}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.status === 'OK') {
+            dashboardData = data;
+            updateDashboardUI();
+          }
         }
       } catch (err) {
-        if (err.name !== 'AbortError') {
-          console.warn("Apps Script API fetch warning:", err);
-        }
-      } finally {
-        isFetching = false;
+        console.warn('[Poller] Connection timeout reading Apps Script state:', err);
       }
     }
 
-    function updateDashboardUI() {
-      const isOnline = dashboardData.isDaqOnline;
-      
-      document.getElementById("hdrDaqStatusBadge").className = isOnline ? "badge badge-green" : "badge badge-red";
-      document.getElementById("hdrDaqStatusBadge").innerText = isOnline ? "● DAQ ONLINE" : "● DAQ STANDBY";
-      document.getElementById("daqOfflineBanner").style.display = isOnline ? "none" : "flex";
-
-      document.getElementById("hdrLastPacketText").innerText = dashboardData.lastPacketTime ? `Last packet: ${dashboardData.lastPacketTime}` : "(Last packet: --)";
-      document.getElementById("hdrSeqBadge").innerText = dashboardData.lastSequenceNum !== null && dashboardData.lastSequenceNum !== undefined ? `SEQ:${dashboardData.lastSequenceNum}` : "SEQ:--";
-      
-      const counts = dashboardData.inventoryCounts || { totalSensors: 4, onlineSensors: 0, disconnectedSensors: 0, offlineSensors: 4 };
-      document.getElementById("hdrNodesBadge").innerText = `📡 NODES (Total:${counts.totalSensors} | Online:${counts.onlineSensors} | Disc:${counts.disconnectedSensors})`;
-
-      // Render Group Cards
-      renderGroupStats("force", dashboardData.groupedStats ? dashboardData.groupedStats.force : null);
-      renderGroupStats("disp", dashboardData.groupedStats ? dashboardData.groupedStats.displacement : null);
-      renderGroupStats("strain", dashboardData.groupedStats ? dashboardData.groupedStats.strain : null);
-
-      // Render Live Canvas Chart
-      renderLiveChart(dashboardData.recentEntries || []);
-
-      // Synchronize live incoming packets with historical buffer
-      if (Array.isArray(dashboardData.recentEntries) && dashboardData.recentEntries.length > 0) {
-        syncHistoryEntriesWithLiveStream(dashboardData.recentEntries);
-      }
-
-      // Re-render Historical Analytics Chart live if analytics tab is visible
-      const analyticsPage = document.getElementById("page-analytics");
-      if (analyticsPage && analyticsPage.style.display !== "none") {
-        renderHistoryChart();
+    // Theme Toggle
+    function toggleTheme() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        document.getElementById("themeIcon").innerText = "🌙";
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.getElementById("themeIcon").innerText = "☀️";
       }
     }
 
-    function syncHistoryEntriesWithLiveStream(recentEntries) {
-      if (!Array.isArray(recentEntries) || recentEntries.length === 0) return;
-      
-      const existingMap = new Map();
-      (historyEntriesBuffer || []).forEach((e, idx) => {
-        const key = (e.seq !== undefined && e.seq !== null) ? `seq_${e.seq}` : (e.timestamp ? `t_${e.timestamp}` : `idx_${idx}`);
-        existingMap.set(key, e);
-      });
-
-      recentEntries.forEach((e, idx) => {
-        const key = (e.seq !== undefined && e.seq !== null) ? `seq_${e.seq}` : (e.timestamp ? `t_${e.timestamp}` : `rec_${idx}`);
-        existingMap.set(key, e);
-      });
-
-      historyEntriesBuffer = Array.from(existingMap.values()).sort((a, b) => {
-        if (a.seq !== undefined && b.seq !== undefined && a.seq !== null && b.seq !== null) {
-          return Number(a.seq) - Number(b.seq);
-        }
-        const tA = a.timestamp ? new Date(a.timestamp).getTime() : 0;
-        const tB = b.timestamp ? new Date(b.timestamp).getTime() : 0;
-        return tA - tB;
-      });
-
-      if (historyEntriesBuffer.length > 500) {
-        historyEntriesBuffer = historyEntriesBuffer.slice(-500);
-      }
-    }
-
-    function renderGroupStats(prefix, stats) {
-      if (!stats) return;
-      document.getElementById(`${prefix}GroupBadge`).className = stats.isInstantLive ? "badge badge-green" : "badge badge-yellow";
-      document.getElementById(`${prefix}GroupBadge`).innerText = stats.isInstantLive ? `${stats.activeCount}/${stats.totalCount} ONLINE` : "STANDBY (LAST DATA)";
-
-      document.getElementById(`${prefix}AvgVal`).innerText = stats.avg !== null && stats.avg !== undefined ? stats.avg.toFixed(1) : "—";
-      document.getElementById(`${prefix}MaxVal`).innerText = stats.max !== null && stats.max !== undefined ? stats.max.toFixed(1) : "—";
-      document.getElementById(`${prefix}MinVal`).innerText = stats.min !== null && stats.min !== undefined ? stats.min.toFixed(1) : "—";
-    }
-
-    function setLiveChartMetric(m) {
-      activeLiveMetric = m;
-      ['Force', 'Stress', 'Strain', 'Disp', 'Humidity', 'Temp'].forEach(k => {
-        const btn = document.getElementById(`btnMetric${k}`);
+    // Page Switcher
+    function switchPage(pageId) {
+      activeTab = pageId;
+      ['live', 'history', 'sensors', 'alerts', 'admin', 'signin'].forEach(p => {
+        const elem = document.getElementById(`page-${p}`);
+        const btn = document.getElementById(`nav-${p}`);
+        if (elem) elem.style.display = p === pageId ? 'block' : 'none';
         if (btn) {
-          if (k.toLowerCase() === m.substr(0, 3).toLowerCase()) btn.classList.add('active');
-          else btn.classList.remove('active');
+          if (p === pageId) btn.classList.add('active'); else btn.classList.remove('active');
         }
       });
-      renderLiveChart(dashboardData.recentEntries || []);
+
+      if (pageId === 'history') fetchHistoryData();
+      if (pageId === 'admin') fetchAdminLists();
+      if (pageId === 'alerts') renderAlertsListUI();
+      if (pageId === 'sensors') renderSensorsTableUI();
     }
 
-    function renderLiveChart(entries) {
-      const canvas = document.getElementById("liveCanvasChart");
-      const emptyState = document.getElementById("liveChartEmptyState");
+    // Fetch Historical Analytics Data
+    async function fetchHistoryData() {
+      if (!appScriptUrl) return;
+      try {
+        const res = await fetch(`${appScriptUrl}?action=getHistory&t=${Date.now()}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.entries) {
+            historyEntriesBuffer = data.entries;
+            updateHistoryChartUI();
+          }
+        }
+      } catch (e) {}
+    }
+
+    // Fetch Admin Lists (Users, Sensor Types, Audit Log)
+    async function fetchAdminLists() {
+      if (!appScriptUrl || currentUser.role !== 'admin') return;
+      try {
+        const [usersRes, typesRes, auditRes] = await Promise.all([
+          fetch(`${appScriptUrl}?action=getUsers&t=${Date.now()}`),
+          fetch(`${appScriptUrl}?action=getSensorTypes&t=${Date.now()}`),
+          fetch(`${appScriptUrl}?action=getAuditLog&t=${Date.now()}`)
+        ]);
+        if (usersRes.ok) { const d = await usersRes.json(); registeredUsersList = d.users || []; }
+        if (typesRes.ok) { const d = await typesRes.json(); sensorTypesList = d.sensorTypes || []; }
+        if (auditRes.ok) { const d = await auditRes.json(); auditLogList = d.auditLog || []; }
+        renderAdminPageUI();
+      } catch (e) {}
+    }
+
+    // Global UI Sync Engine
+    function updateDashboardUI() {
+      // 1. Header Updates
+      if (dashboardData.settings && dashboardData.settings.bridgeName) {
+        document.getElementById("hdrBridgeTitle").innerHTML = `${dashboardData.settings.bridgeName} <span class="font-mono" style="color: var(--text-muted); font-size: 0.85rem; font-weight: 400;">(${dashboardData.settings.bridgeCode || 'SLV-SPAN-04B'})</span>`;
+      }
+
+      const daqBadge = document.getElementById("hdrDaqStatusBadge");
+      if (daqBadge) {
+        daqBadge.className = dashboardData.isDaqOnline ? "badge badge-green" : "badge badge-red";
+        daqBadge.innerText = dashboardData.isDaqOnline ? "● DAQ ONLINE" : "● DAQ OFFLINE";
+      }
+
+      if (dashboardData.lastPacketTime) {
+        document.getElementById("hdrLastPacketText").innerText = `(Last packet: ${new Date(dashboardData.lastPacketTime).toLocaleTimeString()})`;
+      }
+
+      if (dashboardData.lastSequenceNum !== undefined && dashboardData.lastSequenceNum !== null) {
+        document.getElementById("hdrSeqBadge").innerText = `SEQ:${dashboardData.lastSequenceNum}`;
+      }
+
+      const inv = dashboardData.inventoryCounts || {};
+      document.getElementById("hdrNodesBadge").innerText = `📡 NODES (Total:${inv.totalSensors || 0} | Online:${inv.onlineSensors || 0} | Disc:${inv.disconnectedSensors || 0})`;
+
+      // 2. Group Statistics Cards (Live Overview)
+      const gs = dashboardData.groupedStats || {};
+      
+      const forceStat = gs.force || {};
+      document.getElementById("cardForceAvg").innerText = forceStat.avg !== null && forceStat.avg !== undefined ? `${forceStat.avg.toFixed(1)} kN` : '-- kN';
+      document.getElementById("cardForceMax").innerText = forceStat.max !== null && forceStat.max !== undefined ? `${forceStat.max.toFixed(1)} kN` : '--';
+      document.getElementById("cardForceMin").innerText = forceStat.min !== null && forceStat.min !== undefined ? `${forceStat.min.toFixed(1)} kN` : '--';
+      document.getElementById("cardForceCount").innerText = `${forceStat.activeCount || 0}/${forceStat.totalCount || 0} Active`;
+
+      const dispStat = gs.displacement || {};
+      document.getElementById("cardDispAvg").innerText = dispStat.avg !== null && dispStat.avg !== undefined ? `${dispStat.avg.toFixed(1)} mm` : '-- mm';
+      document.getElementById("cardDispMax").innerText = dispStat.max !== null && dispStat.max !== undefined ? `${dispStat.max.toFixed(1)} mm` : '--';
+      document.getElementById("cardDispMin").innerText = dispStat.min !== null && dispStat.min !== undefined ? `${dispStat.min.toFixed(1)} mm` : '--';
+      document.getElementById("cardDispCount").innerText = `${dispStat.activeCount || 0}/${dispStat.totalCount || 0} Active`;
+
+      const strainStat = gs.strain || {};
+      document.getElementById("cardStrainAvg").innerText = strainStat.avg !== null && strainStat.avg !== undefined ? `${strainStat.avg.toFixed(1)} µε` : '-- µε';
+      document.getElementById("cardStrainMax").innerText = strainStat.max !== null && strainStat.max !== undefined ? `${strainStat.max.toFixed(1)} µε` : '--';
+      document.getElementById("cardStrainMin").innerText = strainStat.min !== null && strainStat.min !== undefined ? `${strainStat.min.toFixed(1)} µε` : '--';
+      document.getElementById("cardStrainCount").innerText = `${strainStat.activeCount || 0}/${strainStat.totalCount || 0} Active`;
+
+      document.getElementById("cardInventoryTotal").innerText = `${inv.totalSensors || 0} NODES`;
+      document.getElementById("cardInvOnline").innerText = inv.onlineSensors || 0;
+      document.getElementById("cardInvDisc").innerText = inv.disconnectedSensors || 0;
+      document.getElementById("cardInvOff").innerText = inv.offlineSensors || 0;
+
+      // 3. Render Multi-Sensor Live Nodes Grid
+      renderLiveSensorsGridUI();
+
+      // 4. Render Live Multi-Sensor Canvas Chart
+      renderLiveMultiChartUI();
+
+      // 5. Render Active Alerts Widget on Live Overview & Notifications Badges
+      renderLiveActiveAlertsWidgetUI();
+
+      // 6. Refresh active page views
+      if (activeTab === 'sensors') renderSensorsTableUI();
+      if (activeTab === 'alerts') renderAlertsListUI();
+    }
+
+    // Page 1: Multi-Sensor Live Nodes Grid
+    function renderLiveSensorsGridUI() {
+      const grid = document.getElementById("liveSensorsGrid");
+      if (!grid) return;
+
+      const sensors = dashboardData.sensors || [];
+      document.getElementById("liveNodesCountBadge").innerText = `${sensors.length} Active Channels`;
+
+      if (sensors.length === 0) {
+        grid.innerHTML = `<div class="shm-card" style="padding: 2rem; grid-column: 1 / -1; text-align: center; color: var(--text-muted);">No hardware sensor nodes registered. Use Sensors Directory to add hardware channels.</div>`;
+        return;
+      }
+
+      grid.innerHTML = sensors.map(s => {
+        const isOnline = s.status === 'online' && dashboardData.isDaqOnline;
+        const valDisplay = isOnline && s.currentValue !== null && s.currentValue !== undefined
+          ? `<span style="color: ${s.currentValue >= s.threshold ? 'var(--coral-critical)' : 'var(--emerald-green)'}">${s.currentValue.toFixed(1)} ${s.unit}</span>`
+          : `<span style="color: var(--text-muted);">—</span>`;
+
+        const badgeClass = s.status === 'online' ? 'badge-green' : s.status === 'disconnected' ? 'badge-yellow' : 'badge-red';
+
+        return `
+          <div class="shm-card shm-card-glow" style="padding: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <div>
+                <span class="font-mono" style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan);">${s.id}</span>
+                <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-top: 0.1rem;">${s.name}</h4>
+              </div>
+              <span class="badge ${badgeClass}">● ${s.status.toUpperCase()}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.75rem;">
+              <div style="font-size: 1.4rem; font-weight: 800;" class="font-mono">${valDisplay}</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);" class="font-mono">LIMIT: ${s.threshold} ${s.unit}</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem; padding-top: 0.4rem; border-top: 1px solid var(--card-border);">
+              <span>${s.subsystem}</span>
+              <span class="font-mono">${s.hardwareBus}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Set Live Metric Tab
+    function setLiveMetric(metric) {
+      liveMetric = metric;
+      ['Force', 'Disp', 'Strain'].forEach(m => {
+        const btn = document.getElementById(`btnLiveMetric${m}`);
+        if (btn) {
+          if (m.toLowerCase() === metric.toLowerCase() || (m === 'Disp' && metric === 'displacement')) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        }
+      });
+      renderLiveMultiChartUI();
+    }
+
+    // Page 1: Multi-Sensor Live Canvas Chart Plotter
+    function renderLiveMultiChartUI() {
+      const canvas = document.getElementById("liveChartCanvas");
+      const legendContainer = document.getElementById("liveChartLegend");
       if (!canvas) return;
 
-      const isOnline = dashboardData.isDaqOnline && entries && entries.length > 0;
-      if (emptyState) {
-        emptyState.style.display = isOnline ? "none" : "flex";
-      }
-
       const ctx = canvas.getContext("2d");
-      const parent = canvas.parentElement;
-      const w = parent ? parent.clientWidth : 600;
-      const h = parent ? parent.clientHeight : 320;
       const dpr = window.devicePixelRatio || 1;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
+      canvas.width = canvas.parentElement.clientWidth * dpr;
+      canvas.height = canvas.parentElement.clientHeight * dpr;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (!isOnline) return;
 
-      const unitsMap = { force: 'kN', stress: 'MPa', strain: 'µε', displacement: 'mm', humidity: '%', temperature: '°C' };
-      const unit = unitsMap[activeLiveMetric] || '';
+      const entries = dashboardData.recentEntries || [];
+      const sensorsList = (dashboardData.sensors || []).filter(s => s.type === liveMetric);
 
-      const sensorKeysMap = {
-        force: ['FORCE-01', 'FORCE-02', 'FO-01'],
-        stress: ['STRESS-01', 'STRAIN-01'],
-        strain: ['STRAIN-01', 'STRAIN-02', 'HX-01'],
-        displacement: ['DISPLACEMENT-01', 'DISP-01'],
-        humidity: ['HUMIDITY-01', 'HUM-01'],
-        temperature: ['TEMPERATURE-01', 'TEMP-01']
-      };
-
-      const keys = sensorKeysMap[activeLiveMetric] || ['FORCE-01'];
-      const rawVals = entries.map(e => {
-        for (let k of keys) {
-          if (e[k] !== undefined && e[k] !== null && !isNaN(e[k])) return Number(e[k]);
-          if (e.readingsMap && e.readingsMap[k] !== undefined && e.readingsMap[k] !== null && !isNaN(e.readingsMap[k])) return Number(e.readingsMap[k]);
-        }
-        return 0;
-      });
+      if (entries.length < 2 || sensorsList.length === 0) {
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = `${13 * dpr}px 'Inter', sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText("Waiting for live multi-sensor hardware telemetry stream...", canvas.width / 2, canvas.height / 2);
+        return;
+      }
 
       const padLeft = 60 * dpr;
-      const padRight = 25 * dpr;
+      const padRight = 30 * dpr;
       const padTop = 30 * dpr;
       const padBottom = 40 * dpr;
-
       const chartW = canvas.width - padLeft - padRight;
       const chartH = canvas.height - padTop - padBottom;
 
-      const maxValRaw = Math.max(...rawVals, 10);
-      const minValRaw = Math.min(...rawVals, 0);
-      const maxVal = Math.ceil(maxValRaw * 1.15);
-      const minVal = Math.floor(minValRaw < 0 ? minValRaw * 1.15 : 0);
-      const valRange = Math.max(1, maxVal - minVal);
-
-      // Grid & Y Ticks
-      const steps = 4;
-      ctx.lineWidth = 1 * dpr;
-
-      for (let i = 0; i <= steps; i++) {
-        const y = padTop + (chartH / steps) * i;
-        const tickVal = maxVal - (valRange / steps) * i;
-
-        ctx.strokeStyle = "rgba(51, 65, 85, 0.6)";
-        ctx.setLineDash([4 * dpr, 4 * dpr]);
-        ctx.beginPath();
-        ctx.moveTo(padLeft, y);
-        ctx.lineTo(canvas.width - padRight, y);
-        ctx.stroke();
-
-        ctx.setLineDash([]);
-        ctx.fillStyle = "#94A3B8";
-        ctx.font = `${11 * dpr}px 'JetBrains Mono', monospace`;
-        ctx.textAlign = "right";
-        ctx.textBaseline = "middle";
-        ctx.fillText(tickVal.toFixed(1), padLeft - 10 * dpr, y);
-      }
-
-      ctx.fillStyle = "#00B4D8";
-      ctx.font = `bold ${11 * dpr}px 'JetBrains Mono', monospace`;
-      ctx.textAlign = "right";
-      ctx.fillText(`[${unit}]`, padLeft - 10 * dpr, padTop - 12 * dpr);
-
-      // X-Axis Timestamps
-      ctx.fillStyle = "#94A3B8";
-      ctx.font = `${10 * dpr}px 'Inter', sans-serif`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "top";
-
-      const numLabels = Math.min(6, entries.length);
-      const labelStep = Math.max(1, Math.floor(entries.length / numLabels));
-
-      entries.forEach((e, idx) => {
-        if (idx % labelStep === 0 || idx === entries.length - 1) {
-          const x = padLeft + (chartW / Math.max(1, entries.length - 1)) * idx;
-          const timeText = e.timeLabel || (e.timestamp ? e.timestamp.substr(11, 8) : '');
-          ctx.fillText(timeText, x, canvas.height - padBottom + 10 * dpr);
-
-          ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
-          ctx.beginPath();
-          ctx.moveTo(x, padTop);
-          ctx.lineTo(x, canvas.height - padBottom);
-          ctx.stroke();
-        }
-      });
-
-      // Area Fill
-      ctx.beginPath();
-      rawVals.forEach((val, idx) => {
-        const x = padLeft + (chartW / Math.max(1, rawVals.length - 1)) * idx;
-        const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
-        if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-      });
-      ctx.lineTo(padLeft + chartW, padTop + chartH);
-      ctx.lineTo(padLeft, padTop + chartH);
-      ctx.closePath();
-
-      const grad = ctx.createLinearGradient(0, padTop, 0, padTop + chartH);
-      grad.addColorStop(0, "rgba(0, 180, 216, 0.35)");
-      grad.addColorStop(1, "rgba(0, 180, 216, 0.0)");
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Line Plot
-      ctx.strokeStyle = "#00B4D8";
-      ctx.lineWidth = 2.8 * dpr;
-      ctx.beginPath();
-      rawVals.forEach((val, idx) => {
-        const x = padLeft + (chartW / Math.max(1, rawVals.length - 1)) * idx;
-        const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
-        if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-      });
-      ctx.stroke();
-
-      // Nodes
-      rawVals.forEach((val, idx) => {
-        const x = padLeft + (chartW / Math.max(1, rawVals.length - 1)) * idx;
-        const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
-        ctx.fillStyle = "#38BDF8";
-        ctx.beginPath();
-        ctx.arc(x, y, 4 * dpr, 0, Math.PI * 2);
-        ctx.fill();
-      });
-    }
-
-    // Historical Data Fetcher
-    async function fetchHistoricalData() {
-      if (!appScriptUrl || appScriptUrl.includes("YOUR_DEPLOYMENT_ID")) return;
-      try {
-        const url = `${appScriptUrl}?action=getHistory&t=${Date.now()}`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const data = await res.json();
-        if (data && data.status === "OK" && Array.isArray(data.entries)) {
-          syncHistoryEntriesWithLiveStream(data.entries);
-        }
-      } catch (err) {
-        console.warn("Failed fetching historical data:", err);
-      } finally {
-        populateHistoricalSensorDropdown();
-        renderHistoryChart();
-      }
-    }
-
-    function populateHistoricalSensorDropdown() {
-      const select = document.getElementById("histSensorSelect");
-      if (!select) return;
-      const currentVal = select.value || "ALL";
-      let html = `<option value="ALL">ALL Bridge Sensors (Combined Stream)</option>`;
-      if (dashboardData.sensors && dashboardData.sensors.length > 0) {
-        dashboardData.sensors.forEach(s => {
-          html += `<option value="${s.id}">${s.id} — ${s.name} (${s.subsystem})</option>`;
+      // Calculate min & max bounds across all matching sensors
+      let allVals = [];
+      entries.forEach(e => {
+        sensorsList.forEach(s => {
+          const val = e[s.id] !== undefined && e[s.id] !== null ? e[s.id] : (e.readingsMap ? e.readingsMap[s.id] : null);
+          if (val !== null && !isNaN(val)) allVals.push(val);
         });
-      }
-      select.innerHTML = html;
-      select.value = currentVal;
-    }
-
-    function setHistTimeRange(tr) {
-      selectedHistTimeRange = tr;
-      ['24H', '7D', '30D', '1Y', 'Custom'].forEach(t => {
-        const btn = document.getElementById(`btnHist${t}`);
-        if (btn) {
-          if (t === tr) btn.classList.add('active'); else btn.classList.remove('active');
-        }
       });
 
-      const dateContainer = document.getElementById("histCustomDateContainer");
-      if (dateContainer) {
-        dateContainer.style.display = (tr === 'Custom') ? "flex" : "none";
-      }
-      renderHistoryChart();
-    }
+      if (allVals.length === 0) allVals = [0, 100];
+      let minVal = Math.min(...allVals);
+      let maxVal = Math.max(...allVals);
+      if (minVal === maxVal) { minVal -= 10; maxVal += 10; }
+      const valRange = (maxVal - minVal) || 1;
 
-    function onHistPrimaryChange() {
-      const priSel = document.getElementById("histPrimaryMetric");
-      const secSel = document.getElementById("histSecondaryMetric");
-      if (priSel && secSel && priSel.value === secSel.value) {
-        secSel.value = "Single Metric View";
-      }
-      renderHistoryChart();
-    }
-
-    function renderHistoryChart() {
-      const canvas = document.getElementById("histCanvasChart");
-      if (!canvas) return;
-
-      const priMetric = document.getElementById("histPrimaryMetric") ? document.getElementById("histPrimaryMetric").value : "Force (kN)";
-      const secMetric = document.getElementById("histSecondaryMetric") ? document.getElementById("histSecondaryMetric").value : "Single Metric View";
-      const selectedSensor = document.getElementById("histSensorSelect") ? document.getElementById("histSensorSelect").value : "ALL";
-
-      const titleElem = document.getElementById("histChartHeaderTitle");
-      if (titleElem) titleElem.innerText = `Time-Series Dual Axis Overlay (${selectedHistTimeRange})`;
-
-      const subPri = document.getElementById("histSubPri");
-      if (subPri) subPri.innerText = priMetric;
-
-      const secWrap = document.getElementById("histSubSecWrap");
-      const subSec = document.getElementById("histSubSec");
-      if (secWrap && subSec) {
-        if (secMetric !== "Single Metric View") {
-          secWrap.style.display = "inline";
-          subSec.innerText = secMetric;
-        } else {
-          secWrap.style.display = "none";
-        }
-      }
-
-      const ctx = canvas.getContext("2d");
-      const parent = canvas.parentElement;
-      const w = parent ? parent.clientWidth : 800;
-      const h = parent ? parent.clientHeight : 380;
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const rawEntries = (historyEntriesBuffer && historyEntriesBuffer.length > 0)
-        ? historyEntriesBuffer
-        : (dashboardData.recentEntries || []);
-
-      const legendContainer = document.getElementById("histChartLegendContainer");
-
-      if (rawEntries.length === 0) {
-        ctx.fillStyle = "#94A3B8";
-        ctx.font = `${13 * dpr}px 'Inter', sans-serif`;
-        ctx.textAlign = "center";
-        ctx.fillText("No historical telemetry stream recorded in Google Sheets database.", canvas.width / 2, canvas.height / 2);
-        if (legendContainer) legendContainer.innerHTML = "";
-        return;
-      }
-
-      const getMetricKeys = (metricStr) => {
-        if (metricStr.includes('Force')) return ['FORCE-01', 'FORCE-02', 'FO-01'];
-        if (metricStr.includes('Displacement')) return ['DISPLACEMENT-01', 'DISP-01'];
-        if (metricStr.includes('Strain')) return ['STRAIN-01', 'STRAIN-02', 'HX-01'];
-        if (metricStr.includes('Stress')) return ['STRESS-01', 'STRAIN-01'];
-        if (metricStr.includes('Temperature')) return ['TEMP-01', 'TEMPERATURE-01'];
-        if (metricStr.includes('Humidity')) return ['HUMIDITY-01', 'HUM-01'];
-        return ['FORCE-01'];
-      };
-
-      const priKeys = (selectedSensor !== 'ALL') ? [selectedSensor] : getMetricKeys(priMetric);
-      const secKeys = (selectedSensor !== 'ALL') ? [selectedSensor] : (secMetric !== 'Single Metric View' ? getMetricKeys(secMetric) : []);
-
-      const extractVal = (entry, keys) => {
-        for (let k of keys) {
-          if (entry[k] !== undefined && entry[k] !== null && !isNaN(entry[k])) return Number(entry[k]);
-          if (entry.readingsMap && entry.readingsMap[k] !== undefined && entry.readingsMap[k] !== null && !isNaN(entry.readingsMap[k])) return Number(entry.readingsMap[k]);
-        }
-        return null;
-      };
-
-      const priVals = rawEntries.map(e => extractVal(e, priKeys)).filter(v => v !== null);
-      const secVals = (secMetric !== 'Single Metric View') ? rawEntries.map(e => extractVal(e, secKeys)).filter(v => v !== null) : [];
-
-      if (priVals.length === 0) {
-        ctx.fillStyle = "#94A3B8";
-        ctx.font = `${13 * dpr}px 'Inter', sans-serif`;
-        ctx.textAlign = "center";
-        ctx.fillText("No data matching current metric filters in historical database.", canvas.width / 2, canvas.height / 2);
-        if (legendContainer) legendContainer.innerHTML = "";
-        return;
-      }
-
-      const padLeft = 85 * dpr;
-      const padRight = (secMetric !== 'Single Metric View') ? 85 * dpr : 45 * dpr;
-      const padTop = 35 * dpr;
-      const padBottom = 50 * dpr;
-
-      const chartW = canvas.width - padLeft - padRight;
-      const chartH = canvas.height - padTop - padBottom;
-
-      const priMaxRaw = Math.max(...priVals, 10);
-      const priMinRaw = Math.min(...priVals, 0);
-      const priMax = Math.ceil(priMaxRaw * 1.15);
-      const priMin = Math.floor(priMinRaw < 0 ? priMinRaw * 1.15 : 0);
-      const priRange = Math.max(1, priMax - priMin);
-
-      let secMax = 100, secMin = 0, secRange = 100;
-      if (secVals.length > 0) {
-        const secMaxRaw = Math.max(...secVals, 10);
-        const secMinRaw = Math.min(...secVals, 0);
-        secMax = Math.ceil(secMaxRaw * 1.15);
-        secMin = Math.floor(secMinRaw < 0 ? secMinRaw * 1.15 : 0);
-        secRange = Math.max(1, secMax - secMin);
-      }
-
-      // Gridlines & Ticks
-      const steps = 4;
+      // Draw Gridlines
+      ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
       ctx.lineWidth = 1 * dpr;
+      const gridTicks = 4;
+      for (let i = 0; i <= gridTicks; i++) {
+        const y = padTop + (chartH / gridTicks) * i;
+        const tickVal = maxVal - (valRange / gridTicks) * i;
 
-      for (let i = 0; i <= steps; i++) {
-        const y = padTop + (chartH / steps) * i;
-        const tickVal = priMax - (priRange / steps) * i;
-
-        ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
-        ctx.setLineDash([4 * dpr, 4 * dpr]);
         ctx.beginPath();
         ctx.moveTo(padLeft, y);
         ctx.lineTo(canvas.width - padRight, y);
         ctx.stroke();
 
-        ctx.setLineDash([]);
-        ctx.fillStyle = "#00B4D8";
-        ctx.font = `${11 * dpr}px 'JetBrains Mono', monospace`;
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = `${10 * dpr}px 'JetBrains Mono', monospace`;
         ctx.textAlign = "right";
         ctx.textBaseline = "middle";
-        ctx.fillText(tickVal.toFixed(1), padLeft - 10 * dpr, y);
-
-        if (secMetric !== 'Single Metric View' && secVals.length > 0) {
-          const secTickVal = secMax - (secRange / steps) * i;
-          ctx.fillStyle = "#F59E0B";
-          ctx.textAlign = "left";
-          ctx.fillText(secTickVal.toFixed(1), canvas.width - padRight + 10 * dpr, y);
-        }
+        ctx.fillText(tickVal.toFixed(1), padLeft - 8 * dpr, y);
       }
 
-      // Vertical Labels
-      ctx.save();
-      ctx.translate(28 * dpr, padTop + chartH / 2);
-      ctx.rotate(-Math.PI / 2);
-      ctx.fillStyle = "#00B4D8";
-      ctx.font = `bold ${12 * dpr}px 'Inter', sans-serif`;
-      ctx.textAlign = "center";
-      ctx.fillText(priMetric, 0, 0);
-      ctx.restore();
-
-      if (secMetric !== 'Single Metric View') {
-        ctx.save();
-        ctx.translate(canvas.width - 25 * dpr, padTop + chartH / 2);
-        ctx.rotate(Math.PI / 2);
-        ctx.fillStyle = "#F59E0B";
-        ctx.font = `bold ${12 * dpr}px 'Inter', sans-serif`;
-        ctx.textAlign = "center";
-        ctx.fillText(secMetric, 0, 0);
-        ctx.restore();
-      }
-
-      // X-Axis Timestamps
-      ctx.fillStyle = "#94A3B8";
-      ctx.font = `${10 * dpr}px 'Inter', sans-serif`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "top";
-
-      const numLabels = Math.min(8, rawEntries.length);
-      const labelStep = Math.max(1, Math.floor(rawEntries.length / numLabels));
-
-      rawEntries.forEach((e, idx) => {
-        if (idx % labelStep === 0 || idx === rawEntries.length - 1) {
-          const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
-          const timeText = e.timeLabel || (e.timestamp ? e.timestamp.substr(11, 8) : '');
-          ctx.fillText(timeText, x, canvas.height - padBottom + 12 * dpr);
-
-          ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
-          ctx.beginPath();
-          ctx.moveTo(x, padTop);
-          ctx.lineTo(x, canvas.height - padBottom);
-          ctx.stroke();
+      // Draw X-Axis Timestamps
+      const step = Math.max(1, Math.floor(entries.length / 6));
+      entries.forEach((e, idx) => {
+        if (idx % step === 0 || idx === entries.length - 1) {
+          const x = padLeft + (chartW / (entries.length - 1)) * idx;
+          ctx.fillStyle = "#94A3B8";
+          ctx.font = `${10 * dpr}px 'Inter', sans-serif`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "top";
+          ctx.fillText(e.timeLabel || '', x, canvas.height - padBottom + 8 * dpr);
         }
       });
 
-      // Primary Metric Line Plot (Cyan)
-      ctx.setLineDash([]);
-      ctx.strokeStyle = "#00B4D8";
-      ctx.lineWidth = 3 * dpr;
-      ctx.beginPath();
-
-      rawEntries.forEach((e, idx) => {
-        const val = extractVal(e, priKeys);
-        if (val !== null) {
-          const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
-          const y = padTop + chartH - ((val - priMin) / priRange) * chartH;
-          if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-        }
-      });
-      ctx.stroke();
-
-      // Primary Points
-      rawEntries.forEach((e, idx) => {
-        const val = extractVal(e, priKeys);
-        if (val !== null) {
-          const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
-          const y = padTop + chartH - ((val - priMin) / priRange) * chartH;
-          ctx.fillStyle = "#38BDF8";
-          ctx.beginPath();
-          ctx.arc(x, y, 4 * dpr, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      });
-
-      // Secondary Metric Line Plot (Amber Dashed)
-      if (secMetric !== 'Single Metric View' && secVals.length > 0) {
-        ctx.strokeStyle = "#F59E0B";
+      // Plot multi-sensor lines
+      let legendHtml = '';
+      sensorsList.forEach((sensor, sIdx) => {
+        const color = COLOR_PALETTE[sIdx % COLOR_PALETTE.length];
+        ctx.strokeStyle = color;
         ctx.lineWidth = 2.5 * dpr;
-        ctx.setLineDash([6 * dpr, 4 * dpr]);
         ctx.beginPath();
 
-        rawEntries.forEach((e, idx) => {
-          const val = extractVal(e, secKeys);
-          if (val !== null) {
-            const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
-            const y = padTop + chartH - ((val - secMin) / secRange) * chartH;
+        entries.forEach((e, idx) => {
+          const val = e[sensor.id] !== undefined && e[sensor.id] !== null ? e[sensor.id] : (e.readingsMap ? e.readingsMap[sensor.id] : null);
+          if (val !== null && !isNaN(val)) {
+            const x = padLeft + (chartW / (entries.length - 1)) * idx;
+            const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
             if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
           }
         });
         ctx.stroke();
-        ctx.setLineDash([]);
 
-        // Secondary Points
-        rawEntries.forEach((e, idx) => {
-          const val = extractVal(e, secKeys);
-          if (val !== null) {
-            const x = padLeft + (chartW / Math.max(1, rawEntries.length - 1)) * idx;
-            const y = padTop + chartH - ((val - secMin) / secRange) * chartH;
-            ctx.fillStyle = "#F59E0B";
+        // Points
+        entries.forEach((e, idx) => {
+          const val = e[sensor.id] !== undefined && e[sensor.id] !== null ? e[sensor.id] : (e.readingsMap ? e.readingsMap[sensor.id] : null);
+          if (val !== null && !isNaN(val)) {
+            const x = padLeft + (chartW / (entries.length - 1)) * idx;
+            const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
+            ctx.fillStyle = color;
             ctx.beginPath();
             ctx.arc(x, y, 3.5 * dpr, 0, Math.PI * 2);
             ctx.fill();
           }
         });
-      }
 
-      // Legend
-      if (legendContainer) {
-        let legendHtml = `
+        const curVal = sensor.currentValue !== null && sensor.currentValue !== undefined && dashboardData.isDaqOnline ? `${sensor.currentValue.toFixed(1)} ${sensor.unit}` : '—';
+        legendHtml += `
           <div style="display: flex; align-items: center; gap: 0.4rem;">
-            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #00B4D8;"></span>
-            <span style="color: var(--text-main); font-weight: 600;">Main Stay Cable T1 Load Cell (${priMetric.split(' ')[0]}) — [Left Axis]</span>
+            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${color};"></span>
+            <span style="font-weight: 700; color: var(--text-main);">${sensor.id}:</span>
+            <span style="color: var(--text-muted);">${curVal}</span>
           </div>
         `;
-        if (secMetric !== 'Single Metric View') {
-          legendHtml += `
-            <div style="display: flex; align-items: center; gap: 0.4rem;">
-              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #F59E0B;"></span>
-              <span style="color: var(--text-main); font-weight: 600;">North Span Anchor Cable Tension Sensor (${secMetric.split(' ')[0]}) — [Right Axis]</span>
+      });
+
+      if (legendContainer) legendContainer.innerHTML = legendHtml;
+    }
+
+    // Page 1: Live Overview Active Alerts Widget
+    function renderLiveActiveAlertsWidgetUI() {
+      const widget = document.getElementById("liveActiveAlertsWidget");
+      if (!widget) return;
+
+      const alerts = dashboardData.alerts || [];
+      const unackAlerts = alerts.filter(a => a.status === 'Unacknowledged');
+
+      // Update Notifications Bell Badges
+      const count = unackAlerts.length;
+      document.getElementById("unreadAlertsBadge").innerText = count;
+      document.getElementById("sidebarAlertsBadge").innerText = count;
+      document.getElementById("sidebarAlertsBadge").style.display = count > 0 ? "inline-block" : "none";
+
+      if (unackAlerts.length === 0) {
+        widget.innerHTML = `<div class="shm-card" style="padding: 1.5rem; text-align: center; color: var(--text-muted);">✓ All structural telemetry parameters operating within AASHTO LRFD safety envelopes. No active unacknowledged anomalies.</div>`;
+        return;
+      }
+
+      widget.innerHTML = unackAlerts.map(a => `
+        <div class="shm-card" style="padding: 1rem 1.25rem; margin-bottom: 0.75rem; border-left: 4px solid ${a.severity === 'CRITICAL' ? 'var(--coral-critical)' : 'var(--amber-warning)'}; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <span class="badge ${a.severity === 'CRITICAL' ? 'badge-red' : 'badge-yellow'}">${a.severity}</span>
+              <span class="font-mono" style="font-weight: 700; color: var(--accent-cyan);">${a.sensorId}</span>
+              <strong style="font-size: 0.9rem;">${a.title}</strong>
             </div>
-          `;
-        }
-        legendContainer.innerHTML = legendHtml;
-      }
+            <div style="font-size: 0.8rem; color: var(--text-muted);">${a.description}</div>
+          </div>
+          <button onclick="acknowledgeAlertItem('${a.id}')" class="btn-cyan" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">✓ Mark Resolved</button>
+        </div>
+      `).join('');
     }
 
-    // Custom Data Export (.xlsx / .csv Engine with SheetJS)
-    function handleExportSelectedData() {
-      const rawEntries = (historyEntriesBuffer && historyEntriesBuffer.length > 0)
-        ? historyEntriesBuffer
-        : (dashboardData.recentEntries || []);
+    // Page 2: Historical Analytics Chart Plotter
+    function updateHistoryChartUI() {
+      const canvas = document.getElementById("histChartCanvas");
+      const legendContainer = document.getElementById("histChartLegend");
+      if (!canvas) return;
 
-      if (rawEntries.length === 0) {
-        alert("No telemetry stream records recorded for the selected interval.");
-        return;
-      }
+      const priMetric = document.getElementById("histPrimaryMetricSelect").value;
+      const sensorSel = document.getElementById("histSensorSelect").value;
+      const secMetric = document.getElementById("histSecondaryMetricSelect").value;
 
-      const sensorsList = (dashboardData.sensors && dashboardData.sensors.length > 0)
-        ? dashboardData.sensors
-        : [
-            { id: 'FORCE-01', unit: 'kN' },
-            { id: 'DISPLACEMENT-01', unit: 'mm' },
-            { id: 'STRAIN-01', unit: 'µε' }
-          ];
+      const metricType = priMetric.includes('Force') ? 'force' : priMetric.includes('Displacement') ? 'displacement' : 'strain';
+      const sensorsList = (dashboardData.sensors || []).filter(s => s.type === metricType);
 
-      const targetSensors = selectedExportSensors.length > 0 ? selectedExportSensors : sensorsList.map(s => s.id);
-      const interval = document.getElementById("exportIntervalSelect") ? document.getElementById("exportIntervalSelect").value : "24H";
-      const format = document.getElementById("exportFormatSelect") ? document.getElementById("exportFormatSelect").value : "xlsx";
-
-      const exportRows = rawEntries.map(dp => {
-        const row = {
-          Timestamp: dp.timestamp || '',
-          TimeLabel: dp.timeLabel || ''
-        };
-        targetSensors.forEach(id => {
-          const s = sensorsList.find(item => item.id === id);
-          const val = dp[id] !== undefined && dp[id] !== null ? dp[id] : (dp.readingsMap && dp.readingsMap[id] !== undefined ? dp.readingsMap[id] : 'N/A');
-          row[`${id} (${s ? s.unit : ''})`] = val;
+      // Populate Sensor Selector Dropdown options
+      const sensorSelectElem = document.getElementById("histSensorSelect");
+      if (sensorSelectElem) {
+        let optionsHtml = `<option value="All Matching Nodes">All Matching Nodes (Multi-Plot)</option>`;
+        sensorsList.forEach(s => {
+          optionsHtml += `<option value="${s.id}" ${sensorSel === s.id ? 'selected' : ''}>${s.id} — ${s.name}</option>`;
         });
-        return row;
-      });
-
-      if (format === 'xlsx' && typeof XLSX !== 'undefined') {
-        const worksheet = XLSX.utils.json_to_sheet(exportRows);
-        const workbook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(workbook, worksheet, 'SHM Telemetry Data');
-        XLSX.writeFile(workbook, `Bridge_SHM_Selected_Sensors_${interval}.xlsx`);
-      } else {
-        const headers = Object.keys(exportRows[0]).join(',');
-        const csvData = exportRows.map(r => Object.values(r).map(v => `"${v}"`).join(',')).join('\n');
-        const blob = new Blob([`${headers}\n${csvData}`], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `Bridge_SHM_Selected_Sensors_${interval}.csv`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        sensorSelectElem.innerHTML = optionsHtml;
       }
-    }
 
-    function toggleSelectAllSensorsForExport() {
-      const sensorsList = dashboardData.sensors || [];
-      if (selectedExportSensors.length === sensorsList.length) {
-        selectedExportSensors = [];
-      } else {
-        selectedExportSensors = sensorsList.map(s => s.id);
-      }
-      renderSensorsTableUI();
-    }
+      const rawEntries = historyEntriesBuffer.length > 0 ? historyEntriesBuffer : (dashboardData.recentEntries || []);
+      document.getElementById("histDataCountBadge").innerText = `${rawEntries.length} Historical Data Points`;
 
-    function exportHistoryCSV() {
-      const rawEntries = (historyEntriesBuffer && historyEntriesBuffer.length > 0)
-        ? historyEntriesBuffer
-        : (dashboardData.recentEntries || []);
+      const ctx = canvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.parentElement.clientWidth * dpr;
+      canvas.height = canvas.parentElement.clientHeight * dpr;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      if (rawEntries.length === 0) {
-        alert("No historical telemetry data available in Google Sheets to export.");
+      if (rawEntries.length < 2) {
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = `${13 * dpr}px 'Inter', sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText("No historical telemetry records logged in Google Sheets for this interval.", canvas.width / 2, canvas.height / 2);
         return;
       }
 
-      const sensorIds = (dashboardData.sensors && dashboardData.sensors.length > 0)
-        ? dashboardData.sensors.map(s => s.id)
-        : ['FORCE-01', 'DISPLACEMENT-01', 'STRAIN-01'];
+      const activePlotSensors = sensorSel === 'All Matching Nodes' ? sensorsList : sensorsList.filter(s => s.id === sensorSel);
 
-      const headers = ['Timestamp ISO', 'Time Label', 'Sequence Number', 'DAQ Status', ...sensorIds].join(',');
-      const rows = rawEntries.map(e => {
-        const vals = sensorIds.map(sId => e[sId] !== undefined && e[sId] !== null ? e[sId] : (e.readingsMap && e.readingsMap[sId] !== undefined ? e.readingsMap[sId] : ''));
-        return [`"${e.timestamp || ''}"`, `"${e.timeLabel || ''}"`, e.seq || 0, `"${e.daqStatus || 'ONLINE'}"`, ...vals].join(',');
+      const padLeft = 60 * dpr;
+      const padRight = 30 * dpr;
+      const padTop = 30 * dpr;
+      const padBottom = 40 * dpr;
+      const chartW = canvas.width - padLeft - padRight;
+      const chartH = canvas.height - padTop - padBottom;
+
+      let allVals = [];
+      rawEntries.forEach(e => {
+        activePlotSensors.forEach(s => {
+          const val = e[s.id] !== undefined && e[s.id] !== null ? e[s.id] : (e.readingsMap ? e.readingsMap[s.id] : null);
+          if (val !== null && !isNaN(val)) allVals.push(val);
+        });
       });
 
-      const csvContent = 'data:text/csv;charset=utf-8,' + [headers, ...rows].join('\n');
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement('a');
-      link.setAttribute('href', encodedUri);
-      link.setAttribute('download', `Bridge_SHM_Telemetry_Google_Sheets_Export_${Date.now()}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      if (allVals.length === 0) allVals = [0, 100];
+      const minVal = Math.min(...allVals);
+      const maxVal = Math.max(...allVals);
+      const valRange = (maxVal - minVal) || 1;
+
+      // Statistics calculation
+      const sum = allVals.reduce((a, b) => a + b, 0);
+      const mean = sum / allVals.length;
+      document.getElementById("statMean").innerText = `${mean.toFixed(1)} ${activePlotSensors[0] ? activePlotSensors[0].unit : ''}`;
+      document.getElementById("statMax").innerText = `${maxVal.toFixed(1)}`;
+      document.getElementById("statMin").innerText = `${minVal.toFixed(1)}`;
+      document.getElementById("statCount").innerText = allVals.length;
+
+      // Draw Gridlines
+      ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
+      ctx.lineWidth = 1 * dpr;
+      const ticks = 4;
+      for (let i = 0; i <= ticks; i++) {
+        const y = padTop + (chartH / ticks) * i;
+        const tickVal = maxVal - (valRange / ticks) * i;
+
+        ctx.beginPath();
+        ctx.moveTo(padLeft, y);
+        ctx.lineTo(canvas.width - padRight, y);
+        ctx.stroke();
+
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = `${10 * dpr}px 'JetBrains Mono', monospace`;
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        ctx.fillText(tickVal.toFixed(1), padLeft - 8 * dpr, y);
+      }
+
+      // X-Axis Timestamps
+      const step = Math.max(1, Math.floor(rawEntries.length / 6));
+      rawEntries.forEach((e, idx) => {
+        if (idx % step === 0 || idx === rawEntries.length - 1) {
+          const x = padLeft + (chartW / (rawEntries.length - 1)) * idx;
+          ctx.fillStyle = "#94A3B8";
+          ctx.font = `${10 * dpr}px 'Inter', sans-serif`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "top";
+          ctx.fillText(e.timeLabel || '', x, canvas.height - padBottom + 8 * dpr);
+        }
+      });
+
+      // Plot active lines
+      let legendHtml = '';
+      activePlotSensors.forEach((sensor, sIdx) => {
+        const color = COLOR_PALETTE[sIdx % COLOR_PALETTE.length];
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.5 * dpr;
+        ctx.beginPath();
+
+        rawEntries.forEach((e, idx) => {
+          const val = e[sensor.id] !== undefined && e[sensor.id] !== null ? e[sensor.id] : (e.readingsMap ? e.readingsMap[sensor.id] : null);
+          if (val !== null && !isNaN(val)) {
+            const x = padLeft + (chartW / (rawEntries.length - 1)) * idx;
+            const y = padTop + chartH - ((val - minVal) / valRange) * chartH;
+            if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+        });
+        ctx.stroke();
+
+        legendHtml += `
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${color};"></span>
+            <span style="font-weight: 700; color: var(--text-main);">${sensor.id}:</span>
+            <span style="color: var(--text-muted);">${sensor.name}</span>
+          </div>
+        `;
+      });
+
+      if (legendContainer) legendContainer.innerHTML = legendHtml;
     }
 
     // Page 3: Sensors Directory UI Renderer
@@ -2008,11 +1593,7 @@
       const statusFilter = document.getElementById("dirStatusFilter") ? document.getElementById("dirStatusFilter").value : "All";
       const subsystemFilter = document.getElementById("dirSubsystemFilter") ? document.getElementById("dirSubsystemFilter").value : "All";
 
-      const sensorsList = dashboardData.sensors && dashboardData.sensors.length > 0 ? dashboardData.sensors : [
-        { id: 'FORCE-01', name: 'Main Stay Cable T1 Load Cell', type: 'force', unit: 'kN', subsystem: 'Main Cable', hardwareBus: 'Arduino Pin A0', currentValue: 2500, threshold: 5000, status: 'online' },
-        { id: 'DISPLACEMENT-01', name: 'South Expansion Joint LVDT', type: 'displacement', unit: 'mm', subsystem: 'Expansion Joint', hardwareBus: 'Arduino Pin A1', currentValue: 75, threshold: 150, status: 'online' },
-        { id: 'STRAIN-01', name: 'Mid-Span Girder Strain Rosette', type: 'strain', unit: 'µε', subsystem: 'Deck', hardwareBus: 'Arduino Pin A2', currentValue: 500, threshold: 1000, status: 'online' }
-      ];
+      const sensorsList = dashboardData.sensors || [];
 
       const filtered = sensorsList.filter(s => {
         const matchesSearch = s.id.toLowerCase().includes(search) || s.name.toLowerCase().includes(search) || s.subsystem.toLowerCase().includes(search) || s.hardwareBus.toLowerCase().includes(search);
@@ -2031,7 +1612,7 @@
       }
 
       if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colSpan="${isAdmin ? 9 : 8}" style="text-align: center; padding: 3rem; color: var(--text-muted);">No sensor nodes match your search query or filters.</td></tr>`;
+        tbody.innerHTML = `<tr><td colSpan="${isAdmin ? 9 : 8}" style="text-align: center; padding: 3rem; color: var(--text-muted);">No sensor nodes match search query or filter settings.</td></tr>`;
         return;
       }
 
@@ -2068,10 +1649,14 @@
       renderSensorsTableUI();
     }
 
-    function removeSensorNode(id) {
-      if (confirm(`Are you sure you want to unregister hardware sensor ${id}?`)) {
-        dashboardData.sensors = (dashboardData.sensors || []).filter(s => s.id !== id);
-        renderSensorsTableUI();
+    async function removeSensorNode(id) {
+      if (confirm(`Are you sure you want to unregister hardware sensor node ${id}?`)) {
+        const res = await postRpc('removeSensor', { sensorId: id, actor: currentUser.fullName, actorEmail: currentUser.email });
+        if (res.ok) {
+          fetchTelemetryData(true);
+        } else {
+          alert(`Failed to remove sensor: ${res.error ? res.error.message : 'Error'}`);
+        }
       }
     }
 
@@ -2083,9 +1668,7 @@
       const severityFilter = document.getElementById("altSeverityFilter") ? document.getElementById("altSeverityFilter").value : "All Severities";
       const statusFilter = document.getElementById("altStatusFilter") ? document.getElementById("altStatusFilter").value : "All Statuses";
 
-      const alertsList = dashboardData.alerts && dashboardData.alerts.length > 0 ? dashboardData.alerts : [
-        { id: 'alt_01', severity: 'CRITICAL', sensorId: 'FORCE-01', sensorName: 'Main Stay Cable T1 Load Cell', subsystem: 'Main Cable', sourceBus: 'Arduino Pin A0', triggerValue: 5200, safetyThreshold: 5000, unit: 'kN', title: 'Cable Tension Exceedance Anomaly', description: 'Load cell reading exceeded 5000 kN AASHTO safety threshold envelope.', recommendedAction: 'Inspect pylon stay cable anchorages & check load cell calibration.', timestamp: new Date().toISOString(), status: 'Unacknowledged' }
-      ];
+      const alertsList = dashboardData.alerts || [];
 
       const filtered = alertsList.filter(a => {
         const matchesSev = severityFilter === 'All Severities' || (severityFilter === 'Critical Only' && a.severity === 'CRITICAL') || (severityFilter === 'Warning Only' && a.severity === 'WARNING');
@@ -2095,9 +1678,6 @@
 
       const unackCount = alertsList.filter(a => a.status === 'Unacknowledged').length;
       document.getElementById("altUnackBadge").innerText = `ACTIVE UNACKNOWLEDGED: ${unackCount}`;
-      document.getElementById("unreadAlertsBadge").innerText = unackCount;
-      document.getElementById("sidebarAlertsBadge").innerText = unackCount;
-      document.getElementById("sidebarAlertsBadge").style.display = unackCount > 0 ? "inline-block" : "none";
 
       if (filtered.length === 0) {
         container.innerHTML = `<div class="shm-card" style="padding: 3rem; text-align: center; color: var(--text-muted);">No active structural anomalies or hardware disconnection alerts recorded matching filter criteria.</div>`;
@@ -2126,15 +1706,16 @@
       `).join('');
     }
 
-    function acknowledgeAlertItem(id) {
-      if (dashboardData.alerts) {
-        const item = dashboardData.alerts.find(a => a.id === id);
-        if (item) item.status = 'Resolved';
+    async function acknowledgeAlertItem(id) {
+      const res = await postRpc('acknowledgeAlert', { alertId: id });
+      if (res.ok) {
+        fetchTelemetryData(true);
+      } else {
+        alert(`Failed to acknowledge alert: ${res.error ? res.error.message : 'Error'}`);
       }
-      renderAlertsListUI();
     }
 
-    // Page 5: System Admin UI Renderer & Sub-Tabs
+    // Page 5: System Admin Renderer
     function renderAdminPageUI() {
       const isAdmin = currentUser.role === 'admin';
       document.getElementById("adminAccessDeniedCard").style.display = isAdmin ? "none" : "block";
@@ -2144,18 +1725,27 @@
 
       document.getElementById("adminEndpointInput").value = appScriptUrl;
 
+      // Populate Bridge Parameters Form from settings
+      const set = dashboardData.settings || {};
+      if (set.bridgeName) document.getElementById("admBridgeName").value = set.bridgeName;
+      if (set.bridgeCode) document.getElementById("admBridgeCode").value = set.bridgeCode;
+      if (set.geographicLocation) document.getElementById("admBridgeLocation").value = set.geographicLocation;
+      if (set.designLifeYears) document.getElementById("admDesignLife").value = set.designLifeYears;
+      if (set.commissionYear) document.getElementById("admCommissionYear").value = set.commissionYear;
+      if (set.assetOwner) document.getElementById("admAssetOwner").value = set.assetOwner;
+
       // Render Admin Users Table
       const usersTbody = document.getElementById("adminUsersTbody");
       if (usersTbody) {
         usersTbody.innerHTML = registeredUsersList.map(u => `
           <tr>
-            <td><div style="font-weight: 600;">${u.fullName}</div><div style="font-size: 0.72rem; color: var(--text-muted);">${u.country} (${u.phoneNumber})</div></td>
+            <td><div style="font-weight: 600;">${u.fullName}</div><div style="font-size: 0.72rem; color: var(--text-muted);">${u.country || ''} (${u.phoneNumber || ''})</div></td>
             <td class="font-mono" style="color: var(--accent-cyan);">${u.email}</td>
-            <td style="font-size: 0.8rem; color: var(--text-muted);">${u.organization} — ${u.department}</td>
+            <td style="font-size: 0.8rem; color: var(--text-muted);">${u.organization || 'N/A'} — ${u.department || 'N/A'}</td>
             <td><span class="badge ${u.role === 'admin' ? 'badge-cyan' : 'badge-yellow'}">${u.role.toUpperCase()}</span></td>
             <td><span class="badge ${u.isActive ? 'badge-green' : 'badge-red'}">${u.isActive ? 'ACTIVE' : 'DEACTIVATED'}</span></td>
             <td style="text-align: right;">
-              <button class="btn-secondary" style="font-size: 0.72rem; padding: 0.3rem 0.6rem;" onclick="toggleUserRole('${u.id}')">Make ${u.role === 'admin' ? 'User' : 'Admin'}</button>
+              <button class="btn-secondary" style="font-size: 0.72rem; padding: 0.3rem 0.6rem;" onclick="toggleUserRole('${u.id}', '${u.role}')">Make ${u.role === 'admin' ? 'User' : 'Admin'}</button>
             </td>
           </tr>
         `).join('');
@@ -2202,8 +1792,23 @@
       });
     }
 
-    function saveBridgeParameters() {
-      alert("Infrastructure parameters saved successfully.");
+    async function saveBridgeParameters() {
+      const newSettings = {
+        bridgeName: document.getElementById("admBridgeName").value.trim(),
+        bridgeCode: document.getElementById("admBridgeCode").value.trim(),
+        geographicLocation: document.getElementById("admBridgeLocation").value.trim(),
+        designLifeYears: document.getElementById("admDesignLife").value,
+        commissionYear: document.getElementById("admCommissionYear").value,
+        assetOwner: document.getElementById("admAssetOwner").value.trim()
+      };
+
+      const res = await postRpc('updateSettings', { settings: newSettings, actor: currentUser.fullName, actorEmail: currentUser.email });
+      if (res.ok) {
+        alert("Infrastructure parameters saved successfully to Google Sheets.");
+        fetchTelemetryData(true);
+      } else {
+        alert(`Failed to save settings: ${res.error ? res.error.message : 'Error'}`);
+      }
     }
 
     function saveAdminEndpoint() {
@@ -2231,20 +1836,26 @@
       }
     }
 
-    function toggleUserRole(id) {
-      const u = registeredUsersList.find(item => item.id === id);
-      if (u) {
-        u.role = u.role === 'admin' ? 'user' : 'admin';
-        renderAdminPageUI();
+    async function toggleUserRole(userId, currentRole) {
+      const newRole = currentRole === 'admin' ? 'user' : 'admin';
+      const res = await postRpc('updateUserRole', { userId, role: newRole, actor: currentUser.fullName, actorEmail: currentUser.email });
+      if (res.ok) {
+        fetchAdminLists();
+      } else {
+        alert(`Failed to change role: ${res.error ? res.error.message : 'Error'}`);
       }
     }
 
-    function promptEditSensorLimit(id, current, unit) {
-      const val = prompt(`Enter new default safety threshold limit for ${id} (${unit}):`, current);
+    async function promptEditSensorLimit(typeId, current, unit) {
+      const val = prompt(`Enter new default safety threshold limit for ${typeId} (${unit}):`, current);
       if (val !== null && !isNaN(val) && Number(val) > 0) {
-        const st = sensorTypesList.find(item => item.id === id);
-        if (st) st.defaultThreshold = Number(val);
-        renderAdminPageUI();
+        const res = await postRpc('updateSensorTypeLimit', { typeId, newThreshold: Number(val), actor: currentUser.fullName, actorEmail: currentUser.email });
+        if (res.ok) {
+          fetchAdminLists();
+          fetchTelemetryData(true);
+        } else {
+          alert(`Failed to update threshold limit: ${res.error ? res.error.message : 'Error'}`);
+        }
       }
     }
 
@@ -2258,19 +1869,22 @@
       document.getElementById("tabBtnSignUp").style.color = tab === 'signup' ? 'var(--accent-cyan)' : 'var(--text-muted)';
     }
 
-    function handleSignInSubmit(e) {
+    async function handleSignInSubmit(e) {
       e.preventDefault();
       const email = document.getElementById("txtSignInEmail").value.trim();
-      currentUser = {
-        fullName: email.includes('admin') ? 'System Admin' : 'Field Engineer',
-        email: email,
-        role: email.includes('admin') ? 'admin' : 'user'
-      };
-      updateUserPersonaUI();
-      switchPage('live');
+      const res = await postRpc('signIn', { email });
+
+      if (res.ok && res.user) {
+        currentUser = res.user;
+        localStorage.setItem("SHM_CURRENT_USER", JSON.stringify(currentUser));
+        updateUserPersonaUI();
+        switchPage('live');
+      } else {
+        alert(res.error ? res.error.message : 'Sign in failed.');
+      }
     }
 
-    function handleSignUpSubmit(e) {
+    async function handleSignUpSubmit(e) {
       e.preventDefault();
       const name = document.getElementById("txtSignUpName").value.trim();
       const email = document.getElementById("txtSignUpEmail").value.trim();
@@ -2280,22 +1894,23 @@
       const org = document.getElementById("txtSignUpOrg").value.trim();
       const dept = document.getElementById("txtSignUpDept").value.trim();
 
-      const newUser = {
-        id: `usr_${Date.now()}`,
+      const res = await postRpc('signUp', {
         fullName: name,
         email: email,
         country: country,
         phoneNumber: `${dial} ${phone}`,
         organization: org || 'N/A',
-        department: dept || 'N/A',
-        role: 'user',
-        isActive: true
-      };
+        department: dept || 'N/A'
+      });
 
-      registeredUsersList.push(newUser);
-      currentUser = { fullName: name, email: email, role: 'user' };
-      updateUserPersonaUI();
-      switchPage('live');
+      if (res.ok && res.user) {
+        currentUser = res.user;
+        localStorage.setItem("SHM_CURRENT_USER", JSON.stringify(currentUser));
+        updateUserPersonaUI();
+        switchPage('live');
+      } else {
+        alert(res.error ? res.error.message : 'Sign up failed.');
+      }
     }
 
     function validateSignUpPassword() {
@@ -2356,6 +1971,7 @@
 
     function signOutUser() {
       currentUser = { fullName: "Public Operator", email: "public@example.com", role: "user" };
+      localStorage.removeItem("SHM_CURRENT_USER");
       updateUserPersonaUI();
       switchPage('signin');
     }
@@ -2376,7 +1992,7 @@
       else if (type === 'humidity') { if (unitLabel) unitLabel.innerText = '%'; if (threshInput) threshInput.value = 90; }
     }
 
-    function handleRegisterModalSubmit(e) {
+    async function handleRegisterModalSubmit(e) {
       e.preventDefault();
       const id = document.getElementById("modSensorId").value.trim().toUpperCase();
       const name = document.getElementById("modSensorName").value.trim();
@@ -2394,15 +2010,16 @@
         unit: unitMap[type] || '',
         subsystem: subsystem,
         hardwareBus: bus,
-        threshold: thresh,
-        status: 'online',
-        currentValue: 0
+        threshold: thresh
       };
 
-      if (!dashboardData.sensors) dashboardData.sensors = [];
-      dashboardData.sensors.push(newSensor);
-      closeRegisterModal();
-      renderSensorsTableUI();
+      const res = await postRpc('registerSensor', { sensor: newSensor, actor: currentUser.fullName, actorEmail: currentUser.email });
+      if (res.ok) {
+        closeRegisterModal();
+        fetchTelemetryData(true);
+      } else {
+        alert(`Failed to register sensor: ${res.error ? res.error.message : 'Error'}`);
+      }
     }
 
     function toggleResetConfirm() {
@@ -2410,11 +2027,14 @@
       if (banner) banner.style.display = banner.style.display === "none" ? "flex" : "none";
     }
 
-    function confirmResetTelemetry() {
-      historyEntriesBuffer = [];
-      dashboardData.recentEntries = [];
-      toggleResetConfirm();
-      updateDashboardUI();
+    async function confirmResetTelemetry() {
+      const res = await postRpc('resetTelemetry', { actor: currentUser.fullName, actorEmail: currentUser.email });
+      if (res.ok) {
+        toggleResetConfirm();
+        fetchTelemetryData(true);
+      } else {
+        alert(`Failed to reset telemetry: ${res.error ? res.error.message : 'Error'}`);
+      }
     }
 
     function toggleArduinoConnection() {
@@ -2424,12 +2044,66 @@
       updateDashboardUI();
     }
 
+    // Export Data Engine
+    function handleExportSelectedData() {
+      const rawEntries = historyEntriesBuffer.length > 0 ? historyEntriesBuffer : (dashboardData.recentEntries || []);
+      if (rawEntries.length === 0) {
+        alert("No telemetry stream records available for export.");
+        return;
+      }
+
+      const sensorsList = dashboardData.sensors || [];
+      const targetSensors = selectedExportSensors.length > 0 ? selectedExportSensors : sensorsList.map(s => s.id);
+
+      const exportRows = rawEntries.map(dp => {
+        const row = {
+          Timestamp: dp.timestamp || '',
+          TimeLabel: dp.timeLabel || ''
+        };
+        targetSensors.forEach(id => {
+          const s = sensorsList.find(item => item.id === id);
+          const val = dp[id] !== undefined && dp[id] !== null ? dp[id] : (dp.readingsMap && dp.readingsMap[id] !== undefined ? dp.readingsMap[id] : 'N/A');
+          row[`${id} (${s ? s.unit : ''})`] = val;
+        });
+        return row;
+      });
+
+      if (typeof XLSX !== 'undefined') {
+        const worksheet = XLSX.utils.json_to_sheet(exportRows);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'SHM Telemetry Data');
+        XLSX.writeFile(workbook, `Bridge_SHM_Selected_Sensors_${Date.now()}.xlsx`);
+      } else {
+        const headers = Object.keys(exportRows[0]).join(',');
+        const csvData = exportRows.map(r => Object.values(r).map(v => `"${v}"`).join(',')).join('\n');
+        const blob = new Blob([`${headers}\n${csvData}`], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `Bridge_SHM_Selected_Sensors_${Date.now()}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+
+    function toggleSelectAllSensorsForExport() {
+      const sensorsList = dashboardData.sensors || [];
+      if (selectedExportSensors.length === sensorsList.length) {
+        selectedExportSensors = [];
+      } else {
+        selectedExportSensors = sensorsList.map(s => s.id);
+      }
+      renderSensorsTableUI();
+    }
+
     // Clock
     setInterval(() => {
       document.getElementById("hdrLocalTime").innerText = "LOCAL: " + new Date().toLocaleTimeString();
     }, 1000);
 
     // Initial Load & High Cadence Polling
+    updateUserPersonaUI();
     fetchTelemetryData();
     setInterval(fetchTelemetryData, 1200);
   </script>
